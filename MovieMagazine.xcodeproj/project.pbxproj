@@ -8,18 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866798FE2AED934400BB6576 /* AppDelegate.swift */; };
-		866799012AED934400BB6576 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799002AED934400BB6576 /* ViewController.swift */; };
+		866799012AED934400BB6576 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799002AED934400BB6576 /* LoginViewController.swift */; };
 		866799032AED934600BB6576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866799022AED934600BB6576 /* Assets.xcassets */; };
-		866799062AED934600BB6576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866799042AED934600BB6576 /* Main.storyboard */; };
+		8667990E2AED960000BB6576 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667990D2AED960000BB6576 /* main.swift */; };
+		866799102AED96E600BB6576 /* RootWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667990F2AED96E600BB6576 /* RootWindowController.swift */; };
+		866799132AED982E00BB6576 /* NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799122AED982E00BB6576 /* NSWindow.swift */; };
+		866799152AED9ADE00BB6576 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799142AED9ADE00BB6576 /* Assembly.swift */; };
+		866799182AED9C9D00BB6576 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799172AED9C9D00BB6576 /* LoginView.swift */; };
+		8667991B2AED9EB900BB6576 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991A2AED9EB900BB6576 /* NSView.swift */; };
+		8667991D2AEDA8D500BB6576 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991C2AEDA8D500BB6576 /* Store.swift */; };
+		866799202AEDABC500BB6576 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991F2AEDABC500BB6576 /* Observer.swift */; };
+		866799242AEDB33A00BB6576 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799232AEDB33A00BB6576 /* Graph.swift */; };
+		866799262AEDB3DE00BB6576 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799252AEDB3DE00BB6576 /* LoginState.swift */; };
+		866799282AEDB3F200BB6576 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799272AEDB3F200BB6576 /* AppState.swift */; };
+		8667992A2AEDB4A400BB6576 /* LoginNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799292AEDB4A400BB6576 /* LoginNode.swift */; };
+		8667992C2AEDB97B00BB6576 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667992B2AEDB97B00BB6576 /* LoginPresenter.swift */; };
+		8667992E2AEDC6D400BB6576 /* LoginActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667992D2AEDC6D400BB6576 /* LoginActions.swift */; };
+		866799322AEDCDEF00BB6576 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799312AEDCDEF00BB6576 /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		866798FB2AED934300BB6576 /* MovieMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		866798FE2AED934400BB6576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		866799002AED934400BB6576 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		866799002AED934400BB6576 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		866799022AED934600BB6576 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		866799052AED934600BB6576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		866799072AED934600BB6576 /* MovieMagazine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MovieMagazine.entitlements; sourceTree = "<group>"; };
+		8667990D2AED960000BB6576 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		8667990F2AED96E600BB6576 /* RootWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowController.swift; sourceTree = "<group>"; };
+		866799122AED982E00BB6576 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
+		866799142AED9ADE00BB6576 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		866799172AED9C9D00BB6576 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8667991A2AED9EB900BB6576 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
+		8667991C2AEDA8D500BB6576 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		8667991F2AEDABC500BB6576 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		866799232AEDB33A00BB6576 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		866799252AEDB3DE00BB6576 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		866799272AEDB3F200BB6576 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		866799292AEDB4A400BB6576 /* LoginNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNode.swift; sourceTree = "<group>"; };
+		8667992B2AEDB97B00BB6576 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		8667992D2AEDC6D400BB6576 /* LoginActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginActions.swift; sourceTree = "<group>"; };
+		866799312AEDCDEF00BB6576 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +80,75 @@
 		866798FD2AED934300BB6576 /* MovieMagazine */ = {
 			isa = PBXGroup;
 			children = (
-				866798FE2AED934400BB6576 /* AppDelegate.swift */,
-				866799002AED934400BB6576 /* ViewController.swift */,
+				866799302AEDCDE500BB6576 /* Tools */,
+				8667992F2AEDCD5800BB6576 /* Application */,
+				8667991E2AEDABB400BB6576 /* Redux */,
+				866799162AED9C8400BB6576 /* Login */,
+				866799112AED982200BB6576 /* Extension */,
 				866799022AED934600BB6576 /* Assets.xcassets */,
-				866799042AED934600BB6576 /* Main.storyboard */,
 				866799072AED934600BB6576 /* MovieMagazine.entitlements */,
+				866799192AED9D0500BB6576 /* Root */,
 			);
 			path = MovieMagazine;
+			sourceTree = "<group>";
+		};
+		866799112AED982200BB6576 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				866799122AED982E00BB6576 /* NSWindow.swift */,
+				8667991A2AED9EB900BB6576 /* NSView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		866799162AED9C8400BB6576 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				866799002AED934400BB6576 /* LoginViewController.swift */,
+				866799172AED9C9D00BB6576 /* LoginView.swift */,
+				866799252AEDB3DE00BB6576 /* LoginState.swift */,
+				866799292AEDB4A400BB6576 /* LoginNode.swift */,
+				8667992B2AEDB97B00BB6576 /* LoginPresenter.swift */,
+				8667992D2AEDC6D400BB6576 /* LoginActions.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		866799192AED9D0500BB6576 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				8667990F2AED96E600BB6576 /* RootWindowController.swift */,
+				866799272AEDB3F200BB6576 /* AppState.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		8667991E2AEDABB400BB6576 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				8667991C2AEDA8D500BB6576 /* Store.swift */,
+				8667991F2AEDABC500BB6576 /* Observer.swift */,
+				866799232AEDB33A00BB6576 /* Graph.swift */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		8667992F2AEDCD5800BB6576 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				866799142AED9ADE00BB6576 /* Assembly.swift */,
+				8667990D2AED960000BB6576 /* main.swift */,
+				866798FE2AED934400BB6576 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		866799302AEDCDE500BB6576 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				866799312AEDCDEF00BB6576 /* Box.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +210,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				866799032AED934600BB6576 /* Assets.xcassets in Resources */,
-				866799062AED934600BB6576 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,23 +220,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				866799012AED934400BB6576 /* ViewController.swift in Sources */,
+				8667992C2AEDB97B00BB6576 /* LoginPresenter.swift in Sources */,
+				866799242AEDB33A00BB6576 /* Graph.swift in Sources */,
+				866799132AED982E00BB6576 /* NSWindow.swift in Sources */,
+				866799202AEDABC500BB6576 /* Observer.swift in Sources */,
+				866799182AED9C9D00BB6576 /* LoginView.swift in Sources */,
+				866799262AEDB3DE00BB6576 /* LoginState.swift in Sources */,
+				866799152AED9ADE00BB6576 /* Assembly.swift in Sources */,
+				8667992E2AEDC6D400BB6576 /* LoginActions.swift in Sources */,
+				8667991D2AEDA8D500BB6576 /* Store.swift in Sources */,
+				8667992A2AEDB4A400BB6576 /* LoginNode.swift in Sources */,
+				8667991B2AED9EB900BB6576 /* NSView.swift in Sources */,
+				866799282AEDB3F200BB6576 /* AppState.swift in Sources */,
+				866799012AED934400BB6576 /* LoginViewController.swift in Sources */,
+				866799322AEDCDEF00BB6576 /* Box.swift in Sources */,
+				866799102AED96E600BB6576 /* RootWindowController.swift in Sources */,
 				866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */,
+				8667990E2AED960000BB6576 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		866799042AED934600BB6576 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				866799052AED934600BB6576 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		866799082AED934600BB6576 /* Debug */ = {
@@ -281,12 +374,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.iliaByHimself.MovieMagazine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -308,12 +401,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.iliaByHimself.MovieMagazine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
