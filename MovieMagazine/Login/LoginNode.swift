@@ -14,16 +14,24 @@ extension Graph {
 struct LoginNode {
     let graph: Graph
     
-    var username: LoginState.CredentialStatus {
-        get { graph.state.loginState.email }
-        nonmutating set {  }
+    var username: String {
+        get { graph.state.loginState.email.value }
+        nonmutating set { graph.dispatch(LoginActions.Login(value: newValue)) }
     }
     
-    var password: LoginState.CredentialStatus {
-        get { graph.state.loginState.password }
-        nonmutating set { }
+    var isLoginValid: Bool { graph.state.loginState.email.isValid }
+    
+    var password: String {
+        get { graph.state.loginState.password.value }
+        nonmutating set { graph.dispatch(LoginActions.Password(value: newValue)) }
     }
+    
+    var isPasswordValid: Bool { graph.state.loginState.password.isValid }
     
     var progress: LoginState.LoginStatus { graph.state.loginState.progress }
     var isCredentialsValid: Bool { graph.state.loginState.isCredentialValid }
+    
+    func login() {
+        graph.dispatch(LoginActions.LoginButtonTap())
+    }
 }

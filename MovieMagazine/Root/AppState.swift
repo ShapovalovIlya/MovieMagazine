@@ -11,8 +11,10 @@ struct AppState: Reducer {
     var loginState: LoginState
     
     //MARK: - init(_:)
-    init() {
-        loginState = .init()
+    init(
+        loginState: LoginState = .init()
+    ) {
+        self.loginState = loginState
     }
     
     //MARK: - Reducer

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginViewDelegate: AnyObject {
-    func render(_ viewModel: LoginViewController.LoginViewModel)
+    func render(_ viewModel: LoginViewModel)
 }
 
 protocol LoginPresenterProtocol: AnyObject {
@@ -49,25 +49,25 @@ final class LoginPresenter: LoginPresenterProtocol {
     }
     
     func loginDidChange(_ login: String) {
-        store.graph.dispatch(LoginActions.Login(value: login))
+        store.graph.loginState.username = login
     }
     
     func passwordDidChange(_ password: String) {
-        store.graph.dispatch(LoginActions.Password(value: password))
+        store.graph.loginState.password = password
     }
     
     func loginButtonDidTap() {
-        store.graph.dispatch(LoginActions.LoginButtonTap())
+        store.graph.loginState.login()
     }
 }
 
 private extension LoginPresenter {
-    func mapToProps(_ graph: Graph) -> LoginViewController.LoginViewModel {
+    func mapToProps(_ graph: Graph) -> LoginViewModel {
         .init(
-            loginField: graph.loginState.username.value,
-            isLoginValid: graph.loginState.username.isValid,
-            passwordField: graph.loginState.password.value,
-            isPasswordValid: graph.loginState.password.isValid,
+            loginField: graph.loginState.username,
+            isLoginValid: graph.loginState.isLoginValid,
+            passwordField: graph.loginState.password,
+            isPasswordValid: graph.loginState.isPasswordValid,
             isLoginButtonActive: graph.loginState.isCredentialsValid
         )
     }

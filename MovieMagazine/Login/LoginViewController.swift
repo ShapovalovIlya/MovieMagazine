@@ -43,14 +43,6 @@ final class LoginViewController: NSViewController {
 
 //MARK: - LoginViewDelegate
 extension LoginViewController: LoginViewDelegate {
-    struct LoginViewModel {
-        let loginField: String
-        let isLoginValid: Bool
-        let passwordField: String
-        let isPasswordValid: Bool
-        let isLoginButtonActive: Bool
-    }
-    
     func render(_ viewModel: LoginViewModel) {
         print("render!")
     }

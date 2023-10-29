@@ -35,13 +35,7 @@ final class Store {
     }
     
     //MARK: - Public methods
-    func dispatch(_ action: Action) {
-        queue.sync {
-            reducer(&state, action)
-            observers.forEach(notify)
-        }
-    }
-    
+    @inlinable
     func subscribe(_ observer: Observer<Graph>) {
         queue.sync {
             observers.insert(observer)
@@ -55,6 +49,13 @@ final class Store {
 }
 
 private extension Store {
+    func dispatch(_ action: Action) {
+        queue.sync {
+            reducer(&state, action)
+            observers.forEach(notify)
+        }
+    }
+    
     func notify(_ observer: Observer<Graph>) {
         let state = self.graph
         observer.queue.async {

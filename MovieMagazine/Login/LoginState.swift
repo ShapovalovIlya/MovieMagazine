@@ -41,7 +41,7 @@ struct LoginState: Reducer {
             self.password = .valid(password.value)
             
         case is LoginActions.LoginButtonTap:
-            break
+            self.progress = .loading
             
         default: break
         }
@@ -50,10 +50,14 @@ struct LoginState: Reducer {
 }
 
 extension LoginState {
-    enum LoginStatus {
+    enum LoginStatus: Equatable {
         case none
         case loading
         case error(Error)
+        
+        static func == (lhs: LoginState.LoginStatus, rhs: LoginState.LoginStatus) -> Bool {
+            String(describing: lhs) == String(describing: rhs)
+        }
     }
     
     enum CredentialStatus {
