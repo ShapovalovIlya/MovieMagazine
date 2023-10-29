@@ -17,4 +17,7 @@ struct QueryItemsBuilder {
         component ?? .init()
     }
     
+    static func buildExpression(_ expression: URLQueryItem) -> [URLQueryItem] {
+        [expression]
+    }
 }

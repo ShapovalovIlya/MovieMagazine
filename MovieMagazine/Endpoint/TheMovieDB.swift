@@ -16,7 +16,7 @@ struct TheMovieDB: RequestBuilder {
     private var queryItems: [URLQueryItem]
     
     //MARK: - URL
-    var url: URL {
+    private var url: URL {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "api.themoviedb.org"
@@ -55,18 +55,173 @@ struct TheMovieDB: RequestBuilder {
             .value
     }
     
-    static func createRequestToken(token bearer: String) -> Self {
+    static func createRequestToken(token bearer: Bearer) -> Self {
         .init(
             httpMethod: .GET,
             path: "authentication/token/new",
             headers: {
-                $0.addValue("accept", forHTTPHeaderField: "application/json")
-                $0.addValue("Authorization", forHTTPHeaderField: ["Bearer", bearer].joined(separator: " "))
-            })
+                $0.addAcceptHeader()
+                $0.addTokenHeader(bearer)
+            }
+        )
     }
+    
+    //MARK: - Session
+    static func createSession(token bearer: Bearer) -> Self {
+        .init(
+            httpMethod: .POST,
+            path: "authentication/session/new",
+            headers: {
+                $0.addAcceptHeader()
+                $0.addContentTypeHeader()
+                $0.addTokenHeader(bearer)
+            }
+        )
+    }
+    
+    static func createSessionWithCredentials(token bearer: Bearer) -> Self {
+        .init(
+            httpMethod: .POST,
+            path: "authentication/token/validate_with_login",
+            headers: {
+                $0.addAcceptHeader()
+                $0.addContentTypeHeader()
+                $0.addTokenHeader(bearer)
+            }
+        )
+    }
+    
+    static func createGuestSession(token bearer: Bearer) -> Self {
+        .init(
+            httpMethod: .GET,
+            path: "authentication/guest_session/new",
+            headers: {
+                $0.addAcceptHeader()
+                $0.addTokenHeader(bearer)
+            }
+        )
+    }
+    
+    static func deleteSession(token bearer: Bearer) -> Self {
+        .init(
+            httpMethod: .DELETE,
+            path: "authentication/session",
+            headers: {
+                $0.addAcceptHeader()
+                $0.addContentTypeHeader()
+                $0.addTokenHeader(bearer)
+            }
+        )
+    }
+    
+    //MARK: - Validation
+    static func validateKey(token bearer: Bearer) -> Self {
+        .init(
+            httpMethod: .GET,
+            path: "authentication",
+            headers: {
+                $0.addAcceptHeader()
+                $0.addTokenHeader(bearer)
+            }
+        )
+    }
+    
+    //MARK: - Account
+    static func details(
+        for accountId: Int,
+        sessionId: String,
+        token bearer: Bearer
+    ) -> Self {
+        .init(
+            httpMethod: .GET,
+            path: ["account", accountId.description].joined(separator: "/"),
+            headers: {
+                $0.addAcceptHeader()
+                $0.addTokenHeader(bearer)
+            },
+            queryItems: {
+                URLQueryItem(name: "session_id", value: sessionId)
+            }
+        )
+    }
+    
+    static func addFavorite(
+        for accountId: Int,
+        sessionId: String,
+        token bearer: Bearer
+    ) -> Self {
+        .init(
+            httpMethod: .POST,
+            path: ["account", accountId.description, "favorite"].joined(separator: "/"),
+            headers: {
+                $0.addAcceptHeader()
+                $0.addContentTypeHeader()
+                $0.addTokenHeader(bearer)
+            },
+            queryItems: {
+                URLQueryItem(name: "session_id", value: sessionId)
+            }
+        )
+    }
+    
+    //MARK: - Movies
+    static func nowPlayingMovies(
+        language: String = "en-US",
+        page: Int,
+        token bearer: Bearer
+    ) -> Self {
+        .getMovie(subPath: "now_playing", language: language, page: page, token: bearer)
+    }
+    
+    static func popularMovies(
+        language: String = "en-US",
+        page: Int,
+        token bearer: Bearer
+    ) -> Self {
+        .getMovie(subPath: "popular", language: language, page: page, token: bearer)
+    }
+    
+    static func topRatedMovies(
+        language: String = "en-US",
+        page: Int,
+        token bearer: Bearer
+    ) -> Self {
+        .getMovie(subPath: "top_rated", language: language, page: page, token: bearer)
+    }
+    
+    static func upcomingMovies(
+        language: String = "en-US",
+        page: Int,
+        token bearer: Bearer
+    ) -> Self {
+        .getMovie(subPath: "upcoming", language: language, page: page, token: bearer)
+    }
+
+    
 }
 
 private extension TheMovieDB {
+    static func getMovie(
+        subPath: String,
+        language: String,
+        page: Int,
+        token bearer: Bearer
+    ) -> Self {
+        .init(
+            httpMethod: .GET,
+            path: ["movie", subPath].joined(separator: "/"),
+            headers: {
+                $0.addAcceptHeader()
+                $0.addTokenHeader(bearer)
+            },
+            queryItems: {
+                URLQueryItem(name: "language", value: language)
+                URLQueryItem(name: "page", value: page.description)
+            }
+        )
+
+    }
+    
     typealias Request = (URLRequest) -> URLRequest
     
     func addHeaders(_ headers: @escaping SetHeaders) -> Request {
