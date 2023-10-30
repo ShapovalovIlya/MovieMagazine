@@ -8,7 +8,5 @@
 import Foundation
 
 struct NetworkWorker {
-    func performRequest(_ request: RequestBuilder) {
-        
-    }
+   
 }

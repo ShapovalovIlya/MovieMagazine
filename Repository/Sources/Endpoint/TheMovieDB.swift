@@ -79,6 +79,16 @@ struct TheMovieDB: RequestBuilder {
         )
     }
     
+    /// <#Description#>
+    /// - Parameter bearer: <#bearer description#>
+    /// - Returns: <#description#>
+    ///
+    /// let parameters = [
+    ///     "username": "johnny_appleseed",
+    ///     "password": "test123",
+    ///     "request_token": "1531f1a558c8357ce8990cf887ff196e8f5402ec"
+    ///   ] as [String : Any]
+    ///
     static func createSessionWithCredentials(token bearer: Bearer) -> Self {
         .init(
             httpMethod: .POST,
