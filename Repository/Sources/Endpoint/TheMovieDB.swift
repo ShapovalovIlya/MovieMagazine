@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftFP
 
-struct TheMovieDB: RequestBuilder {
+public struct TheMovieDB {
     typealias SetHeaders = (inout URLRequest) -> Void
     
     private let httpMethod: HTTPMethod
@@ -208,6 +209,15 @@ struct TheMovieDB: RequestBuilder {
     }
 
     
+}
+
+public extension TheMovieDB {
+    enum HTTPMethod: String {
+        case GET
+        case POST
+        case PUT
+        case DELETE
+    }
 }
 
 private extension TheMovieDB {

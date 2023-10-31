@@ -21,22 +21,24 @@ protocol LoginPresenterProtocol: AnyObject {
 
 final class LoginPresenter: LoginPresenterProtocol {
     private let store: Store
-    private var asObserver: Observer<Graph> {
-        Observer(queue: .main) { [weak self] graph in
-            guard let self else {
-                return .dead
-            }
-            delegate?.render(mapToProps(graph))
-            return .active
-        }
-    }
+//    private var asObserver: Observer<Graph> {
+//        Observer(queue: .main) { [weak self] graph in
+//            guard let self else {
+//                return .dead
+//            }
+//            delegate?.render(mapToProps(graph))
+//            return .active
+//        }
+//    }
     
+    let id: ObserverID = .init()
     weak var delegate: LoginViewDelegate?
     
     //MARK: - init(_:)
     init(store: Store) {
         self.store = store
-        store.subscribe(asObserver)
+//        store.subscribe(asObserver)
+        store.subscribe(self)
     }
     
     //MARK: - Public methods
@@ -49,16 +51,29 @@ final class LoginPresenter: LoginPresenterProtocol {
     }
     
     func loginDidChange(_ login: String) {
-        store.graph.loginState.username = login
+        store.loginState.username = login
     }
     
     func passwordDidChange(_ password: String) {
-        store.graph.loginState.password = password
+        store.loginState.password = password
     }
     
     func loginButtonDidTap() {
-        store.graph.loginState.login()
+        store.loginState.login()
     }
+}
+
+extension LoginPresenter: Observer {
+    var observe: (Graph) -> Status {
+        return { [weak self] graph in
+            guard let self else {
+                return .dead
+            }
+            delegate?.render(mapToProps(graph))
+            return .active
+        }
+    }
+    
 }
 
 private extension LoginPresenter {

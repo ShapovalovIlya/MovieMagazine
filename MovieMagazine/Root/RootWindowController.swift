@@ -6,16 +6,20 @@
 //
 
 import Cocoa
+import OSLog
 
 final class RootWindowController: NSWindowController {
     private let assembly: Assembly
+    private let logger: OSLog?
     
     //MARK: - init(_:)
     init(
         assembly: Assembly,
-        window: NSWindow
+        window: NSWindow,
+        logger: OSLog? = nil
     ) {
         self.assembly = assembly
+        self.logger = logger
         super.init(window: window)
         self.loadWindow()
     }
@@ -41,7 +45,7 @@ final class RootWindowController: NSWindowController {
     
     //MARK: - Public methods
     override func showWindow(_ sender: Any?) {
-        window?.makeKeyAndOrderFront(sender)
+        window?.orderFrontRegardless()
         window?.center()
     }
     

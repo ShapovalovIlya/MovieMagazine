@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct Box<T> {
-    let value: T
+public struct Box<T> {
+    public let value: T
     
-    init(_ value: T) {
+    public init(_ value: T) {
         self.value = value
     }
     
-    func map<U>(_ transform: (T) throws -> U) rethrows -> Box<U> {
+    public func map<U>(_ transform: (T) throws -> U) rethrows -> Box<U> {
         try Box<U>(transform(value))
     }
     
-    func flatMap<U>(_ transform: (T) throws -> U) rethrows -> U {
+    public func flatMap<U>(_ transform: (T) throws -> U) rethrows -> U {
         try transform(self.value)
     }
 }

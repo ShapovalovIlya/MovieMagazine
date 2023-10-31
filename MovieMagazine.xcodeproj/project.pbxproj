@@ -28,7 +28,6 @@
 		8686234B2AF00D9B00AB22F4 /* Repository in Resources */ = {isa = PBXBuildFile; fileRef = 8686234A2AF00D9B00AB22F4 /* Repository */; };
 		86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */; };
 		86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */; };
-		86D8A43F2AEEA4A40022D7EB /* ObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43E2AEEA4A40022D7EB /* ObserverProtocol.swift */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkWorker.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		86D8A43E2AEEA4A40022D7EB /* ObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverProtocol.swift; sourceTree = "<group>"; };
 		86D8A4502AEEFEE60022D7EB /* NetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,7 +161,6 @@
 				8667991C2AEDA8D500BB6576 /* Store.swift */,
 				8667991F2AEDABC500BB6576 /* Observer.swift */,
 				866799232AEDB33A00BB6576 /* Graph.swift */,
-				86D8A43E2AEEA4A40022D7EB /* ObserverProtocol.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -316,7 +313,6 @@
 				866799132AED982E00BB6576 /* NSWindow.swift in Sources */,
 				866799202AEDABC500BB6576 /* Observer.swift in Sources */,
 				866799182AED9C9D00BB6576 /* LoginView.swift in Sources */,
-				86D8A43F2AEEA4A40022D7EB /* ObserverProtocol.swift in Sources */,
 				866799262AEDB3DE00BB6576 /* LoginState.swift in Sources */,
 				86D8A4512AEEFEE60022D7EB /* NetworkWorker.swift in Sources */,
 				866799152AED9ADE00BB6576 /* Assembly.swift in Sources */,

@@ -67,9 +67,9 @@ extension LoginState {
         
         var value: String {
             switch self {
-            case .valid(let string): string
-            case .invalid(let string): string
-            case .empty: .init()
+            case .valid(let string): return string
+            case .invalid(let string): return string
+            case .empty: return .init()
             }
         }
         
