@@ -10,8 +10,10 @@ import OSLog
 import SwiftFP
 
 public struct NetworkFetcher {
+    public typealias ResultCompletion = (Result<Data, Error>) -> Void
+    
     //MARK: - Private properties
-    private let session: URLSession
+    @usableFromInline let session: URLSession
     @usableFromInline let logger: OSLog?
     @usableFromInline let decoder: JSONDecoder
     
@@ -28,43 +30,27 @@ public struct NetworkFetcher {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    public func perform<T: Codable>(
+    public func perform(
         _ request: URLRequest,
         payload: Data? = nil,
-        completion: @escaping (Result<T, Error>) -> Void
+        resultCompletion: @escaping ResultCompletion
     ) -> URLSessionDataTask {
         defer { log(event: request.description) }
-        var request = request
-        if let payload = payload {
-            request.httpBody = payload
-        }
-        return session.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            guard
-                let data = data,
-                let response = response
-            else {
-                return
-            }
-            completion(
-                Result {
-                    try Box(Response(data, response))
-                        .map(parse(response:))
-                        .map(decode(type: T.self, decoder: decoder))
-                        .value
-                }
-            )
-        }
+        return Box(request)
+            .map(addPayloadIfNeeded(payload))
+            .map(logRequest)
+            .flatMap(startTask(with: adapt(To: resultCompletion)))
     }
 
 }
 
 extension NetworkFetcher {
     @usableFromInline
+    typealias Request = (URLRequest) -> URLRequest
+    @usableFromInline
     typealias Response = (data: Data, response: URLResponse)
+    @usableFromInline
+    typealias DataTaskCompletion = (Data?, URLResponse?, Error?) -> Void
     
     @usableFromInline
     enum StatusCodes: Int {
@@ -77,9 +63,56 @@ extension NetworkFetcher {
     }
     
     @inlinable
-    func decode<T: Decodable>(type: T.Type, decoder: JSONDecoder) -> (Data) throws -> T {
-        { data in
-            try decoder.decode(type, from: data)
+    func addPayloadIfNeeded(_ payload: Data?) -> Request {
+        { request in
+            guard let payload else {
+                return request
+            }
+            var request = request
+            request.httpBody = payload
+            return request
+        }
+    }
+    
+    @inlinable
+    func logRequest(_ request: URLRequest) -> URLRequest {
+        log(event: request.description)
+        return request
+    }
+    
+    @inlinable
+    func startTask(
+        with completion: @escaping DataTaskCompletion
+    ) -> (URLRequest) -> URLSessionDataTask {
+        { request in
+            let task = session.dataTask(
+                with: request,
+                completionHandler: completion
+            )
+            task.resume()
+            return task
+        }
+    }
+    
+    @inlinable
+    func adapt(
+        To resultCompletion: @escaping ResultCompletion
+    ) -> DataTaskCompletion {
+        { data, response, error in
+            if let error = error {
+                resultCompletion(.failure(error))
+                return
+            }
+            guard let data, let response else {
+                return
+            }
+            resultCompletion(
+                Result {
+                    try Box(Response(data, response))
+                        .map(parse(response:))
+                        .value
+                }
+            )
         }
     }
     
