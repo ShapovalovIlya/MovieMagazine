@@ -7,7 +7,6 @@
 
 import Foundation
 import OSLog
-import SwiftFP
 
 public struct NetworkFetcher {
     public typealias ResultCompletion = (Result<Data, Error>) -> Void
@@ -18,8 +17,8 @@ public struct NetworkFetcher {
     @usableFromInline let decoder: JSONDecoder
     
     //MARK: - init(_:)
-    init(
-        timeout: TimeInterval,
+    public init(
+        timeout: TimeInterval = .tenSeconds,
         logger: OSLog? = nil
     ) {
         self.logger = logger
@@ -73,7 +72,6 @@ extension NetworkFetcher {
         }
     }
     
-    @inlinable
     func adapt(to resultCompletion: @escaping ResultCompletion) -> DataTaskResponse {
         { data, response, error in
             if let error = error {
@@ -81,7 +79,7 @@ extension NetworkFetcher {
                 return
             }
             guard let data, let response else {
-                return
+                preconditionFailure("No data and response in dataTaskResponse.")
             }
             resultCompletion(
                 Result {

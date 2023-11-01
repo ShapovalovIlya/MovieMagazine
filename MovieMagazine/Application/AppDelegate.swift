@@ -9,11 +9,24 @@ import Cocoa
 import OSLog
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let store = Store(initial: AppState()) { state, action in
+    let store: Store
+    let networkDriver: NetworkDriver
+    
+    override init() {
+        self.store = Store(initial: AppState()) { state, action in
+            os_log("Store", log: .system, type: .debug, String(describing: action))
             state.reduce(action)
         }
+        self.networkDriver = .init(
+            store: self.store,
+            logger: .system
+        )
+        super.init()
+        
+        store.subscribe(networkDriver)
+    }
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         let assembly = Assembly(store: store)
         let rootWindowController = RootWindowController(
             assembly: assembly,
@@ -40,6 +53,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 private extension AppDelegate {
-    
+
 }
 
