@@ -7,7 +7,6 @@
 
 import Foundation
 import OSLog
-import SwiftFP
 
 public struct NetworkFetcher {
     public typealias ResultCompletion = (Result<Data, Error>) -> Void
@@ -18,8 +17,8 @@ public struct NetworkFetcher {
     @usableFromInline let decoder: JSONDecoder
     
     //MARK: - init(_:)
-    init(
-        timeout: TimeInterval,
+    public init(
+        timeout: TimeInterval = .tenSeconds,
         logger: OSLog? = nil
     ) {
         self.logger = logger
@@ -33,13 +32,12 @@ public struct NetworkFetcher {
     public func perform(
         _ request: URLRequest,
         payload: Data? = nil,
-        resultCompletion: @escaping ResultCompletion
+        resultCompletion: @escaping (Result<Data, Error>) -> Void
     ) -> URLSessionDataTask {
-        defer { log(event: request.description) }
-        return Box(request)
+        Box(request)
             .map(addPayloadIfNeeded(payload))
             .map(logRequest)
-            .flatMap(startTask(with: adapt(To: resultCompletion)))
+            .flatMap(startDataTask(with: adapt(to: resultCompletion)))
     }
 
 }
@@ -50,7 +48,7 @@ extension NetworkFetcher {
     @usableFromInline
     typealias Response = (data: Data, response: URLResponse)
     @usableFromInline
-    typealias DataTaskCompletion = (Data?, URLResponse?, Error?) -> Void
+    typealias DataTaskResponse = (Data?, URLResponse?, Error?) -> Void
     
     @usableFromInline
     enum StatusCodes: Int {
@@ -74,37 +72,14 @@ extension NetworkFetcher {
         }
     }
     
-    @inlinable
-    func logRequest(_ request: URLRequest) -> URLRequest {
-        log(event: request.description)
-        return request
-    }
-    
-    @inlinable
-    func startTask(
-        with completion: @escaping DataTaskCompletion
-    ) -> (URLRequest) -> URLSessionDataTask {
-        { request in
-            let task = session.dataTask(
-                with: request,
-                completionHandler: completion
-            )
-            task.resume()
-            return task
-        }
-    }
-    
-    @inlinable
-    func adapt(
-        To resultCompletion: @escaping ResultCompletion
-    ) -> DataTaskCompletion {
+    func adapt(to resultCompletion: @escaping ResultCompletion) -> DataTaskResponse {
         { data, response, error in
             if let error = error {
                 resultCompletion(.failure(error))
                 return
             }
             guard let data, let response else {
-                return
+                preconditionFailure("No data and response in dataTaskResponse.")
             }
             resultCompletion(
                 Result {
@@ -113,6 +88,17 @@ extension NetworkFetcher {
                         .value
                 }
             )
+        }
+    }
+    
+    @inlinable
+    func startDataTask(
+        with completion: @escaping DataTaskResponse
+    ) -> (URLRequest) -> URLSessionDataTask {
+        { request in
+            let task = session.dataTask(with: request, completionHandler: completion)
+            task.resume()
+            return task
         }
     }
     
@@ -135,6 +121,12 @@ extension NetworkFetcher {
         case .methodNotAllowed: throw URLError(.badServerResponse)
         default: throw URLError(.badServerResponse)
         }
+    }
+    
+    @inlinable
+    func logRequest(_ request: URLRequest) -> URLRequest {
+        log(event: request.description)
+        return request
     }
     
     @inlinable
