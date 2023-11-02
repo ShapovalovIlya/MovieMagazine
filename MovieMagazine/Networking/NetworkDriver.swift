@@ -8,20 +8,17 @@
 import Foundation
 import OSLog
 
-final class NetworkDriver: Observer {
-    let id: UUID = .init()
-    
+final class NetworkDriver {
     private let adapter: NetworkAdapter
     private let store: GraphStore
+    private let queue: DispatchQueue = .init(label: "NetworkDriver")
     
-    var observe: (Graph) -> Status {
-        { [weak self] graph in
-            guard let self else {
-                return .dead
-            }
-            dispatch(graph)
-            return .active
+    lazy var asObserver: Observer<Graph> = .init(queue: queue) { [weak self] graph in
+        guard let self else {
+            return .dead
         }
+        dispatch(graph)
+        return .active
     }
     
     //MARK: - init(_:)
@@ -31,8 +28,6 @@ final class NetworkDriver: Observer {
     ) {
         self.store = store
         adapter = .init(logger: logger)
-        
-        store.subscribe(self)
     }
 }
 

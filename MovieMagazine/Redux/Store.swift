@@ -17,13 +17,11 @@ protocol Action {}
 final class Store {
     typealias Reducer = (inout AppState, Action) -> Void
     
-    var graph: Graph { .init(state: state, dispatch: dispatch) }
-    
     //MARK: - Private properties
-    private var state: AppState
+    private(set) var state: AppState
     private let reducer: Reducer
     private let queue: DispatchQueue = .init(label: "Store queue")
-    private var observers: [UUID: Observer] = .init()
+    private var observers: [UUID: Observer<AppState>] = .init()
     
     //MARK: - init(_:)
     init(
@@ -44,21 +42,21 @@ final class Store {
     }
     
     @inlinable
-    func subscribe(_ observer: Observer) {
+    func subscribe(_ observer: Observer<AppState>) {
         queue.sync {
             observers.updateValue(observer, forKey: observer.id)
             notify(observer)
         }
     }
     
-    subscript<T>(dynamicMember keyPath: KeyPath<Graph, T>) -> T {
-        graph[keyPath: keyPath]
+    subscript<T>(dynamicMember keyPath: KeyPath<AppState, T>) -> T {
+        state[keyPath: keyPath]
     }
 }
 
 private extension Store {
-    func notify(_ observer: Observer) {
-        observer.queue.async { [state = self.graph] in
+    func notify(_ observer: Observer<AppState>) {
+        observer.queue.async { [state] in
             let status = observer.observe(state)
             
             guard case .dead = status else { return }

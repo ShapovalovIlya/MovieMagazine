@@ -16,6 +16,7 @@ final class Assembly {
     
     func makeLoginViewController() -> NSViewController {
         let presenter = LoginPresenter(store: store)
+        store.subscribe(presenter.asObserver)
         let viewController = LoginViewController(
             loginView: LoginView(frame: NSMakeRect(0, 0, 400, 400)),
             presenter: presenter

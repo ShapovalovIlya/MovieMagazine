@@ -22,13 +22,19 @@ protocol LoginPresenterProtocol: AnyObject {
 final class LoginPresenter: LoginPresenterProtocol {
     private let store: GraphStore
     
-    let id: UUID = .init()
+    lazy var asObserver: Observer<Graph> = .init(queue: .main) { [weak self] graph in
+        guard let self else {
+            return .dead
+        }
+        delegate?.render(mapToProps(graph))
+        return .active
+        }
+
     weak var delegate: LoginViewDelegate?
     
     //MARK: - init(_:)
     init(store: GraphStore) {
         self.store = store
-        store.subscribe(self)
     }
     
     //MARK: - Public methods
@@ -51,19 +57,6 @@ final class LoginPresenter: LoginPresenterProtocol {
     func loginButtonDidTap() {
         store.loginState.login()
     }
-}
-
-extension LoginPresenter: Observer {
-    var observe: (Graph) -> Status {
-        return { [weak self] graph in
-            guard let self else {
-                return .dead
-            }
-            delegate?.render(mapToProps(graph))
-            return .active
-        }
-    }
-    
 }
 
 private extension LoginPresenter {

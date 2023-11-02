@@ -16,14 +16,14 @@ struct LoginNode {
     
     var username: String {
         get { graph.state.loginState.email.value }
-        nonmutating set { graph.dispatch(LoginActions.Login(value: newValue)) }
+        nonmutating set { graph.dispatch(LoginActions.UpdateLogin(login: newValue)) }
     }
     
     var isLoginValid: Bool { graph.state.loginState.email.isValid }
     
     var password: String {
         get { graph.state.loginState.password.value }
-        nonmutating set { graph.dispatch(LoginActions.Password(value: newValue)) }
+        nonmutating set { graph.dispatch(LoginActions.UpdatePassword(login: newValue)) }
     }
     
     var isPasswordValid: Bool { graph.state.loginState.password.isValid }

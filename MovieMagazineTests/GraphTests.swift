@@ -36,17 +36,17 @@ final class GraphTests: XCTestCase {
     func test_LoginNode_DispatchLogin() {
         sut.loginState.username = "Baz"
         
-        let action = self.action as? LoginActions.Login
+        let action = self.action as? LoginActions.UpdateLogin
         XCTAssertNotNil(action)
-        XCTAssertEqual(action?.value, "Baz")
+        XCTAssertEqual(action?.login, "Baz")
     }
     
     func test_LoginNode_DispatchPassword() {
         sut.loginState.password = "Baz"
         
-        let action = self.action as? LoginActions.Password
+        let action = self.action as? LoginActions.UpdatePassword
         XCTAssertNotNil(action)
-        XCTAssertEqual(action?.value, "Baz")
+        XCTAssertEqual(action?.login, "Baz")
     }
     
     func test_LoginNode_LoginAction() {

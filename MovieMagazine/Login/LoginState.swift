@@ -12,8 +12,7 @@ struct LoginState: Reducer {
     var email: CredentialStatus
     var password: CredentialStatus
     var progress: LoginStatus
-    
-    private let validator: Validator
+    var validator: Validator
     
     var isCredentialValid: Bool {
         guard
@@ -28,31 +27,32 @@ struct LoginState: Reducer {
     init(
         email: CredentialStatus = .empty,
         password: CredentialStatus = .empty,
-        progress: LoginStatus = .none
+        progress: LoginStatus = .none,
+        validator: Validator = .live
     ) {
         self.email = email
         self.password = password
         self.progress = progress
-        self.validator = .live
+        self.validator = validator
     }
     
     mutating func reduce(_ action: Action) {
         switch action {
-        case let login as LoginActions.Login:
-            if validator.isEmpty(login.value) {
+        case let action as LoginActions.UpdateLogin:
+            if validator.isEmpty(action.login) {
                 self.email = .empty
             }
-            self.email = validator.validateEmail(login.value)
-            ? .valid(login.value)
-            : .invalid(login.value)
+            self.email = validator.validateEmail(action.login)
+            ? .valid(action.login)
+            : .invalid(action.login)
             
-        case let password as LoginActions.Password:
-            if validator.isEmpty(password.value) {
+        case let action as LoginActions.UpdatePassword:
+            if validator.isEmpty(action.login) {
                 self.password = .empty
             }
-            self.email = validator.validatePassword(password.value)
-            ? .valid(password.value)
-            : .invalid(password.value)
+            self.email = validator.validatePassword(action.login)
+            ? .valid(action.login)
+            : .invalid(action.login)
             
         case is LoginActions.LoginButtonTap:
             self.progress = .loading

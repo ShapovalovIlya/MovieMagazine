@@ -8,12 +8,12 @@
 import Foundation
 
 enum LoginActions {
-    struct Login: Action {
-        var value: String
+    struct UpdateLogin: Action {
+        var login: String
     }
     
-    struct Password: Action {
-        var value: String
+    struct UpdatePassword: Action {
+        var login: String
     }
     
     struct LoginButtonTap: Action {}
