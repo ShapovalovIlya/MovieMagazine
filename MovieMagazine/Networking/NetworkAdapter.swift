@@ -7,6 +7,8 @@
 
 import Foundation
 import OSLog
+import Endpoint
+import NetworkService
 
 struct NetworkAdapter {
     private let fetcher: NetworkFetcher

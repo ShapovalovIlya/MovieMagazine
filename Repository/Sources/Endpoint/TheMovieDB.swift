@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftFP
 
 public struct TheMovieDB {
     typealias SetHeaders = (inout URLRequest) -> Void
@@ -47,7 +48,7 @@ public struct TheMovieDB {
     }
     
     //MARK: - Public methods
-    func makeRequest() -> URLRequest {
+    public func makeRequest() -> URLRequest {
         Box(url)
             .map(setupRequest)
             .map(setHttp(method: httpMethod))

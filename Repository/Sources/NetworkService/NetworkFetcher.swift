@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import SwiftFP
 
 public struct NetworkFetcher {
     public typealias ResultCompletion = (Result<Data, Error>) -> Void
