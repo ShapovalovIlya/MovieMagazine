@@ -1,0 +1,2 @@
+# MovieMagazine
+Movie browsing app.
