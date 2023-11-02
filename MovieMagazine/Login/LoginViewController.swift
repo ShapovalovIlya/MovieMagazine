@@ -35,10 +35,13 @@ final class LoginViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        // Do any additional setup after loading the view.
+        loginView.loginButton.target = self
+        loginView.loginButton.action = #selector(loginButtonTap)
     }
 
-
+    @objc func loginButtonTap() {
+        presenter.loginButtonDidTap()
+    }
 }
 
 //MARK: - LoginViewDelegate

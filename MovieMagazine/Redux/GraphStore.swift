@@ -58,8 +58,8 @@ final class GraphStore {
 
 private extension GraphStore {
     func notify(_ observer: Observer<Graph>) {
-        observer.queue.async { [state = self.graph] in
-            let status = observer.observe(state)
+        observer.queue.async { [graph] in
+            let status = observer.observe(graph)
             
             guard case .dead = status else { return }
             self.queue.async {
