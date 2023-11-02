@@ -38,6 +38,8 @@
 		86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */; };
 		86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
+		EEC5741C2AF37C5200783702 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741B2AF37C5200783702 /* README.md */; };
+		EEC5741E2AF37C5B00783702 /* Repository in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741D2AF37C5B00783702 /* Repository */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDriver.swift; sourceTree = "<group>"; };
+		EEC5741B2AF37C5200783702 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EEC5741D2AF37C5B00783702 /* Repository */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Repository; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		866798F22AED934300BB6576 = {
 			isa = PBXGroup;
 			children = (
+				EEC5741D2AF37C5B00783702 /* Repository */,
+				EEC5741B2AF37C5200783702 /* README.md */,
 				866798FD2AED934300BB6576 /* MovieMagazine */,
 				86D8A4342AEE5E1C0022D7EB /* MovieMagazineTests */,
 				866798FC2AED934300BB6576 /* Products */,
@@ -334,7 +340,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEC5741C2AF37C5200783702 /* README.md in Resources */,
 				866799032AED934600BB6576 /* Assets.xcassets in Resources */,
+				EEC5741E2AF37C5B00783702 /* Repository in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
