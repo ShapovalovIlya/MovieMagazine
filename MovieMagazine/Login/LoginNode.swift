@@ -28,7 +28,11 @@ struct LoginNode {
     
     var isPasswordValid: Bool { graph.state.loginState.password.isValid }
     
-    var progress: LoginState.LoginStatus { graph.state.loginState.progress }
+    var progress: LoginState.LoginStatus {
+        get { graph.state.loginState.progress }
+        nonmutating set { }
+    }
+    
     var isCredentialsValid: Bool { graph.state.loginState.isCredentialValid }
     
     func login() {

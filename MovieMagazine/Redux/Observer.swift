@@ -16,7 +16,7 @@ enum Status: Equatable {
 struct ObserverID: Hashable {}
 
 protocol Observer: AnyObject {
-    var id: ObserverID { get }
+    var id: UUID { get }
     var queue: DispatchQueue { get }
     var observe: (Graph) -> Status { get }
 }

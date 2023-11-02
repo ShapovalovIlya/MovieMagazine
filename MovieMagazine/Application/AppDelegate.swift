@@ -9,13 +9,17 @@ import Cocoa
 import OSLog
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
-    let store: Store
+    let store: GraphStore
     let networkDriver: NetworkDriver
     
+    //MARK: - init(_:)
     override init() {
-        self.store = Store(initial: AppState()) { state, action in
-            os_log("Store", log: .system, type: .debug, String(describing: action))
-            state.reduce(action)
+        self.store = .init {
+            Store(initial: AppState()) { state, action in
+                print("Store: \(String(describing: action))")
+    //            os_log("Store", log: .system, type: .debug, String(describing: action))
+                state.reduce(action)
+            }
         }
         self.networkDriver = .init(
             store: self.store,
@@ -26,6 +30,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         store.subscribe(networkDriver)
     }
 
+    //MARK: - Public methods
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let assembly = Assembly(store: store)
         let rootWindowController = RootWindowController(
@@ -43,6 +48,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
+    //MARK: - main
     static func main() {
         let delegate = AppDelegate()
         let app = NSApplication.shared

@@ -8,9 +8,9 @@
 import Cocoa
 
 final class Assembly {
-    private let store: Store
+    private let store: GraphStore
     
-    init(store: Store) {
+    init(store: GraphStore) {
         self.store = store
     }
     

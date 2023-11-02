@@ -34,6 +34,8 @@
 		EEC574202AF37E3D00783702 /* Endpoint in Frameworks */ = {isa = PBXBuildFile; productRef = EEC5741F2AF37E3D00783702 /* Endpoint */; };
 		EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */ = {isa = PBXBuildFile; productRef = EEC574212AF37E5B00783702 /* SwiftFP */; };
 		EEC574242AF37F2C00783702 /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = EEC574232AF37F2C00783702 /* NetworkService */; };
+		EEDBF6142AF3C4B000FB7B59 /* GraphStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBF6132AF3C4B000FB7B59 /* GraphStore.swift */; };
+		EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBF6152AF3D09B00FB7B59 /* Validator */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,7 @@
 		86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDriver.swift; sourceTree = "<group>"; };
 		EEC5741B2AF37C5200783702 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EEC5741D2AF37C5B00783702 /* Repository */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Repository; sourceTree = "<group>"; };
+		EEDBF6132AF3C4B000FB7B59 /* GraphStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 				EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */,
 				EEC574202AF37E3D00783702 /* Endpoint in Frameworks */,
 				EEC574242AF37F2C00783702 /* NetworkService in Frameworks */,
+				EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +125,7 @@
 		866798FD2AED934300BB6576 /* MovieMagazine */ = {
 			isa = PBXGroup;
 			children = (
+				EEDBF6172AF3D1E000FB7B59 /* Drivers */,
 				86D8A44F2AEEFED90022D7EB /* Networking */,
 				8667992F2AEDCD5800BB6576 /* Application */,
 				8667991E2AEDABB400BB6576 /* Redux */,
@@ -172,6 +177,7 @@
 				8667991C2AEDA8D500BB6576 /* Store.swift */,
 				8667991F2AEDABC500BB6576 /* Observer.swift */,
 				866799232AEDB33A00BB6576 /* Graph.swift */,
+				EEDBF6132AF3C4B000FB7B59 /* GraphStore.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -210,6 +216,13 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		EEDBF6172AF3D1E000FB7B59 /* Drivers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Drivers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,6 +243,7 @@
 				EEC5741F2AF37E3D00783702 /* Endpoint */,
 				EEC574212AF37E5B00783702 /* SwiftFP */,
 				EEC574232AF37F2C00783702 /* NetworkService */,
+				EEDBF6152AF3D09B00FB7B59 /* Validator */,
 			);
 			productName = MovieMagazine;
 			productReference = 866798FB2AED934300BB6576 /* MovieMagazine.app */;
@@ -333,6 +347,7 @@
 				8637A8482AF2E2CC00FB11AE /* OSLog.swift in Sources */,
 				8667991B2AED9EB900BB6576 /* NSView.swift in Sources */,
 				866799282AEDB3F200BB6576 /* AppState.swift in Sources */,
+				EEDBF6142AF3C4B000FB7B59 /* GraphStore.swift in Sources */,
 				8637A8272AF2C97000FB11AE /* NetworkAdapter.swift in Sources */,
 				866799012AED934400BB6576 /* LoginViewController.swift in Sources */,
 				866799102AED96E600BB6576 /* RootWindowController.swift in Sources */,
@@ -612,6 +627,10 @@
 		EEC574232AF37F2C00783702 /* NetworkService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkService;
+		};
+		EEDBF6152AF3D09B00FB7B59 /* Validator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Validator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,10 +9,10 @@ import Foundation
 import OSLog
 
 final class NetworkDriver: Observer {
-    let id: ObserverID = .init()
+    let id: UUID = .init()
     
     private let adapter: NetworkAdapter
-    private let store: Store
+    private let store: GraphStore
     
     var observe: (Graph) -> Status {
         { [weak self] graph in
@@ -26,7 +26,7 @@ final class NetworkDriver: Observer {
     
     //MARK: - init(_:)
     init(
-        store: Store,
+        store: GraphStore,
         logger: OSLog? = nil
     ) {
         self.store = store

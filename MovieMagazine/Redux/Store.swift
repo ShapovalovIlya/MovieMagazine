@@ -23,7 +23,7 @@ final class Store {
     private var state: AppState
     private let reducer: Reducer
     private let queue: DispatchQueue = .init(label: "Store queue")
-    private var observers: [ObserverID: Observer] = .init()
+    private var observers: [UUID: Observer] = .init()
     
     //MARK: - init(_:)
     init(
@@ -35,6 +35,14 @@ final class Store {
     }
     
     //MARK: - Public methods
+    @inlinable
+    func dispatch(_ action: Action) {
+        queue.sync {
+            reducer(&state, action)
+            observers.map(\.value).forEach(notify)
+        }
+    }
+    
     @inlinable
     func subscribe(_ observer: Observer) {
         queue.sync {
@@ -49,16 +57,8 @@ final class Store {
 }
 
 private extension Store {
-    func dispatch(_ action: Action) {
-        queue.sync {
-            reducer(&state, action)
-            observers.map(\.value).forEach(notify)
-        }
-    }
-    
     func notify(_ observer: Observer) {
-        let state = self.graph
-        observer.queue.async {
+        observer.queue.async { [state = self.graph] in
             let status = observer.observe(state)
             
             guard case .dead = status else { return }

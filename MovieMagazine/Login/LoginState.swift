@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import Validator
 
 struct LoginState: Reducer {
     var email: CredentialStatus
     var password: CredentialStatus
     var progress: LoginStatus
+    
+    private let validator: Validator
     
     var isCredentialValid: Bool {
         guard
@@ -30,15 +33,26 @@ struct LoginState: Reducer {
         self.email = email
         self.password = password
         self.progress = progress
+        self.validator = .live
     }
     
     mutating func reduce(_ action: Action) {
         switch action {
         case let login as LoginActions.Login:
-            self.email = .valid(login.value)
+            if validator.isEmpty(login.value) {
+                self.email = .empty
+            }
+            self.email = validator.validateEmail(login.value)
+            ? .valid(login.value)
+            : .invalid(login.value)
             
         case let password as LoginActions.Password:
-            self.password = .valid(password.value)
+            if validator.isEmpty(password.value) {
+                self.password = .empty
+            }
+            self.email = validator.validatePassword(password.value)
+            ? .valid(password.value)
+            : .invalid(password.value)
             
         case is LoginActions.LoginButtonTap:
             self.progress = .loading

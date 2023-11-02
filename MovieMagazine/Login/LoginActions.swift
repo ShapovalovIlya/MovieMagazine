@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LoginActions: Action {
+enum LoginActions {
     struct Login: Action {
         var value: String
     }

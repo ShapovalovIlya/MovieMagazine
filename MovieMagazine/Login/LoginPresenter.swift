@@ -20,24 +20,14 @@ protocol LoginPresenterProtocol: AnyObject {
 }
 
 final class LoginPresenter: LoginPresenterProtocol {
-    private let store: Store
-//    private var asObserver: Observer<Graph> {
-//        Observer(queue: .main) { [weak self] graph in
-//            guard let self else {
-//                return .dead
-//            }
-//            delegate?.render(mapToProps(graph))
-//            return .active
-//        }
-//    }
+    private let store: GraphStore
     
-    let id: ObserverID = .init()
+    let id: UUID = .init()
     weak var delegate: LoginViewDelegate?
     
     //MARK: - init(_:)
-    init(store: Store) {
+    init(store: GraphStore) {
         self.store = store
-//        store.subscribe(asObserver)
         store.subscribe(self)
     }
     
