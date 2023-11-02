@@ -13,8 +13,6 @@ enum Status: Equatable {
     case postponed(Int)
 }
 
-struct ObserverID: Hashable {}
-
 protocol Observer: AnyObject {
     var id: UUID { get }
     var queue: DispatchQueue { get }
