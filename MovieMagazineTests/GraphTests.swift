@@ -12,18 +12,18 @@ final class GraphTests: XCTestCase {
     private var sut: Graph!
     private var action: Action?
     
-    override func setUp() async throws {
-        try await super.setUp()
+    override func setUp() {
+        super.setUp()
         sut = Graph(state: .init()) { action in
             self.action = action
             }
     }
     
-    override func tearDown() async throws {
+    override func tearDown() {
         sut = nil
         action = nil
         
-        try await super.tearDown()
+        super.tearDown()
     }
 
     func test_graphDispatchCorrectAction() {

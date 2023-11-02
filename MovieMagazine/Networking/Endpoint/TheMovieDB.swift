@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftFP
 
 public struct TheMovieDB {
     typealias SetHeaders = (inout URLRequest) -> Void

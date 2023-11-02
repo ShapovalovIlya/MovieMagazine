@@ -9,25 +9,25 @@ let package = Package(
         .macOS(.v10_13)
     ],
     products: [
-        .library(name: "NetworkFetcher", targets: ["NetworkFetcher"]),
-        .library(name: "Endpoint", targets: ["Endpoint"]),
+  //      .library(name: "NetworkService", targets: ["NetworkService"]),
+ //       .library(name: "Endpoint", targets: ["Endpoint"]),
     ],
     targets: [
-        .target(name: "SwiftFP"),
-        .target(
-            name: "NetworkFetcher",
-            dependencies: [
-                "SwiftFP"
-            ]),
-        .target(
-            name: "Endpoint",
-            dependencies: [
-                "SwiftFP"
-            ]),
-        .testTarget(
-            name: "RepositoryTests",
-            dependencies: [
-                "Endpoint"
-            ])
+//        .target(name: "SwiftFP"),
+//        .target(
+//            name: "NetworkService",
+//            dependencies: [
+//                "SwiftFP"
+//            ]),
+//        .target(
+//            name: "Endpoint",
+//            dependencies: [
+//                "SwiftFP"
+//            ]),
+//        .testTarget(
+//            name: "RepositoryTests",
+//            dependencies: [
+//                "Endpoint"
+//            ])
     ]
 )

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Endpoint
+@testable import MovieMagazine
 
 final class TheMovieDBEndpointTests: XCTestCase {
 
