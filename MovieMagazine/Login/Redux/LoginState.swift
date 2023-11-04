@@ -9,14 +9,13 @@ import Foundation
 import Validator
 
 struct LoginState: Reducer {
-    var email: CredentialStatus
+    var username: CredentialStatus
     var password: CredentialStatus
     var progress: LoginStatus
-    var validator: Validator
     
     var isCredentialValid: Bool {
         guard
-            case .valid = email,
+            case .valid = username,
             case .valid = password
         else {
             return false
@@ -27,32 +26,29 @@ struct LoginState: Reducer {
     init(
         email: CredentialStatus = .empty,
         password: CredentialStatus = .empty,
-        progress: LoginStatus = .none,
-        validator: Validator = .live
+        progress: LoginStatus = .none
     ) {
-        self.email = email
+        self.username = email
         self.password = password
         self.progress = progress
-        self.validator = validator
     }
     
     mutating func reduce(_ action: Action) {
         switch action {
         case let action as LoginActions.UpdateLogin:
-            if validator.isEmpty(action.login) {
-                self.email = .empty
-            }
-            self.email = validator.validateEmail(action.login)
-            ? .valid(action.login)
-            : .invalid(action.login)
+            self.username = .invalid(action.login)
+         
+        case let action as LoginActions.ValidatedLogin:
+            self.username = action.login
+            
+        case let action as LoginActions.ValidatedPassword:
+            self.password = action.password
             
         case let action as LoginActions.UpdatePassword:
-            if validator.isEmpty(action.login) {
-                self.password = .empty
-            }
-            self.email = validator.validatePassword(action.login)
-            ? .valid(action.login)
-            : .invalid(action.login)
+            self.password = .invalid(action.password)
+         
+        case let action as LoginActions.UpdateProgress:
+            self.progress = action.progress
             
         case is LoginActions.LoginButtonTap:
             self.progress = .loading
@@ -74,7 +70,7 @@ extension LoginState {
         }
     }
     
-    enum CredentialStatus {
+    enum CredentialStatus: Equatable {
         case valid(String)
         case invalid(String)
         case empty

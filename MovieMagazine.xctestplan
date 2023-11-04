@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "1D6EBFA2-B0E1-45CB-8C73-36D36B4DA44E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MovieMagazine.xcodeproj",
+      "identifier" : "866798FA2AED934300BB6576",
+      "name" : "MovieMagazine"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MovieMagazine.xcodeproj",
+        "identifier" : "86D8A4322AEE5E1C0022D7EB",
+        "name" : "MovieMagazineTests"
+      }
+    }
+  ],
+  "version" : 1
+}

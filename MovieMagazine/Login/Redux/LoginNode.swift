@@ -15,22 +15,22 @@ struct LoginNode {
     let graph: Graph
     
     var username: String {
-        get { graph.state.loginState.email.value }
+        get { graph.state.loginState.username.value }
         nonmutating set { graph.dispatch(LoginActions.UpdateLogin(login: newValue)) }
     }
     
-    var isLoginValid: Bool { graph.state.loginState.email.isValid }
+    var isLoginValid: Bool { graph.state.loginState.username.isValid }
     
     var password: String {
         get { graph.state.loginState.password.value }
-        nonmutating set { graph.dispatch(LoginActions.UpdatePassword(login: newValue)) }
+        nonmutating set { graph.dispatch(LoginActions.UpdatePassword(password: newValue)) }
     }
     
     var isPasswordValid: Bool { graph.state.loginState.password.isValid }
     
     var progress: LoginState.LoginStatus {
         get { graph.state.loginState.progress }
-        nonmutating set { }
+        nonmutating set { graph.dispatch(LoginActions.UpdateProgress(progress: newValue)) }
     }
     
     var isCredentialsValid: Bool { graph.state.loginState.isCredentialValid }

@@ -11,32 +11,33 @@ import OSLog
 final class AppDelegate: NSObject, NSApplicationDelegate {
     let store: GraphStore
     let networkDriver: NetworkDriver
+    let validatorDriver: ValidatorDriver
     
     //MARK: - init(_:)
     override init() {
         self.store = .init {
             Store(initial: AppState()) { state, action in
-                print("Store: \(String(describing: action))")
-    //            os_log("Store", log: .system, type: .debug, String(describing: action))
+                os_log(
+                    "Store %@",
+                    log: .system,
+                    type: .debug,
+                    String(describing: action)
+                )
                 state.reduce(action)
             }
         }
-        self.networkDriver = .init(
-            store: self.store,
-            logger: .system
-        )
+        self.networkDriver = .init(logger: .system)
+        self.validatorDriver = .init(logger: .system)
         super.init()
         
         store.subscribe(networkDriver.asObserver)
+        store.subscribe(validatorDriver.asObserver)
     }
 
     //MARK: - Public methods
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let assembly = Assembly(store: store)
-        let rootWindowController = RootWindowController(
-            assembly: assembly,
-            window: assembly.makeRootWindow()
-        )
+        let rootWindowController = assembly.makeRootWindowController()
         rootWindowController.showWindow(nil)
     }
 
@@ -59,6 +60,5 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 private extension AppDelegate {
-
 }
 

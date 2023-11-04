@@ -46,7 +46,7 @@ final class GraphTests: XCTestCase {
         
         let action = self.action as? LoginActions.UpdatePassword
         XCTAssertNotNil(action)
-        XCTAssertEqual(action?.login, "Baz")
+        XCTAssertEqual(action?.password, "Baz")
     }
     
     func test_LoginNode_LoginAction() {

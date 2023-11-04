@@ -48,6 +48,8 @@ final class LoginViewController: NSViewController {
 extension LoginViewController: LoginViewDelegate {
     func render(_ viewModel: LoginViewModel) {
         print("render!")
+        self.loginView.loginTextField.stringValue = viewModel.loginField
+        self.loginView.passwordTextField.stringValue = viewModel.passwordField
     }
 }
 

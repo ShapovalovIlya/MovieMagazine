@@ -13,7 +13,7 @@ final class Observer<State> {
     let observe: (State) -> Status
     
     init(
-        queue: DispatchQueue,
+        queue: DispatchQueue = .global(),
         observe: @escaping (State) -> Status
     ) {
         self.queue = queue

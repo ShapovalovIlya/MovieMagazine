@@ -21,6 +21,10 @@ struct Graph {
         self.dispatch = dispatch
     }
     
+    func dispatch(_ actions: Action...) {
+        actions.forEach(dispatch)
+    }
+    
     subscript<T>(dynamicMember keyPath: KeyPath<AppState, T>) -> T {
         state[keyPath: keyPath]
     }

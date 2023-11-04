@@ -10,10 +10,12 @@ import OSLog
 
 final class NetworkDriver {
     private let adapter: NetworkAdapter
-    private let store: GraphStore
     private let queue: DispatchQueue = .init(label: "NetworkDriver")
+    private var logger: OSLog?
     
-    lazy var asObserver: Observer<Graph> = .init(queue: queue) { [weak self] graph in
+    private(set) lazy var asObserver: Observer<Graph> = .init(
+        queue: queue
+    ) { [weak self] graph in
         guard let self else {
             return .dead
         }
@@ -22,11 +24,8 @@ final class NetworkDriver {
     }
     
     //MARK: - init(_:)
-    init(
-        store: GraphStore,
-        logger: OSLog? = nil
-    ) {
-        self.store = store
+    init(logger: OSLog? = nil) {
+        self.logger = logger
         adapter = .init(logger: logger)
     }
 }

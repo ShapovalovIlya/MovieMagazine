@@ -25,6 +25,23 @@ final class Assembly {
         return viewController
     }
     
+    func makeRootWindowController() -> NSWindowController {
+        let presenter = RootPresenterImpl(store: store)
+        self.store.subscribe(presenter.asObserver)
+        let rootViewController = RootWindowController(
+            assembly: self,
+            window: makeRootWindow(), 
+            presenter: presenter,
+            logger: .viewCycle
+        )
+        presenter.view = rootViewController
+        return rootViewController
+    }
+    
+    
+}
+
+private extension Assembly {
     func makeRootWindow() -> NSWindow {
         let window = NSWindow()
         window.addStyleMasks(
