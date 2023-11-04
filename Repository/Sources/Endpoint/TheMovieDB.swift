@@ -56,7 +56,7 @@ public struct TheMovieDB {
             .value
     }
     
-    static func createRequestToken(token bearer: Bearer) -> Self {
+    public static func createRequestToken(token bearer: Bearer) -> Self {
         .init(
             httpMethod: .GET,
             path: "authentication/token/new",
@@ -68,7 +68,7 @@ public struct TheMovieDB {
     }
     
     //MARK: - Session
-    static func createSession(token bearer: Bearer) -> Self {
+    public static func createSession(token bearer: Bearer) -> Self {
         .init(
             httpMethod: .POST,
             path: "authentication/session/new",
@@ -90,7 +90,7 @@ public struct TheMovieDB {
     ///     "request_token": "1531f1a558c8357ce8990cf887ff196e8f5402ec"
     ///   ] as [String : Any]
     ///
-    static func createSessionWithCredentials(token bearer: Bearer) -> Self {
+    public static func createSessionWithCredentials(token bearer: Bearer) -> Self {
         .init(
             httpMethod: .POST,
             path: "authentication/token/validate_with_login",
@@ -102,7 +102,7 @@ public struct TheMovieDB {
         )
     }
     
-    static func createGuestSession(token bearer: Bearer) -> Self {
+    public static func createGuestSession(token bearer: Bearer) -> Self {
         .init(
             httpMethod: .GET,
             path: "authentication/guest_session/new",
@@ -113,7 +113,7 @@ public struct TheMovieDB {
         )
     }
     
-    static func deleteSession(token bearer: Bearer) -> Self {
+    public static func deleteSession(token bearer: Bearer) -> Self {
         .init(
             httpMethod: .DELETE,
             path: "authentication/session",
@@ -126,7 +126,7 @@ public struct TheMovieDB {
     }
     
     //MARK: - Validation
-    static func validateKey(token bearer: Bearer) -> Self {
+    public static func validateKey(token bearer: Bearer) -> Self {
         .init(
             httpMethod: .GET,
             path: "authentication",
@@ -138,7 +138,7 @@ public struct TheMovieDB {
     }
     
     //MARK: - Account
-    static func details(
+    public static func details(
         for accountId: Int,
         sessionId: String,
         token bearer: Bearer
@@ -156,7 +156,7 @@ public struct TheMovieDB {
         )
     }
     
-    static func addFavorite(
+    public static func addFavorite(
         for accountId: Int,
         sessionId: String,
         token bearer: Bearer
@@ -176,7 +176,7 @@ public struct TheMovieDB {
     }
     
     //MARK: - Movies
-    static func nowPlayingMovies(
+    public  static func nowPlayingMovies(
         language: String = "en-US",
         page: Int,
         token bearer: Bearer
@@ -184,7 +184,7 @@ public struct TheMovieDB {
         .getMovie(subPath: "now_playing", language: language, page: page, token: bearer)
     }
     
-    static func popularMovies(
+    public static func popularMovies(
         language: String = "en-US",
         page: Int,
         token bearer: Bearer
@@ -192,7 +192,7 @@ public struct TheMovieDB {
         .getMovie(subPath: "popular", language: language, page: page, token: bearer)
     }
     
-    static func topRatedMovies(
+    public static func topRatedMovies(
         language: String = "en-US",
         page: Int,
         token bearer: Bearer
@@ -200,7 +200,7 @@ public struct TheMovieDB {
         .getMovie(subPath: "top_rated", language: language, page: page, token: bearer)
     }
     
-    static func upcomingMovies(
+    public static func upcomingMovies(
         language: String = "en-US",
         page: Int,
         token bearer: Bearer

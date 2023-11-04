@@ -25,6 +25,20 @@ struct NetworkAdapter {
     }
     
     //MARK: - Public methods
+    func requestToken(
+        bearer: String,
+        completion: @escaping(Result<RequestTokenResponse, Error>) -> Void
+    ) -> URLSessionDataTask {
+        request(
+            .createRequestToken(token: .init(bearer)),
+            resultCompletion: completion
+        )
+    }
+    
+    
+}
+
+private extension NetworkAdapter {
     func request<D: Decodable>(
         _ endpoint: TheMovieDB,
         payload: Data? = nil,
@@ -35,5 +49,4 @@ struct NetworkAdapter {
             resultCompletion(decodedResult)
         }
     }
-    
 }

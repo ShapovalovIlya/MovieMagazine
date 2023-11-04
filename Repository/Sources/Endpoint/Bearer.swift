@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Bearer {
+public struct Bearer {
     let token: String
     
-    init(_ bearer: String) {
+    public init(_ bearer: String) {
         self.token = ["Bearer", bearer].joined(separator: " ")
     }
 }

@@ -15,7 +15,6 @@ public struct NetworkFetcher {
     //MARK: - Private properties
     @usableFromInline let session: URLSession
     @usableFromInline let logger: OSLog?
-    @usableFromInline let decoder: JSONDecoder
     
     //MARK: - init(_:)
     public init(
@@ -23,11 +22,9 @@ public struct NetworkFetcher {
         logger: OSLog? = nil
     ) {
         self.logger = logger
-        let config = URLSessionConfiguration.background(withIdentifier: "NetworkFetcher")
+        let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = timeout
         session = .init(configuration: config)
-        decoder = .init()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
     public func perform(
@@ -135,6 +132,6 @@ extension NetworkFetcher {
         guard let logger = logger else {
             return
         }
-        os_log("NetworkFetcher", log: logger, type: .debug, event)
+        os_log("NetworkFetcher: %@", log: logger, type: .debug, event)
     }
 }

@@ -15,9 +15,11 @@ final class GraphStore {
     private var graph: Graph
     
     let id: UUID = .init()
-    let queue: DispatchQueue = .init(label: "GraphStore queue")
+    let queue: DispatchQueue = .init(label: "GraphStore queue", qos: .userInteractive)
     
-    lazy var asObserver: Observer<AppState> = .init(queue: self.queue) { [weak self] state in
+    private(set) lazy var asObserver: Observer<AppState> = .init(
+        queue: self.queue
+    ) { [weak self] state in
             guard let self else { return .dead }
             queue.async {
                 self.graph = .init(

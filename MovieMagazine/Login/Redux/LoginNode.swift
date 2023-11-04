@@ -12,7 +12,11 @@ extension Graph {
 }
 
 struct LoginNode {
-    let graph: Graph
+    private let graph: Graph
+    
+    init(graph: Graph) {
+        self.graph = graph
+    }
     
     var username: String {
         get { graph.state.loginState.username.value }

@@ -38,18 +38,20 @@ final class ValidatorDriver {
 private extension ValidatorDriver {
     //MARK: - Private methods
     func validateCredentials(_ graph: Graph) {
-        guard 
-            storedUsername != graph.loginState.username
-            || storedPassword != graph.loginState.password
+        let username = graph.loginState.username
+        let password = graph.loginState.password
+        guard
+            storedUsername != username
+            || storedPassword != password
         else {
             return
         }
-        storedUsername = graph.loginState.username
-        storedPassword = graph.loginState.password
+        storedUsername = username
+        storedPassword = password
         logEvent()
         graph.dispatch(
-            validate(username: graph.loginState.username),
-            validate(password: graph.loginState.password)
+            validate(username: username),
+            validate(password: password)
         )
     }
     
