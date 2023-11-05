@@ -9,7 +9,7 @@ let package = Package(
         .macOS(.v10_13)
     ],
     products: [
-        .library(name: "NetworkService", targets: ["NetworkService"]),
+        .library(name: "NetworkOperator", targets: ["NetworkOperator"]),
         .library(name: "Endpoint", targets: ["Endpoint"]),
         .library(name: "SwiftFP", targets: ["SwiftFP"]),
         .library(name: "Validator", targets: ["Validator"])
@@ -18,7 +18,7 @@ let package = Package(
         .target(name: "SwiftFP"),
         .target(name: "Validator"),
         .target(
-            name: "NetworkService",
+            name: "NetworkOperator",
             dependencies: [
                 "SwiftFP"
             ]),

@@ -15,4 +15,8 @@ enum SessionActions {
     struct UpdateExpirationDate: Action {
         let expirationDate: String
     }
+    
+    struct UpdateSession: Action {
+        let session: SessionState.SessionType
+    }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import OSLog
 import Endpoint
-import NetworkService
+import NetworkOperator
 
 struct NetworkAdapter {
     private let fetcher: NetworkFetcher
@@ -27,7 +27,7 @@ struct NetworkAdapter {
     //MARK: - Public methods
     func requestToken(
         bearer: String,
-        completion: @escaping(Result<RequestTokenResponse, Error>) -> Void
+        completion: @escaping(Result<TokenResponse, Error>) -> Void
     ) -> URLSessionDataTask {
         request(
             .createRequestToken(token: .init(bearer)),

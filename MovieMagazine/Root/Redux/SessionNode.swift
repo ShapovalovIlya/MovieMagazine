@@ -23,6 +23,8 @@ struct SessionNode {
         nonmutating set { graph.dispatch(SessionActions.UpdateRequestToken(token: newValue)) }
     }
     
+    var session: String { graph.state.sessionState.session.value }
+    
     var expiresAt: String {
         get { graph.state.sessionState.expiresAt }
         nonmutating set { graph.dispatch(SessionActions.UpdateExpirationDate(expirationDate: newValue)) }

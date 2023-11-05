@@ -20,7 +20,6 @@
 		866799182AED9C9D00BB6576 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799172AED9C9D00BB6576 /* LoginView.swift */; };
 		8667991B2AED9EB900BB6576 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991A2AED9EB900BB6576 /* NSView.swift */; };
 		8667991D2AEDA8D500BB6576 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991C2AEDA8D500BB6576 /* Store.swift */; };
-		866799202AEDABC500BB6576 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991F2AEDABC500BB6576 /* Observer.swift */; };
 		866799242AEDB33A00BB6576 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799232AEDB33A00BB6576 /* Graph.swift */; };
 		866799262AEDB3DE00BB6576 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799252AEDB3DE00BB6576 /* LoginState.swift */; };
 		866799282AEDB3F200BB6576 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799272AEDB3F200BB6576 /* AppState.swift */; };
@@ -31,9 +30,13 @@
 		869A71312AF6BD54009CB08A /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71302AF6BD54009CB08A /* SessionState.swift */; };
 		869A71332AF6BF48009CB08A /* SessionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71322AF6BF48009CB08A /* SessionNode.swift */; };
 		869A71352AF6C01C009CB08A /* SessionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71342AF6C01C009CB08A /* SessionActions.swift */; };
-		869A71382AF6C0CF009CB08A /* RequestTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71372AF6C0CF009CB08A /* RequestTokenResponse.swift */; };
+		869A71382AF6C0CF009CB08A /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71372AF6C0CF009CB08A /* TokenResponse.swift */; };
 		869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A713A2AF6C701009CB08A /* ApiKey.swift */; };
 		869A713D2AF6CAD9009CB08A /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A713C2AF6CAD9009CB08A /* AppActions.swift */; };
+		869A71432AF6E701009CB08A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71422AF6E701009CB08A /* Session.swift */; };
+		869A71442AF7AF81009CB08A /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991F2AEDABC500BB6576 /* Observer.swift */; };
+		869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */ = {isa = PBXBuildFile; productRef = 869A71452AF7C879009CB08A /* NetworkOperator */; };
+		869A71482AF7C925009CB08A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71472AF7C925009CB08A /* ImageCache.swift */; };
 		86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */; };
 		86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
@@ -41,7 +44,6 @@
 		EEC5741E2AF37C5B00783702 /* Repository in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741D2AF37C5B00783702 /* Repository */; };
 		EEC574202AF37E3D00783702 /* Endpoint in Frameworks */ = {isa = PBXBuildFile; productRef = EEC5741F2AF37E3D00783702 /* Endpoint */; };
 		EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */ = {isa = PBXBuildFile; productRef = EEC574212AF37E5B00783702 /* SwiftFP */; };
-		EEC574242AF37F2C00783702 /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = EEC574232AF37F2C00783702 /* NetworkService */; };
 		EEDBF6142AF3C4B000FB7B59 /* GraphStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBF6132AF3C4B000FB7B59 /* GraphStore.swift */; };
 		EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBF6152AF3D09B00FB7B59 /* Validator */; };
 		EEDBF61B2AF3E7F500FB7B59 /* ValidatorDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBF61A2AF3E7F500FB7B59 /* ValidatorDriverTests.swift */; };
@@ -84,9 +86,11 @@
 		869A71302AF6BD54009CB08A /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
 		869A71322AF6BF48009CB08A /* SessionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionNode.swift; sourceTree = "<group>"; };
 		869A71342AF6C01C009CB08A /* SessionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionActions.swift; sourceTree = "<group>"; };
-		869A71372AF6C0CF009CB08A /* RequestTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenResponse.swift; sourceTree = "<group>"; };
+		869A71372AF6C0CF009CB08A /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		869A713A2AF6C701009CB08A /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		869A713C2AF6CAD9009CB08A /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
+		869A71422AF6E701009CB08A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		869A71472AF7C925009CB08A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		86A29A082AF691170092BBC6 /* MovieMagazine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieMagazine.xctestplan; sourceTree = "<group>"; };
 		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
@@ -106,8 +110,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */,
+				869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */,
 				EEC574202AF37E3D00783702 /* Endpoint in Frameworks */,
-				EEC574242AF37F2C00783702 /* NetworkService in Frameworks */,
 				EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +292,8 @@
 		869A71392AF6C14E009CB08A /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				869A71372AF6C0CF009CB08A /* RequestTokenResponse.swift */,
+				869A71372AF6C0CF009CB08A /* TokenResponse.swift */,
+				869A71422AF6E701009CB08A /* Session.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 			children = (
 				86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */,
 				864AFBA92AF624560099035F /* ValidatorDriver.swift */,
+				869A71472AF7C925009CB08A /* ImageCache.swift */,
 			);
 			path = Drivers;
 			sourceTree = "<group>";
@@ -347,8 +353,8 @@
 			packageProductDependencies = (
 				EEC5741F2AF37E3D00783702 /* Endpoint */,
 				EEC574212AF37E5B00783702 /* SwiftFP */,
-				EEC574232AF37F2C00783702 /* NetworkService */,
 				EEDBF6152AF3D09B00FB7B59 /* Validator */,
+				869A71452AF7C879009CB08A /* NetworkOperator */,
 			);
 			productName = MovieMagazine;
 			productReference = 866798FB2AED934300BB6576 /* MovieMagazine.app */;
@@ -438,11 +444,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				864AFBAA2AF624560099035F /* ValidatorDriver.swift in Sources */,
+				869A71442AF7AF81009CB08A /* Observer.swift in Sources */,
 				8667992C2AEDB97B00BB6576 /* LoginPresenter.swift in Sources */,
 				866799242AEDB33A00BB6576 /* Graph.swift in Sources */,
 				866799132AED982E00BB6576 /* NSWindow.swift in Sources */,
 				869A71352AF6C01C009CB08A /* SessionActions.swift in Sources */,
-				866799202AEDABC500BB6576 /* Observer.swift in Sources */,
 				866799182AED9C9D00BB6576 /* LoginView.swift in Sources */,
 				866799262AEDB3DE00BB6576 /* LoginState.swift in Sources */,
 				86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */,
@@ -461,10 +467,12 @@
 				8637A8272AF2C97000FB11AE /* NetworkAdapter.swift in Sources */,
 				869A71312AF6BD54009CB08A /* SessionState.swift in Sources */,
 				866799012AED934400BB6576 /* LoginViewController.swift in Sources */,
+				869A71482AF7C925009CB08A /* ImageCache.swift in Sources */,
 				866799102AED96E600BB6576 /* RootWindowController.swift in Sources */,
 				866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */,
 				8667990E2AED960000BB6576 /* main.swift in Sources */,
-				869A71382AF6C0CF009CB08A /* RequestTokenResponse.swift in Sources */,
+				869A71382AF6C0CF009CB08A /* TokenResponse.swift in Sources */,
+				869A71432AF6E701009CB08A /* Session.swift in Sources */,
 				869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,6 +738,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		869A71452AF7C879009CB08A /* NetworkOperator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkOperator;
+		};
 		EEC5741F2AF37E3D00783702 /* Endpoint */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Endpoint;
@@ -737,10 +749,6 @@
 		EEC574212AF37E5B00783702 /* SwiftFP */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftFP;
-		};
-		EEC574232AF37F2C00783702 /* NetworkService */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NetworkService;
 		};
 		EEDBF6152AF3D09B00FB7B59 /* Validator */ = {
 			isa = XCSwiftPackageProductDependency;

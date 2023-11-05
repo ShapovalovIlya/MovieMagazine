@@ -1,5 +1,5 @@
 //
-//  RequestTokenResponse.swift
+//  TokenResponse.swift
 //  MovieMagazine
 //
 //  Created by Илья Шаповалов on 04.11.2023.
@@ -20,8 +20,14 @@ extension DateFormatter {
     }
 }
 
-struct RequestTokenResponse: Decodable {
+struct TokenResponse: Decodable {
     let success: Bool
     let expiresAt: String
+    let requestToken: String
+}
+
+struct TokenRequest: Encodable {
+    let username: String
+    let password: String
     let requestToken: String
 }

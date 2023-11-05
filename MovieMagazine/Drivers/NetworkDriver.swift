@@ -8,6 +8,7 @@
 import Foundation
 import OSLog
 import Endpoint
+import SwiftFP
 
 final class NetworkDriver {
     private let adapter: NetworkAdapter
@@ -21,7 +22,7 @@ final class NetworkDriver {
         guard let self else {
             return .dead
         }
-        dispatch(graph)
+        process(graph)
         return .active
     }
     
@@ -33,28 +34,38 @@ final class NetworkDriver {
 }
 
 private extension NetworkDriver {
-    func dispatch(_ graph: Graph) {
-        if graph.sessionState.requestToken.isEmpty {
-            log(event: "perform request token")
-            let taskId = UUID()
-            let task = adapter.requestToken(
-                bearer: ApiKeys.bearer,
-                completion: transformToAction(for: graph, withId: taskId)
-            )
-            currentTasks.updateValue(task, forKey: taskId)
-        }
+    typealias ProcessGraph = (Graph) -> Graph
+    
+    func process(_ graph: Graph) {
+        validateToken(graph)
+        
     }
     
-    func transformToAction(for graph: Graph, withId id: UUID) -> (Result<RequestTokenResponse, Error>) -> Void {
+    func startSession(_ graph: Graph) {
+        
+    }
+    
+    func validateToken(_ graph: Graph) {
+        guard graph.sessionState.requestToken.isEmpty else { return }
+        log(event: "perform token request")
+        let taskId = UUID()
+        let task = adapter.requestToken(
+            bearer: ApiKeys.bearer,
+            completion: processAction(for: graph, withId: taskId)
+        )
+        currentTasks.updateValue(task, forKey: taskId)
+    }
+    
+    func processAction(for graph: Graph, withId id: UUID) -> (Result<TokenResponse, Error>) -> Void {
         { result in
             switch result {
             case let .success(tokenResponse):
-                self.log(event: "request token success")
+                self.log(event: "token request success")
                 graph.sessionState.requestToken = tokenResponse.requestToken
                 graph.sessionState.expiresAt = tokenResponse.expiresAt
                 
             case let .failure(error):
-                self.log(event: "request token failed")
+                self.log(event: "token request failed")
                 graph.dispatch(AppActions.RaiseError(error: error))
             }
             self.currentTasks.removeValue(forKey: id)
