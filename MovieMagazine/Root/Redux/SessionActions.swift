@@ -8,12 +8,20 @@
 import Foundation
 
 enum SessionActions {
-    struct UpdateRequestToken: Action {
-        let token: String
+    struct ReceiveToken: Action {
+        let token: TokenResponse
     }
     
-    struct UpdateExpirationDate: Action {
-        let expirationDate: String
+    struct TokenRequestFailed: Action {
+        let error: Error
+    }
+    
+    struct TokenValidated: Action {
+        let token: TokenResponse
+    }
+    
+    struct TokenValidationFailed: Action {
+        let error: Error
     }
     
     struct UpdateSession: Action {

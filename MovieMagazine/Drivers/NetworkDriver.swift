@@ -8,13 +8,14 @@
 import Foundation
 import OSLog
 import Endpoint
-import SwiftFP
+import NetworkOperator
 
 final class NetworkDriver {
-    private let adapter: NetworkAdapter
+    private let networkOperator: NetworkOperator
+    private let networkCoder: NetworkCoder
     private let queue: DispatchQueue = .init(label: "NetworkDriver")
+    private let bearer: Bearer = .init(ApiKeys.bearer)
     private var logger: OSLog?
-    private var currentTasks: [UUID: URLSessionDataTask] = .init()
     
     private(set) lazy var asObserver: Observer<Graph> = .init(
         queue: queue
@@ -29,31 +30,94 @@ final class NetworkDriver {
     //MARK: - init(_:)
     init(logger: OSLog? = nil) {
         self.logger = logger
-        adapter = .init(logger: logger)
+        networkOperator = .init(
+            queue: self.queue,
+            logger: logger
+        )
+        networkCoder = .init(
+            keyCodingStrategy: .convertSnakeCase
+        )
     }
 }
 
 private extension NetworkDriver {
-    typealias ProcessGraph = (Graph) -> Graph
+    typealias ResultCompletion = (Result<NetworkOperator.Response, Error>) -> Void
     
     func process(_ graph: Graph) {
-        validateToken(graph)
-        
+        networkOperator.process {
+            if let request = performLoginFlow(graph) {
+                request
+            }
+        }
+    }
+    
+    func request(
+        _ endpoint: TheMovieDB,
+        id: UUID = .init(),
+        data: Data? = nil,
+        handler: @escaping ResultCompletion
+    ) -> NetworkOperator.Request {
+        return .init(
+            id: id,
+            request: endpoint.makeRequest(with: data),
+            handler: handler
+        )
+    }
+    
+    func performLoginFlow(_ graph: Graph) -> NetworkOperator.Request? {
+        switch graph.loginFlow {
+        case .none: return nil
+        case .token(let id):
+            return request(
+                .createRequestToken(bearer),
+                id: id,
+                handler: tokenHandler(graph.dispatch)
+            )
+        case .validation(let id):
+            return composeTokenValidation(with: id, graph)
+            
+        case .session(let uUID):
+            <#code#>
+        case .guestSession(let uUID):
+            <#code#>
+        }
     }
     
     func startSession(_ graph: Graph) {
         
     }
     
-    func validateToken(_ graph: Graph) {
-        guard graph.sessionState.requestToken.isEmpty else { return }
-        log(event: "perform token request")
-        let taskId = UUID()
-        let task = adapter.requestToken(
-            bearer: ApiKeys.bearer,
-            completion: processAction(for: graph, withId: taskId)
-        )
-        currentTasks.updateValue(task, forKey: taskId)
+    func composeTokenValidation(with id: UUID, _ graph: Graph) -> NetworkOperator.Request? {
+        switch networkCoder.encode({
+            TokenRequest(
+                username: graph.loginState.username,
+                password: graph.loginState.password,
+                requestToken: graph.sessionState.requestToken
+            )
+        }) {
+        case .success(let data):
+            return request(
+                .createSessionWithCredentials(bearer),
+                id: id,
+                handler: <#T##ResultCompletion##ResultCompletion##(Result<NetworkOperator.Response, Error>) -> Void#>
+            )
+            
+        case .failure(let error):
+            graph.dispatch(SessionActions.TokenRequestFailed(error: error))
+        }
+    }
+    
+    func tokenHandler(_ dispatcher: @escaping (Action) -> Void) -> ResultCompletion {
+        { [weak self] result in
+            guard let self else { return }
+            switch networkCoder.decode(TokenResponse.self, from: result.map(\.data)) {
+            case .success(let token):
+                dispatcher(SessionActions.ReceiveToken(token: token))
+                
+            case .failure(let error):
+                dispatcher(SessionActions.TokenRequestFailed(error: error))
+            }
+        }
     }
     
     func processAction(for graph: Graph, withId id: UUID) -> (Result<TokenResponse, Error>) -> Void {
@@ -68,7 +132,6 @@ private extension NetworkDriver {
                 self.log(event: "token request failed")
                 graph.dispatch(AppActions.RaiseError(error: error))
             }
-            self.currentTasks.removeValue(forKey: id)
         }
     }
     

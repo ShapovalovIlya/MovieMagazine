@@ -8,15 +8,17 @@
 import Foundation
 
 public extension NetworkOperator {
+    typealias Response = (data: Data, response: URLResponse)
+    
     struct Request {
         public let id: UUID
         public let request: URLRequest
-        public let handler: (Data?, URLResponse?, Error?) -> Void
+        public let handler: (Result<Response, Error>) -> Void
         
         public init(
             id: UUID,
             request: URLRequest,
-            handler: @escaping (Data?, URLResponse?, Error?) -> Void
+            handler: @escaping (Result<Response, Error>) -> Void
         ) {
             self.id = id
             self.request = request

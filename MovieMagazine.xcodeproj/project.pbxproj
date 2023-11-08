@@ -30,13 +30,14 @@
 		869A71312AF6BD54009CB08A /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71302AF6BD54009CB08A /* SessionState.swift */; };
 		869A71332AF6BF48009CB08A /* SessionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71322AF6BF48009CB08A /* SessionNode.swift */; };
 		869A71352AF6C01C009CB08A /* SessionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71342AF6C01C009CB08A /* SessionActions.swift */; };
-		869A71382AF6C0CF009CB08A /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71372AF6C0CF009CB08A /* TokenResponse.swift */; };
+		869A71382AF6C0CF009CB08A /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71372AF6C0CF009CB08A /* Token.swift */; };
 		869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A713A2AF6C701009CB08A /* ApiKey.swift */; };
 		869A713D2AF6CAD9009CB08A /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A713C2AF6CAD9009CB08A /* AppActions.swift */; };
 		869A71432AF6E701009CB08A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71422AF6E701009CB08A /* Session.swift */; };
 		869A71442AF7AF81009CB08A /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991F2AEDABC500BB6576 /* Observer.swift */; };
 		869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */ = {isa = PBXBuildFile; productRef = 869A71452AF7C879009CB08A /* NetworkOperator */; };
 		869A71482AF7C925009CB08A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71472AF7C925009CB08A /* ImageCache.swift */; };
+		869A714A2AF7CCC1009CB08A /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71492AF7CCC1009CB08A /* LoginFlow.swift */; };
 		86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */; };
 		86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
@@ -86,11 +87,12 @@
 		869A71302AF6BD54009CB08A /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
 		869A71322AF6BF48009CB08A /* SessionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionNode.swift; sourceTree = "<group>"; };
 		869A71342AF6C01C009CB08A /* SessionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionActions.swift; sourceTree = "<group>"; };
-		869A71372AF6C0CF009CB08A /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		869A71372AF6C0CF009CB08A /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		869A713A2AF6C701009CB08A /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		869A713C2AF6CAD9009CB08A /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
 		869A71422AF6E701009CB08A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		869A71472AF7C925009CB08A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		869A71492AF7CCC1009CB08A /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		86A29A082AF691170092BBC6 /* MovieMagazine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieMagazine.xctestplan; sourceTree = "<group>"; };
 		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				8667992D2AEDC6D400BB6576 /* LoginActions.swift */,
 				866799252AEDB3DE00BB6576 /* LoginState.swift */,
 				866799292AEDB4A400BB6576 /* LoginNode.swift */,
+				869A71492AF7CCC1009CB08A /* LoginFlow.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -292,7 +295,7 @@
 		869A71392AF6C14E009CB08A /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				869A71372AF6C0CF009CB08A /* TokenResponse.swift */,
+				869A71372AF6C0CF009CB08A /* Token.swift */,
 				869A71422AF6E701009CB08A /* Session.swift */,
 			);
 			path = Session;
@@ -470,8 +473,9 @@
 				869A71482AF7C925009CB08A /* ImageCache.swift in Sources */,
 				866799102AED96E600BB6576 /* RootWindowController.swift in Sources */,
 				866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */,
+				869A714A2AF7CCC1009CB08A /* LoginFlow.swift in Sources */,
 				8667990E2AED960000BB6576 /* main.swift in Sources */,
-				869A71382AF6C0CF009CB08A /* TokenResponse.swift in Sources */,
+				869A71382AF6C0CF009CB08A /* Token.swift in Sources */,
 				869A71432AF6E701009CB08A /* Session.swift in Sources */,
 				869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */,
 			);

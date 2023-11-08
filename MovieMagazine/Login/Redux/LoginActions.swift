@@ -29,4 +29,6 @@ enum LoginActions {
     }
     
     struct LoginButtonTap: Action {}
+    
+    struct LoginGuestButtonTap: Action {}
 }

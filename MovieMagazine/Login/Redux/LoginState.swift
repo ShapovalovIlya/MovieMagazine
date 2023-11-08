@@ -24,9 +24,9 @@ struct LoginState: Reducer {
     }
     
     init(
-        email: CredentialStatus = .empty,
-        password: CredentialStatus = .empty,
-        progress: LoginStatus = .none
+        email: CredentialStatus = .init(),
+        password: CredentialStatus = .init(),
+        progress: LoginStatus = .init()
     ) {
         self.username = email
         self.password = password
@@ -63,7 +63,11 @@ extension LoginState {
     enum LoginStatus: Equatable {
         case none
         case loading
+        case invalidCredentials
+        case success
         case error(Error)
+        
+        init() { self = .none }
         
         static func == (lhs: LoginState.LoginStatus, rhs: LoginState.LoginStatus) -> Bool {
             String(describing: lhs) == String(describing: rhs)
@@ -74,6 +78,8 @@ extension LoginState {
         case valid(String)
         case invalid(String)
         case empty
+        
+        init() { self = .empty }
         
         var value: String {
             switch self {

@@ -20,7 +20,7 @@ struct SessionNode {
     
     var requestToken: String {
         get { graph.state.sessionState.requestToken }
-        nonmutating set { graph.dispatch(SessionActions.UpdateRequestToken(token: newValue)) }
+        nonmutating set { graph.dispatch(SessionActions.ReceiveToken(token: newValue)) }
     }
     
     var session: String { graph.state.sessionState.session.value }

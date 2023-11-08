@@ -30,10 +30,10 @@ public final class NetworkOperator {
     }
     
     //MARK: - Public methods
-    public func process(_ requests: Request...) {
+    public func process(@RequestBuilder requests: () -> [Request]) {
         var remainedActiveRequestIds = Set(activeRequests.keys)
         
-        requests.forEach { request in
+        requests().forEach { request in
             process(request)
             remainedActiveRequestIds.remove(request.id)
         }
@@ -66,10 +66,18 @@ private extension NetworkOperator {
                     preconditionFailure("Request not found")
                 }
                 self.completedRequest.insert(request.id)
-                currentRequest.request.handler(data, response, error)
+                if let error {
+                    currentRequest.request.handler(.failure(error))
+                }
+                guard let data, let response else {
+                    preconditionFailure("Result response not found")
+                }
+                currentRequest.request.handler(.success((data, response)))
             }
         }
     }
+    
+    
     
     func cancel(requestId: UUID) {
         guard let task = activeRequests[requestId]?.task else {

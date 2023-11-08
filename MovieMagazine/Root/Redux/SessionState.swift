@@ -26,11 +26,9 @@ struct SessionState: Reducer, Codable {
     //MARK: - Reducer
     mutating func reduce(_ action: Action) {
         switch action {
-        case let action as SessionActions.UpdateRequestToken:
-            self.requestToken = action.token
-            
-        case let action as SessionActions.UpdateExpirationDate:
-            self.expiresAt = action.expirationDate
+        case let action as SessionActions.ReceiveToken:
+            self.requestToken = action.token.requestToken
+            self.expiresAt = action.token.expiresAt
             
         case let action as SessionActions.UpdateSession:
             self.session = action.session

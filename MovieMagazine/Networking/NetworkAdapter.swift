@@ -30,7 +30,7 @@ struct NetworkAdapter {
         completion: @escaping(Result<TokenResponse, Error>) -> Void
     ) -> URLSessionDataTask {
         request(
-            .createRequestToken(token: .init(bearer)),
+            .createRequestToken(.init(bearer)),
             resultCompletion: completion
         )
     }

@@ -48,15 +48,19 @@ public struct TheMovieDB {
     }
     
     //MARK: - Public methods
-    public func makeRequest() -> URLRequest {
+    public func makeRequest(with body: Data? = nil) -> URLRequest {
         Box(url)
             .map(setupRequest)
             .map(setHttp(method: httpMethod))
             .map(addHeaders(headers))
+            .map(addBody(body))
             .value
     }
     
-    public static func createRequestToken(token bearer: Bearer) -> Self {
+    
+    /// Create an intermediate request token that can be used to validate a TMDB user login. 
+    /// - Parameter bearer: bearer api key
+    public static func createRequestToken(_ bearer: Bearer) -> Self {
         .init(
             httpMethod: .GET,
             path: "authentication/token/new",
@@ -68,7 +72,7 @@ public struct TheMovieDB {
     }
     
     //MARK: - Session
-    public static func createSession(token bearer: Bearer) -> Self {
+    public static func createSession(_ bearer: Bearer) -> Self {
         .init(
             httpMethod: .POST,
             path: "authentication/session/new",
@@ -80,17 +84,10 @@ public struct TheMovieDB {
         )
     }
     
-    /// <#Description#>
-    /// - Parameter bearer: <#bearer description#>
-    /// - Returns: <#description#>
-    ///
-    /// let parameters = [
-    ///     "username": "johnny_appleseed",
-    ///     "password": "test123",
-    ///     "request_token": "1531f1a558c8357ce8990cf887ff196e8f5402ec"
-    ///   ] as [String : Any]
-    ///
-    public static func createSessionWithCredentials(token bearer: Bearer) -> Self {
+    
+    /// This method allows an application to validate a request token by entering a username and password.
+    /// - Parameter bearer: bearer api key
+    public static func createSessionWithCredentials(_ bearer: Bearer) -> Self {
         .init(
             httpMethod: .POST,
             path: "authentication/token/validate_with_login",
@@ -102,7 +99,11 @@ public struct TheMovieDB {
         )
     }
     
-    public static func createGuestSession(token bearer: Bearer) -> Self {
+    /// Guest sessions are a special kind of session that give you some of the functionality of an account, but not all.
+    /// For example, some of the things you can do with a guest session are; maintain a rated list, a watchlist and a favourite list.
+    /// Guest sessions will automatically be deleted if they are not used within 60 minutes of it being issued.
+    /// - Parameter bearer: bearer api key
+    public static func createGuestSession(_ bearer: Bearer) -> Self {
         .init(
             httpMethod: .GET,
             path: "authentication/guest_session/new",
@@ -113,7 +114,7 @@ public struct TheMovieDB {
         )
     }
     
-    public static func deleteSession(token bearer: Bearer) -> Self {
+    public static func deleteSession(_ bearer: Bearer) -> Self {
         .init(
             httpMethod: .DELETE,
             path: "authentication/session",
@@ -126,7 +127,7 @@ public struct TheMovieDB {
     }
     
     //MARK: - Validation
-    public static func validateKey(token bearer: Bearer) -> Self {
+    public static func validateKey(_ bearer: Bearer) -> Self {
         .init(
             httpMethod: .GET,
             path: "authentication",
@@ -243,6 +244,15 @@ private extension TheMovieDB {
     }
     
     typealias Request = (URLRequest) -> URLRequest
+    
+    func addBody(_ data: Data?) -> Request {
+        {
+            guard let data else { return $0 }
+            var request = $0
+            request.httpBody = data
+            return request
+        }
+    }
     
     func addHeaders(_ headers: @escaping SetHeaders) -> Request {
         {
