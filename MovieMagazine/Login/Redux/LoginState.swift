@@ -9,23 +9,14 @@ import Foundation
 import Validator
 
 struct LoginState: Reducer {
-    var username: CredentialStatus
-    var password: CredentialStatus
+    var password: String
+    var username: String
     var progress: LoginStatus
     
-    var isCredentialValid: Bool {
-        guard
-            case .valid = username,
-            case .valid = password
-        else {
-            return false
-        }
-        return true
-    }
-    
+    //MARK: - init(_:)
     init(
-        email: CredentialStatus = .init(),
-        password: CredentialStatus = .init(),
+        email: String = .init(),
+        password: String = .init(),
         progress: LoginStatus = .init()
     ) {
         self.username = email
@@ -33,19 +24,14 @@ struct LoginState: Reducer {
         self.progress = progress
     }
     
+    //MARK: - Reduce
     mutating func reduce(_ action: Action) {
         switch action {
         case let action as LoginActions.UpdateLogin:
-            self.username = .invalid(action.login)
-         
-        case let action as LoginActions.ValidatedLogin:
             self.username = action.login
-            
-        case let action as LoginActions.ValidatedPassword:
-            self.password = action.password
-            
+         
         case let action as LoginActions.UpdatePassword:
-            self.password = .invalid(action.password)
+            self.password = action.password
          
         case let action as LoginActions.UpdateProgress:
             self.progress = action.progress
@@ -71,29 +57,6 @@ extension LoginState {
         
         static func == (lhs: LoginState.LoginStatus, rhs: LoginState.LoginStatus) -> Bool {
             String(describing: lhs) == String(describing: rhs)
-        }
-    }
-    
-    enum CredentialStatus: Equatable {
-        case valid(String)
-        case invalid(String)
-        case empty
-        
-        init() { self = .empty }
-        
-        var value: String {
-            switch self {
-            case .valid(let string): return string
-            case .invalid(let string): return string
-            case .empty: return .init()
-            }
-        }
-        
-        var isValid: Bool {
-            guard case .invalid = self else {
-                return true
-            }
-            return false
         }
     }
 }

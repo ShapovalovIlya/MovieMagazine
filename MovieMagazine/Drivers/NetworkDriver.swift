@@ -10,6 +10,8 @@ import OSLog
 import Endpoint
 import NetworkOperator
 
+typealias ResultCompletion = (Result<NetworkOperator.Response, Error>) -> Void
+
 final class NetworkDriver {
     private let networkOperator: NetworkOperator
     private let networkCoder: NetworkCoder
@@ -41,13 +43,9 @@ final class NetworkDriver {
 }
 
 private extension NetworkDriver {
-    typealias ResultCompletion = (Result<NetworkOperator.Response, Error>) -> Void
     
     func process(_ graph: Graph) {
         networkOperator.process {
-            if let request = performLoginFlow(graph) {
-                request
-            }
         }
     }
     
@@ -63,62 +61,11 @@ private extension NetworkDriver {
             handler: handler
         )
     }
-    
-    func performLoginFlow(_ graph: Graph) -> NetworkOperator.Request? {
-        switch graph.loginFlow {
-        case .none: return nil
-        case .token(let id):
-            return request(
-                .createRequestToken(bearer),
-                id: id,
-                handler: tokenHandler(graph.dispatch)
-            )
-        case .validation(let id):
-            return composeTokenValidation(with: id, graph)
-            
-        case .session(let uUID):
-            <#code#>
-        case .guestSession(let uUID):
-            <#code#>
-        }
-    }
-    
+        
     func startSession(_ graph: Graph) {
         
     }
-    
-    func composeTokenValidation(with id: UUID, _ graph: Graph) -> NetworkOperator.Request? {
-        switch networkCoder.encode({
-            TokenRequest(
-                username: graph.loginState.username,
-                password: graph.loginState.password,
-                requestToken: graph.sessionState.requestToken
-            )
-        }) {
-        case .success(let data):
-            return request(
-                .createSessionWithCredentials(bearer),
-                id: id,
-                handler: <#T##ResultCompletion##ResultCompletion##(Result<NetworkOperator.Response, Error>) -> Void#>
-            )
-            
-        case .failure(let error):
-            graph.dispatch(SessionActions.TokenRequestFailed(error: error))
-        }
-    }
-    
-    func tokenHandler(_ dispatcher: @escaping (Action) -> Void) -> ResultCompletion {
-        { [weak self] result in
-            guard let self else { return }
-            switch networkCoder.decode(TokenResponse.self, from: result.map(\.data)) {
-            case .success(let token):
-                dispatcher(SessionActions.ReceiveToken(token: token))
-                
-            case .failure(let error):
-                dispatcher(SessionActions.TokenRequestFailed(error: error))
-            }
-        }
-    }
+
     
     func processAction(for graph: Graph, withId id: UUID) -> (Result<TokenResponse, Error>) -> Void {
         { result in

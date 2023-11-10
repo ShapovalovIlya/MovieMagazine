@@ -19,25 +19,19 @@ struct LoginNode {
     }
     
     var username: String {
-        get { graph.state.loginState.username.value }
+        get { graph.state.loginState.username }
         nonmutating set { graph.dispatch(LoginActions.UpdateLogin(login: newValue)) }
     }
     
-    var isLoginValid: Bool { graph.state.loginState.username.isValid }
-    
     var password: String {
-        get { graph.state.loginState.password.value }
+        get { graph.state.loginState.password }
         nonmutating set { graph.dispatch(LoginActions.UpdatePassword(password: newValue)) }
     }
-    
-    var isPasswordValid: Bool { graph.state.loginState.password.isValid }
     
     var progress: LoginState.LoginStatus {
         get { graph.state.loginState.progress }
         nonmutating set { graph.dispatch(LoginActions.UpdateProgress(progress: newValue)) }
     }
-    
-    var isCredentialsValid: Bool { graph.state.loginState.isCredentialValid }
     
     func login() {
         graph.dispatch(LoginActions.LoginButtonTap())

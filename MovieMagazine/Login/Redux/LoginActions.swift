@@ -12,16 +12,8 @@ enum LoginActions {
         let login: String
     }
     
-    struct ValidatedLogin: Action {
-        let login: LoginState.CredentialStatus
-    }
-    
     struct UpdatePassword: Action {
         let password: String
-    }
-    
-    struct ValidatedPassword: Action {
-        let password: LoginState.CredentialStatus
     }
     
     struct UpdateProgress: Action {

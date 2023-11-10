@@ -13,4 +13,28 @@ struct LoginViewModel {
     let passwordField: String
     let isPasswordValid: Bool
     let isLoginButtonActive: Bool
+    
+    enum CredentialStatus: Equatable {
+        case valid(String)
+        case invalid(String)
+        case empty
+        
+        init() { self = .empty }
+        
+        var value: String {
+            switch self {
+            case .valid(let string): return string
+            case .invalid(let string): return string
+            case .empty: return .init()
+            }
+        }
+        
+        var isValid: Bool {
+            guard case .invalid = self else {
+                return true
+            }
+            return false
+        }
+    }
+
 }
