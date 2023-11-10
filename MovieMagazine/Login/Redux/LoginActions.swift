@@ -16,11 +16,11 @@ enum LoginActions {
         let password: String
     }
     
-    struct UpdateProgress: Action {
-        let progress: LoginState.LoginStatus
-    }
+    struct Login: Action {}
     
-    struct LoginButtonTap: Action {}
+    struct LoginGuest: Action {}
     
-    struct LoginGuestButtonTap: Action {}
+    struct InvalidCredentials: Action {}
+    
+    struct Logout: Action {}
 }

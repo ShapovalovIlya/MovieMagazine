@@ -24,7 +24,7 @@ enum SessionActions {
         let error: Error
     }
     
-    struct ReceiveSession: Action {
+    struct UpdateSession: Action {
         let session: SessionState.SessionType
     }
     

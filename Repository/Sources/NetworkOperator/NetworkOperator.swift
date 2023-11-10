@@ -77,8 +77,6 @@ private extension NetworkOperator {
         }
     }
     
-    
-    
     func cancel(requestId: UUID) {
         guard let task = activeRequests[requestId]?.task else {
             preconditionFailure("Task not found")

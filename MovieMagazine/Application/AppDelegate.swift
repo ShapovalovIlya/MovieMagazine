@@ -11,7 +11,6 @@ import OSLog
 final class AppDelegate: NSObject, NSApplicationDelegate {
     let store: GraphStore
     let networkDriver: NetworkDriver
-    let validatorDriver: ValidatorDriver
     
     //MARK: - init(_:)
     override init() {
@@ -27,11 +26,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         self.networkDriver = .init(logger: .system)
-        self.validatorDriver = .init(logger: .system)
         super.init()
         
         store.subscribe(networkDriver.asObserver)
-        store.subscribe(validatorDriver.asObserver)
     }
 
     //MARK: - Public methods

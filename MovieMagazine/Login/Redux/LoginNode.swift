@@ -28,12 +28,7 @@ struct LoginNode {
         nonmutating set { graph.dispatch(LoginActions.UpdatePassword(password: newValue)) }
     }
     
-    var progress: LoginState.LoginStatus {
-        get { graph.state.loginState.progress }
-        nonmutating set { graph.dispatch(LoginActions.UpdateProgress(progress: newValue)) }
-    }
-    
     func login() {
-        graph.dispatch(LoginActions.LoginButtonTap())
+        graph.dispatch(LoginActions.Login())
     }
 }

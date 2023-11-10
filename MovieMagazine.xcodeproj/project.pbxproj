@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8637A8272AF2C97000FB11AE /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637A8262AF2C97000FB11AE /* NetworkAdapter.swift */; };
 		8637A8482AF2E2CC00FB11AE /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637A8472AF2E2CC00FB11AE /* OSLog.swift */; };
-		864AFBAA2AF624560099035F /* ValidatorDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFBA92AF624560099035F /* ValidatorDriver.swift */; };
 		866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866798FE2AED934400BB6576 /* AppDelegate.swift */; };
 		866799012AED934400BB6576 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799002AED934400BB6576 /* LoginViewController.swift */; };
 		866799032AED934600BB6576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866799022AED934600BB6576 /* Assets.xcassets */; };
@@ -39,6 +37,7 @@
 		869A71482AF7C925009CB08A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71472AF7C925009CB08A /* ImageCache.swift */; };
 		869A714A2AF7CCC1009CB08A /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71492AF7CCC1009CB08A /* LoginFlow.swift */; };
 		86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */; };
+		86C1FAA82AFEE81700080547 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAA72AFEE81700080547 /* LoginStatus.swift */; };
 		86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */; };
 		86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
@@ -62,9 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8637A8262AF2C97000FB11AE /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		8637A8472AF2E2CC00FB11AE /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
-		864AFBA92AF624560099035F /* ValidatorDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorDriver.swift; sourceTree = "<group>"; };
 		866798FB2AED934300BB6576 /* MovieMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		866798FE2AED934400BB6576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		866799002AED934400BB6576 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +93,7 @@
 		869A71492AF7CCC1009CB08A /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		86A29A082AF691170092BBC6 /* MovieMagazine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieMagazine.xctestplan; sourceTree = "<group>"; };
 		86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDriver.swift; sourceTree = "<group>"; };
+		86C1FAA72AFEE81700080547 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -135,6 +133,7 @@
 			children = (
 				8667992D2AEDC6D400BB6576 /* LoginActions.swift */,
 				866799252AEDB3DE00BB6576 /* LoginState.swift */,
+				86C1FAA72AFEE81700080547 /* LoginStatus.swift */,
 				866799292AEDB4A400BB6576 /* LoginNode.swift */,
 				869A71492AF7CCC1009CB08A /* LoginFlow.swift */,
 			);
@@ -188,7 +187,6 @@
 			children = (
 				869A71362AF6C0B2009CB08A /* DTO */,
 				EEDBF6172AF3D1E000FB7B59 /* Drivers */,
-				86D8A44F2AEEFED90022D7EB /* Networking */,
 				8667992F2AEDCD5800BB6576 /* Application */,
 				8667991E2AEDABB400BB6576 /* Redux */,
 				866799192AED9D0500BB6576 /* Root */,
@@ -312,20 +310,11 @@
 			path = MovieMagazineTests;
 			sourceTree = "<group>";
 		};
-		86D8A44F2AEEFED90022D7EB /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				8637A8262AF2C97000FB11AE /* NetworkAdapter.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		EEDBF6172AF3D1E000FB7B59 /* Drivers */ = {
 			isa = PBXGroup;
 			children = (
 				86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */,
 				86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */,
-				864AFBA92AF624560099035F /* ValidatorDriver.swift */,
 				869A71472AF7C925009CB08A /* ImageCache.swift */,
 			);
 			path = Drivers;
@@ -449,11 +438,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				864AFBAA2AF624560099035F /* ValidatorDriver.swift in Sources */,
 				869A71442AF7AF81009CB08A /* Observer.swift in Sources */,
 				8667992C2AEDB97B00BB6576 /* LoginPresenter.swift in Sources */,
 				866799242AEDB33A00BB6576 /* Graph.swift in Sources */,
 				866799132AED982E00BB6576 /* NSWindow.swift in Sources */,
+				86C1FAA82AFEE81700080547 /* LoginStatus.swift in Sources */,
 				869A71352AF6C01C009CB08A /* SessionActions.swift in Sources */,
 				866799182AED9C9D00BB6576 /* LoginView.swift in Sources */,
 				866799262AEDB3DE00BB6576 /* LoginState.swift in Sources */,
@@ -471,7 +460,6 @@
 				86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */,
 				869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */,
 				EEDBF6142AF3C4B000FB7B59 /* GraphStore.swift in Sources */,
-				8637A8272AF2C97000FB11AE /* NetworkAdapter.swift in Sources */,
 				869A71312AF6BD54009CB08A /* SessionState.swift in Sources */,
 				866799012AED934400BB6576 /* LoginViewController.swift in Sources */,
 				869A71482AF7C925009CB08A /* ImageCache.swift in Sources */,

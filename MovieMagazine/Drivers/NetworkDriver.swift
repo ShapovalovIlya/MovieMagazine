@@ -61,26 +61,7 @@ private extension NetworkDriver {
             handler: handler
         )
     }
-        
-    func startSession(_ graph: Graph) {
-        
-    }
-
     
-    func processAction(for graph: Graph, withId id: UUID) -> (Result<TokenResponse, Error>) -> Void {
-        { result in
-            switch result {
-            case let .success(tokenResponse):
-                self.log(event: "token request success")
-                graph.sessionState.requestToken = tokenResponse.requestToken
-                graph.sessionState.expiresAt = tokenResponse.expiresAt
-                
-            case let .failure(error):
-                self.log(event: "token request failed")
-                graph.dispatch(AppActions.RaiseError(error: error))
-            }
-        }
-    }
     
     func log(event: String) {
         guard let logger else { return }

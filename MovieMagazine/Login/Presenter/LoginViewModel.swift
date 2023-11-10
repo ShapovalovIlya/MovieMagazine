@@ -8,13 +8,20 @@
 import Foundation
 
 struct LoginViewModel {
-    let loginField: String
-    let isLoginValid: Bool
-    let passwordField: String
-    let isPasswordValid: Bool
-    let isLoginButtonActive: Bool
+    let loginField: FieldState
+    let passwordField: FieldState
+
+    var isLoginButtonActive: Bool {
+        guard 
+            case .valid = loginField,
+            case .valid = passwordField
+        else {
+            return false
+        }
+        return true
+    }
     
-    enum CredentialStatus: Equatable {
+    enum FieldState: Equatable {
         case valid(String)
         case invalid(String)
         case empty

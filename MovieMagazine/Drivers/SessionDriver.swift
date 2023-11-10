@@ -55,31 +55,23 @@ private extension SessionDriver {
                     validationRequest
                 }
             }
-            
         case let .session(id):
             networkOperator.process {
-                
+                if let sessionRequest = composeValidatedSessionRequest(with: id, graph) {
+                    sessionRequest
+                }
             }
-            
         case let .guestSession(id):
             networkOperator.process {
-                
+                request(
+                    .createGuestSession(bearer),
+                    handler: guestSessionHandler(graph.dispatch)
+                )
             }
         }
     }
     
-    func request(
-        _ endpoint: TheMovieDB,
-        id: UUID = .init(),
-        data: Data? = nil,
-        handler: @escaping ResultCompletion
-    ) -> NetworkOperator.Request {
-        return .init(
-            id: id,
-            request: endpoint.makeRequest(with: data),
-            handler: handler
-        )
-    }
+    
     
     func composeValidatedSessionRequest(with id: UUID, _ graph: Graph) -> NetworkOperator.Request? {
         switch networkCoder.encode({
@@ -127,7 +119,7 @@ private extension SessionDriver {
             self?.dispatchResult(
                 dispatcher,
                 type: SessionResponse.self,
-                successAction: { SessionActions.ReceiveSession(session: .guest($0.sessionId)) },
+                successAction: { SessionActions.UpdateSession(session: .guest($0.sessionId)) },
                 failureAction: SessionActions.SessionRequestFailed.init
             )(result)
         }
@@ -139,7 +131,7 @@ private extension SessionDriver {
             self?.dispatchResult(
                 dispatcher,
                 type: SessionResponse.self,
-                successAction: { SessionActions.ReceiveSession(session: .validated($0.sessionId)) },
+                successAction: { SessionActions.UpdateSession(session: .validated($0.sessionId)) },
                 failureAction: SessionActions.SessionRequestFailed.init
             )(result)
         }
@@ -165,6 +157,20 @@ private extension SessionDriver {
                 failureAction: SessionActions.TokenValidationFailed.init
             )(result)
         }
+    }
+    
+    //MARK: - Helpers
+    func request(
+        _ endpoint: TheMovieDB,
+        id: UUID = .init(),
+        data: Data? = nil,
+        handler: @escaping ResultCompletion
+    ) -> NetworkOperator.Request {
+        return .init(
+            id: id,
+            request: endpoint.makeRequest(with: data),
+            handler: handler
+        )
     }
     
     func dispatchResult<T: Decodable>(

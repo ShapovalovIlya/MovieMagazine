@@ -52,7 +52,7 @@ final class GraphTests: XCTestCase {
     func test_LoginNode_LoginAction() {
         sut.loginState.login()
         
-        XCTAssertTrue(action is LoginActions.LoginButtonTap)
+        XCTAssertTrue(action is LoginActions.Login)
     }
     
     func test_LoginNode_CheckCredentialsValidState() {

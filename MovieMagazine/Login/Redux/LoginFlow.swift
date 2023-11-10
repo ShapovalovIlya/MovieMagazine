@@ -18,10 +18,14 @@ enum LoginFlow: Reducer {
     
     mutating func reduce(_ action: Action) {
         switch action {
-        case is LoginActions.LoginButtonTap: self = .token(UUID())
-        case is LoginActions.LoginGuestButtonTap: self = .guestSession(UUID())
+        case is LoginActions.Login: self = .token(UUID())
+        case is LoginActions.LoginGuest: self = .guestSession(UUID())
         case is SessionActions.ReceiveToken: self = .validation(UUID())
         case is SessionActions.TokenValidated: self = .session(UUID())
+        case is SessionActions.UpdateSession: self = .none
+        case is SessionActions.TokenRequestFailed: self = .none
+        case is SessionActions.TokenValidationFailed: self = .none
+        case is SessionActions.SessionRequestFailed: self = .none
         default: break
         }
     }

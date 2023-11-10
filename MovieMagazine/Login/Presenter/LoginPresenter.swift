@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Validator
 
 protocol LoginViewDelegate: AnyObject {
     func render(_ viewModel: LoginViewModel)
@@ -21,6 +22,7 @@ protocol LoginPresenterProtocol: AnyObject {
 
 final class LoginPresenter: LoginPresenterProtocol {
     private let store: GraphStore
+    private let validator: Validator
     
     lazy var asObserver: Observer<Graph> = .init(queue: .main) { [weak self] graph in
         guard let self else {
@@ -33,8 +35,12 @@ final class LoginPresenter: LoginPresenterProtocol {
     weak var delegate: LoginViewDelegate?
     
     //MARK: - init(_:)
-    init(store: GraphStore) {
+    init(
+        store: GraphStore,
+        validator: Validator = .live
+    ) {
         self.store = store
+        self.validator = validator
     }
     
     //MARK: - Public methods
@@ -61,12 +67,29 @@ final class LoginPresenter: LoginPresenterProtocol {
 
 private extension LoginPresenter {
     func mapToProps(_ graph: Graph) -> LoginViewModel {
-        .init(
-            loginField: graph.loginState.username,
-            isLoginValid: graph.loginState.isLoginValid,
-            passwordField: graph.loginState.password,
-            isPasswordValid: graph.loginState.isPasswordValid,
-            isLoginButtonActive: graph.loginState.isCredentialsValid
+        return .init(
+            loginField: validate(username: graph.loginState.username),
+            passwordField: validate(password: graph.loginState.password)
         )
+    }
+    
+    func validate(username: String) -> LoginViewModel.FieldState {
+        if validator.isEmpty(username) {
+            return .empty
+        }
+        if validator.validateName(username) {
+            return .valid(username)
+        }
+        return .invalid(username)
+    }
+    
+    func validate(password: String) -> LoginViewModel.FieldState {
+        if validator.isEmpty(password) {
+            return .empty
+        }
+        if validator.validatePassword(password) {
+            return .valid(password)
+        }
+        return .invalid(password)
     }
 }
