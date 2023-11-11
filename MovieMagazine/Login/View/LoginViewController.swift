@@ -10,13 +10,13 @@ import OSLog
 
 final class LoginViewController: NSViewController {
     private let loginView: LoginViewProtocol
-    private let presenter: LoginPresenterProtocol
+    private let presenter: LoginPresenter
     private var logger: OSLog?
     
     //MARK: - init(_:)
     init(
         loginView: LoginViewProtocol,
-        presenter: LoginPresenterProtocol,
+        presenter: LoginPresenter,
         logger: OSLog? = nil
     ) {
         self.loginView = loginView

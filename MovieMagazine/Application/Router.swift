@@ -9,6 +9,9 @@ import Cocoa
 
 protocol AppRouter: AnyObject {
     func showLoginView()
+    func showHomeView()
+    func showError(_ error: Error)
+    func showLoading()
 }
 
 final class Router: AppRouter {
@@ -26,8 +29,20 @@ final class Router: AppRouter {
     
     //MARK: - Public methods
     func showLoginView() {
-        let loginItem = assembly.makeLoginViewController(router: self)
+        let loginItem = assembly.makeLoginModule(router: self)
         splitViewController.addSplitViewItem(loginItem)
-        splitViewController.title = "Login"
+    }
+    
+    func showHomeView() {
+        let homeItem = assembly.makeHomeModule(router: self)
+        splitViewController.addSplitViewItem(homeItem)
+    }
+    
+    func showError(_ error: Error) {
+        splitViewController.presentError(error)
+    }
+    
+    func showLoading() {
+        
     }
 }

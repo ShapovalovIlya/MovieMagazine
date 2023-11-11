@@ -21,13 +21,13 @@ final class RootPresenterImpl: RootPresenter {
     
     private(set) lazy var asObserver: Observer<Graph> = .init(
         queue: .main
-    ) { [weak self] graph in
-        guard let self else { return .dead }
-        process(graph)
+    ) { /*[weak self]*/ graph in
+  //      guard let self else { return .dead }
+        self.process(graph)
         return .active
     }
     
-    weak var view: RootPresenterDelegate?
+    weak var delegate: RootPresenterDelegate?
     
     //MARK: - init(_:)
     init(
@@ -40,19 +40,25 @@ final class RootPresenterImpl: RootPresenter {
     
     //MARK: - Public methods
     func windowDidLoad() {
-        router.showLoginView()
+        store.subscribe(asObserver)
     }
     
 }
 
-private extension RootPresenter {
+private extension RootPresenterImpl {
     func process(_ graph: Graph) {
         switch graph.loginStatus {
-        case .none: break
+        case .none:
+            router.showLoginView()
+            
         case .inProgress: break
-        case .success: break
+        case .success:
+            router
+            
         case .invalidCredentials: break
-        case .error: break
+            
+        case .error(let error):
+            router.showError(error)
         }
     }
 }

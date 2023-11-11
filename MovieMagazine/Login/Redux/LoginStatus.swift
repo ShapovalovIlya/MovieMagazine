@@ -10,9 +10,9 @@ import Foundation
 enum LoginStatus: Reducer {
     case none
     case inProgress
-    case invalidCredentials
+    case invalidCredentials(Error)
     case success
-    case error
+    case error(Error)
     
     init() { self = .none }
     
@@ -21,9 +21,14 @@ enum LoginStatus: Reducer {
         case is LoginActions.Login: self = .inProgress
         case is LoginActions.LoginGuest: self = .inProgress
         case is SessionActions.UpdateSession: self = .success
-        case is SessionActions.SessionRequestFailed: self = .error
-        case is SessionActions.TokenRequestFailed: self = .error
-        case is SessionActions.TokenValidationFailed: self = .error
+        case let action as SessionActions.SessionRequestFailed:
+            self = .error(action.error)
+            
+        case let action as SessionActions.TokenRequestFailed:
+            self = .error(action.error)
+            
+        case let action as SessionActions.TokenValidationFailed:
+            self = .error(action.error)
             
         default: return
         }

@@ -12,7 +12,7 @@ protocol LoginViewDelegate: AnyObject {
     func render(_ viewModel: LoginViewModel)
 }
 
-protocol LoginPresenterProtocol: AnyObject {
+protocol LoginPresenter: AnyObject {
     func viewDidLoad()
     func viewDidDisappear()
     func loginDidChange(_ login: String)
@@ -20,18 +20,18 @@ protocol LoginPresenterProtocol: AnyObject {
     func loginButtonDidTap()
 }
 
-final class LoginPresenter: LoginPresenterProtocol {
+final class LoginPresenterImpl: LoginPresenter {
     private let store: GraphStore
     private let validator: Validator
     private let router: AppRouter
     
-    lazy var asObserver: Observer<Graph> = .init(queue: .main) { [weak self] graph in
-        guard let self else {
-            return .dead
-        }
+    private(set) lazy var asObserver: Observer<Graph> = .init(
+        queue: .main
+    ) { [weak self] graph in
+        guard let self else { return .dead }
         delegate?.render(mapToProps(graph))
         return .active
-        }
+    }
 
     weak var delegate: LoginViewDelegate?
     
@@ -48,7 +48,7 @@ final class LoginPresenter: LoginPresenterProtocol {
     
     //MARK: - Public methods
     func viewDidLoad() {
-        
+        store.subscribe(asObserver)
     }
     
     func viewDidDisappear() {
@@ -68,7 +68,7 @@ final class LoginPresenter: LoginPresenterProtocol {
     }
 }
 
-private extension LoginPresenter {
+private extension LoginPresenterImpl {
     func mapToProps(_ graph: Graph) -> LoginViewModel {
         return .init(
             loginField: validate(username: graph.loginViewState.username),

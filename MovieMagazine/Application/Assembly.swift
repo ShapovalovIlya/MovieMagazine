@@ -8,12 +8,20 @@
 import Cocoa
 
 protocol AppAssembly: AnyObject {
-    func makeLoginViewController(router: AppRouter) -> NSSplitViewItem
+    func makeLoginModule(router: AppRouter) -> NSSplitViewItem
+    func makeHomeModule(router: AppRouter) -> NSSplitViewItem
+    func loadingScreen() -> NSProgressIndicator
 }
 
 final class Assembly: AppAssembly {
     private let store: GraphStore
     private let splitViewController = NSSplitViewController()
+    
+    private struct Drawing {
+        static let detailRect = NSMakeRect(0, 0, 400, 400)
+        static let sideBarRect = NSMakeRect(0, 0, 200, 400)
+        static let progressRect = NSMakeRect(0, 0, 100, 100)
+    }
     
     //MARK: - init(_:)
     init(store: GraphStore) {
@@ -28,15 +36,29 @@ final class Assembly: AppAssembly {
         )
     }
     
-    func makeLoginViewController(router: AppRouter) -> NSSplitViewItem {
-        let presenter = LoginPresenter(
+    //MARK: - Screens view
+    func makeHomeModule(router: AppRouter) -> NSSplitViewItem {
+        let presenter = HomePresenterImpl(
+            store: store,
+            router: router
+        )
+        let viewController = HomeViewController(
+            presenter: presenter,
+            homeView: HomeViewImpl(frame: Drawing.detailRect),
+            logger: .viewCycle
+        )
+        presenter.view = viewController
+        return NSSplitViewItem(viewController: viewController)
+    }
+    
+    func makeLoginModule(router: AppRouter) -> NSSplitViewItem {
+        let presenter = LoginPresenterImpl(
             store: store,
             router: router,
             validator: .live
         )
-        store.subscribe(presenter.asObserver)
         let viewController = LoginViewController(
-            loginView: LoginView(frame: NSMakeRect(0, 0, 400, 400)),
+            loginView: LoginView(frame: Drawing.detailRect),
             presenter: presenter,
             logger: .viewCycle
         )
@@ -46,24 +68,33 @@ final class Assembly: AppAssembly {
     
     func makeRootWindowController(router: AppRouter) -> NSWindowController {
         let presenter = RootPresenterImpl(store: store, router: router)
-        self.store.subscribe(presenter.asObserver)
         let rootViewController = RootWindowController(
-            window: makeRootWindow(), 
+            window: makeRootWindow(),
             presenter: presenter,
             logger: .viewCycle
         )
-        presenter.view = rootViewController
+        presenter.delegate = rootViewController
         rootViewController.contentViewController = splitViewController
         rootViewController.window?.contentView = splitViewController.splitView
         return rootViewController
     }
-
+    
+    //MARK: - Utility views
+    func loadingScreen() -> NSProgressIndicator {
+        let progress = NSProgressIndicator()
+        progress.style = .spinning
+        progress.usesThreadedAnimation = true
+        progress.frame = Drawing.progressRect
+        progress.startAnimation(nil)
+        return progress
+    }
     
 }
 
 private extension Assembly {
     func makeRootWindow() -> NSWindow {
         let window = NSWindow()
+        window.title = "Movie magazine"
         window.addStyleMasks(
             .closable,
             .miniaturizable,
