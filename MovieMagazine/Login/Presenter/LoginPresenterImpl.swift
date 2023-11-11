@@ -7,6 +7,7 @@
 
 import Foundation
 import Validator
+import Core
 
 protocol LoginViewDelegate: AnyObject {
     func render(_ viewModel: LoginViewModel)

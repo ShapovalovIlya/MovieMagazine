@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Core
 
 @dynamicMemberLookup
 final class GraphStore {
-    private let store: Store
+    private let store: Store<AppState>
     private var observers: [UUID: Observer<Graph>] = .init()
     
     private var graph: Graph
@@ -20,21 +21,13 @@ final class GraphStore {
     private(set) lazy var asObserver: Observer<AppState> = .init(
         queue: self.queue
     ) { [weak self] state in
-            guard let self else { return .dead }
-            queue.async {
-                self.graph = .init(
-                    state: state,
-                    dispatch: self.store.dispatch
-                )
-                self.observers
-                    .map(\.value)
-                    .forEach(self.notify)
-            }
-            return .active
+        guard let self else { return .dead }
+        self.process(state)
+        return .active
     }
     
     //MARK: - init(_:)
-    init(store: @escaping () -> Store) {
+    init(store: @escaping () -> Store<AppState>) {
         self.store = store()
         self.graph = .init(
             state: self.store.state,
@@ -59,6 +52,18 @@ final class GraphStore {
 }
 
 private extension GraphStore {
+    func process(_ state: AppState) {
+        queue.async { [self] in
+            graph = .init(
+                state: state,
+                dispatch: self.store.dispatch
+            )
+            observers
+                .map(\.value)
+                .forEach(self.notify)
+        }
+    }
+    
     func notify(_ observer: Observer<Graph>) {
         observer.queue.async { [graph] in
             let status = observer.observe(graph)

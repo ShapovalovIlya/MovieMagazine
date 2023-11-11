@@ -7,6 +7,7 @@
 
 import Foundation
 import Validator
+import Core
 
 struct LoginViewState: Reducer {
     var password: String

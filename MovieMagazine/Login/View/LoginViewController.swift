@@ -74,7 +74,6 @@ extension LoginViewController: NSTextFieldDelegate {
             
         default: break
         }
-        log(event: #function)
     }
     
 }

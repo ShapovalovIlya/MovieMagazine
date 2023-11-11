@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Core
 
 struct SessionState: Reducer, Codable {
     var requestToken: String

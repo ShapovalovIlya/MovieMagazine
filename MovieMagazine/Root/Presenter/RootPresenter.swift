@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Core
 
 protocol RootPresenter: AnyObject {
     func windowDidLoad()
@@ -53,7 +54,7 @@ private extension RootPresenterImpl {
             
         case .inProgress: break
         case .success:
-            router
+            router.showHomeView()
             
         case .invalidCredentials: break
             

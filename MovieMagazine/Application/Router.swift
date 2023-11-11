@@ -29,13 +29,16 @@ final class Router: AppRouter {
     
     //MARK: - Public methods
     func showLoginView() {
+        if checkIsPresented(LoginViewController.self) {
+            return
+        }
         let loginItem = assembly.makeLoginModule(router: self)
-        splitViewController.addSplitViewItem(loginItem)
+        splitViewController.splitViewItems = [loginItem]
     }
     
     func showHomeView() {
         let homeItem = assembly.makeHomeModule(router: self)
-        splitViewController.addSplitViewItem(homeItem)
+        splitViewController.splitViewItems = [homeItem]
     }
     
     func showError(_ error: Error) {
@@ -44,5 +47,15 @@ final class Router: AppRouter {
     
     func showLoading() {
         
+    }
+}
+
+private extension Router {
+    //MARK: - Private methods
+    func checkIsPresented(_ someClass: AnyClass) -> Bool {
+        splitViewController
+            .splitViewItems
+            .map(\.viewController)
+            .contains { $0.isKind(of: someClass) }
     }
 }

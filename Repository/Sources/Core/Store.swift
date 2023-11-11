@@ -7,25 +7,25 @@
 
 import Foundation
 
-protocol Reducer {
+public protocol Reducer {
     mutating func reduce(_ action: Action)
 }
 
-protocol Action {}
+public protocol Action {}
 
 @dynamicMemberLookup
-final class Store {
-    typealias Reducer = (inout AppState, Action) -> Void
+public final class Store<State> {
+    public typealias Reducer = (inout State, Action) -> Void
     
     //MARK: - Private properties
-    private(set) var state: AppState
-    private let reducer: Reducer
-    private let queue: DispatchQueue = .init(label: "Store queue")
-    private var observers: [UUID: Observer<AppState>] = .init()
+    public private(set) var state: State
+    public let reducer: Reducer
+    let queue: DispatchQueue = .init(label: "Store queue")
+    var observers: [UUID: Observer<State>] = .init()
     
     //MARK: - init(_:)
-    init(
-        initial state: AppState,
+    public init(
+        initial state: State,
         reducer: @escaping Reducer
     ) {
         self.state = state
@@ -33,29 +33,27 @@ final class Store {
     }
     
     //MARK: - Public methods
-    @inlinable
-    func dispatch(_ action: Action) {
+    public func dispatch(_ action: Action) {
         queue.sync {
             reducer(&state, action)
             observers.map(\.value).forEach(notify)
         }
     }
     
-    @inlinable
-    func subscribe(_ observer: Observer<AppState>) {
+    public func subscribe(_ observer: Observer<State>) {
         queue.sync {
             observers.updateValue(observer, forKey: observer.id)
             notify(observer)
         }
     }
     
-    subscript<T>(dynamicMember keyPath: KeyPath<AppState, T>) -> T {
+    public subscript<T>(dynamicMember keyPath: KeyPath<State, T>) -> T {
         state[keyPath: keyPath]
     }
 }
 
 private extension Store {
-    func notify(_ observer: Observer<AppState>) {
+    func notify(_ observer: Observer<State>) {
         observer.queue.async { [state] in
             let status = observer.observe(state)
             

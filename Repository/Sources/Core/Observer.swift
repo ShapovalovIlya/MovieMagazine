@@ -7,12 +7,12 @@
 
 import Foundation
 
-final class Observer<State> {
-    let id: UUID = .init()
-    let queue: DispatchQueue
-    let observe: (State) -> Status
+public final class Observer<State> {
+    public let id: UUID = .init()
+    public let queue: DispatchQueue
+    public let observe: (State) -> Status
     
-    init(
+    public init(
         queue: DispatchQueue = .global(),
         observe: @escaping (State) -> Status
     ) {
@@ -21,7 +21,7 @@ final class Observer<State> {
     }
 }
 
-extension Observer {
+public extension Observer {
     enum Status: Equatable {
         case active
         case dead
@@ -30,13 +30,13 @@ extension Observer {
 }
 
 extension Observer: Hashable {
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         ObjectIdentifier(self).hash(into: &hasher)
     }
 }
 
 extension Observer: Equatable {
-    static func ==(lhs: Observer, rhs: Observer) -> Bool {
+    public static func ==(lhs: Observer, rhs: Observer) -> Bool {
         ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
     }
 }

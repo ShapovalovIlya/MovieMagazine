@@ -7,6 +7,7 @@
 
 import Cocoa
 import OSLog
+import Core
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     let store: GraphStore

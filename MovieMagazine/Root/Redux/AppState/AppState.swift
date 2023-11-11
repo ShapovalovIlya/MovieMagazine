@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Core
 
 struct AppState: Reducer {
     var loginViewState: LoginViewState

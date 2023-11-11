@@ -12,11 +12,13 @@ let package = Package(
         .library(name: "NetworkOperator", targets: ["NetworkOperator"]),
         .library(name: "Endpoint", targets: ["Endpoint"]),
         .library(name: "SwiftFP", targets: ["SwiftFP"]),
-        .library(name: "Validator", targets: ["Validator"])
+        .library(name: "Validator", targets: ["Validator"]),
+        .library(name: "Core", targets: ["Core"]),
     ],
     targets: [
         .target(name: "SwiftFP"),
         .target(name: "Validator"),
+        .target(name: "Core"),
         .target(
             name: "NetworkOperator",
             dependencies: [

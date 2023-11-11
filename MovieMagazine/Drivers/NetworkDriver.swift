@@ -9,6 +9,7 @@ import Foundation
 import OSLog
 import Endpoint
 import NetworkOperator
+import Core
 
 typealias ResultCompletion = (Result<NetworkOperator.Response, Error>) -> Void
 

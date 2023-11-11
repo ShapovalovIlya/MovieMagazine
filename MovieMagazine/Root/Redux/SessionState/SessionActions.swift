@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Core
 
 enum SessionActions {
     struct ReceiveToken: Action {

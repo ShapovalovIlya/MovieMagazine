@@ -9,6 +9,7 @@ import Foundation
 import NetworkOperator
 import Endpoint
 import OSLog
+import Core
 
 final class SessionDriver {
     //MARK: - Private properties
