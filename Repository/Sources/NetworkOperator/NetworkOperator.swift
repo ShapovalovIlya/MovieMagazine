@@ -68,11 +68,13 @@ private extension NetworkOperator {
                 self.completedRequest.insert(request.id)
                 if let error {
                     currentRequest.request.handler(.failure(error))
+                    return
                 }
                 guard let data, let response else {
                     preconditionFailure("Result response not found")
                 }
                 currentRequest.request.handler(.success((data, response)))
+                return
             }
         }
     }

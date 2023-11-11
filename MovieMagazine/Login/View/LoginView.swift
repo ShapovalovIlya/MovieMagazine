@@ -16,12 +16,20 @@ protocol LoginViewProtocol: NSView {
     var loginTextField: NSTextField { get }
     var passwordTextField: NSTextField { get }
     var loginButton: NSButton { get }
+    var loginGuestButton: NSButton { get }
 }
 
 final class LoginView: NSView, LoginViewProtocol {
-    let loginTextField: NSTextField = makeTextField("Login", tag: 200)
-    let passwordTextField: NSTextField = makeTextField("Password", tag: 201)
+    let loginTextField: NSTextField = makeTextField(
+        "Login",
+        tag: .loginTextField
+    )
+    let passwordTextField: NSTextField = makeTextField(
+        "Password",
+        tag: .passwordTextField
+    )
     let loginButton: NSButton = makeButton("Login")
+    let loginGuestButton: NSButton = makeButton("Login as guest")
     
     //MARK: - init(_:)
     override init(frame frameRect: NSRect) {
@@ -30,7 +38,8 @@ final class LoginView: NSView, LoginViewProtocol {
         addSubviews(
             loginTextField,
             passwordTextField,
-            loginButton
+            loginButton,
+            loginGuestButton
         )
         setConstraints()
     }
@@ -39,17 +48,14 @@ final class LoginView: NSView, LoginViewProtocol {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 
 private extension LoginView {
-    static func makeTextField(_ placeholder: String, tag: Int) -> NSTextField {
+    static func makeTextField(_ placeholder: String, tag: TextFieldType) -> NSTextField {
         let textField = NSTextField()
-        textField.tag = tag
+        textField.tag = tag.rawValue
         textField.isEditable = true
         textField.placeholderString = placeholder
-        textField.wantsLayer = true
         textField.bezelStyle = .roundedBezel
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -59,34 +65,42 @@ private extension LoginView {
         let button = NSButton()
         button.setButtonType(.momentaryLight)
         button.title = title
-        button.wantsLayer = true
-        button.bezelStyle = .push
+        button.bezelStyle = .flexiblePush
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
     
     struct Drawing {
-        static let textFieldWight: CGFloat = 200
-        static let textFieldHeight: CGFloat = 30
+        static let contentWight: CGFloat = 200
+        static let contentHeight: CGFloat = 40
         static let contentSpacing: CGFloat = 10
     }
     
     func setConstraints() {
         NSLayoutConstraint.activate([
+            //MARK: - loginTextField
             loginTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
             loginTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
-            loginTextField.widthAnchor.constraint(equalToConstant: Drawing.textFieldWight),
-            loginTextField.heightAnchor.constraint(equalToConstant: Drawing.textFieldHeight),
+            loginTextField.widthAnchor.constraint(equalToConstant: Drawing.contentWight),
+            loginTextField.heightAnchor.constraint(equalToConstant: Drawing.contentHeight),
             
+            //MARK: - passwordTextField
             passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: Drawing.contentSpacing),
             passwordTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            passwordTextField.widthAnchor.constraint(equalToConstant: Drawing.textFieldWight),
-            passwordTextField.heightAnchor.constraint(equalToConstant: Drawing.textFieldHeight),
+            passwordTextField.widthAnchor.constraint(equalToConstant: Drawing.contentWight),
+            passwordTextField.heightAnchor.constraint(equalToConstant: Drawing.contentHeight),
             
+            //MARK: - Login button
             loginButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Drawing.contentSpacing),
-            loginButton.widthAnchor.constraint(equalToConstant: Drawing.textFieldWight),
-            loginButton.heightAnchor.constraint(equalToConstant: 40)
+            loginButton.widthAnchor.constraint(equalToConstant: Drawing.contentWight),
+            loginButton.heightAnchor.constraint(equalToConstant: Drawing.contentHeight),
+            
+            //MARK: - Login guest button
+            loginGuestButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loginGuestButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: Drawing.contentSpacing),
+            loginGuestButton.widthAnchor.constraint(equalToConstant: Drawing.contentWight),
+            loginGuestButton.heightAnchor.constraint(equalToConstant: Drawing.contentHeight)
         ])
     }
 }

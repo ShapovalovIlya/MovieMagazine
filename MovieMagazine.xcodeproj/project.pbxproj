@@ -21,7 +21,7 @@
 		866799242AEDB33A00BB6576 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799232AEDB33A00BB6576 /* Graph.swift */; };
 		866799262AEDB3DE00BB6576 /* LoginViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799252AEDB3DE00BB6576 /* LoginViewState.swift */; };
 		866799282AEDB3F200BB6576 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799272AEDB3F200BB6576 /* AppState.swift */; };
-		8667992A2AEDB4A400BB6576 /* LoginNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799292AEDB4A400BB6576 /* LoginNode.swift */; };
+		8667992A2AEDB4A400BB6576 /* LoginViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799292AEDB4A400BB6576 /* LoginViewNode.swift */; };
 		8667992C2AEDB97B00BB6576 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667992B2AEDB97B00BB6576 /* LoginPresenter.swift */; };
 		8667992E2AEDC6D400BB6576 /* LoginActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667992D2AEDC6D400BB6576 /* LoginActions.swift */; };
 		869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A712B2AF6B823009CB08A /* RootPresenter.swift */; };
@@ -79,7 +79,7 @@
 		866799232AEDB33A00BB6576 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		866799252AEDB3DE00BB6576 /* LoginViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewState.swift; sourceTree = "<group>"; };
 		866799272AEDB3F200BB6576 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		866799292AEDB4A400BB6576 /* LoginNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNode.swift; sourceTree = "<group>"; };
+		866799292AEDB4A400BB6576 /* LoginViewNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNode.swift; sourceTree = "<group>"; };
 		8667992B2AEDB97B00BB6576 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		8667992D2AEDC6D400BB6576 /* LoginActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginActions.swift; sourceTree = "<group>"; };
 		869A712B2AF6B823009CB08A /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				8667992D2AEDC6D400BB6576 /* LoginActions.swift */,
 				866799252AEDB3DE00BB6576 /* LoginViewState.swift */,
 				86C1FAA72AFEE81700080547 /* LoginStatus.swift */,
-				866799292AEDB4A400BB6576 /* LoginNode.swift */,
+				866799292AEDB4A400BB6576 /* LoginViewNode.swift */,
 				869A71492AF7CCC1009CB08A /* LoginFlow.swift */,
 			);
 			path = Redux;
@@ -471,7 +471,7 @@
 				8667992E2AEDC6D400BB6576 /* LoginActions.swift in Sources */,
 				86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */,
 				8667991D2AEDA8D500BB6576 /* Store.swift in Sources */,
-				8667992A2AEDB4A400BB6576 /* LoginNode.swift in Sources */,
+				8667992A2AEDB4A400BB6576 /* LoginViewNode.swift in Sources */,
 				869A71332AF6BF48009CB08A /* SessionNode.swift in Sources */,
 				8637A8482AF2E2CC00FB11AE /* OSLog.swift in Sources */,
 				8667991B2AED9EB900BB6576 /* NSView.swift in Sources */,

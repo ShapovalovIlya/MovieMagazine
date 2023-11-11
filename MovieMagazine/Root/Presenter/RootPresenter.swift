@@ -23,7 +23,7 @@ final class RootPresenterImpl: RootPresenter {
         queue: .main
     ) { [weak self] graph in
         guard let self else { return .dead }
-        
+        process(graph)
         return .active
     }
     
@@ -43,4 +43,16 @@ final class RootPresenterImpl: RootPresenter {
         router.showLoginView()
     }
     
+}
+
+private extension RootPresenter {
+    func process(_ graph: Graph) {
+        switch graph.loginStatus {
+        case .none: break
+        case .inProgress: break
+        case .success: break
+        case .invalidCredentials: break
+        case .error: break
+        }
+    }
 }

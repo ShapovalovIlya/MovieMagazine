@@ -11,6 +11,7 @@ import OSLog
 final class AppDelegate: NSObject, NSApplicationDelegate {
     let store: GraphStore
     let networkDriver: NetworkDriver
+    let sessionDriver: SessionDriver
     
     //MARK: - init(_:)
     override init() {
@@ -26,9 +27,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         self.networkDriver = .init(logger: .system)
+        self.sessionDriver = .init(logger: .system)
         super.init()
         
         store.subscribe(networkDriver.asObserver)
+        store.subscribe(sessionDriver.asObserver)
     }
 
     //MARK: - Public methods

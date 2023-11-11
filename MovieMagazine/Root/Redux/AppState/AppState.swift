@@ -8,27 +8,28 @@
 import Foundation
 
 struct AppState: Reducer {
-    var loginState: LoginViewState
+    var loginViewState: LoginViewState
+    var loginStatus: LoginStatus
     var sessionState: SessionState
     var loginFlow: LoginFlow
-    var error: Error?
     
     //MARK: - init(_:)
     init(
-        loginState: LoginViewState = .init(),
+        loginViewState: LoginViewState = .init(),
+        loginStatus: LoginStatus = .init(),
         sessionState: SessionState = .init(),
-        loginFlow: LoginFlow = .init(),
-        error: Error? = nil
+        loginFlow: LoginFlow = .init()
     ) {
-        self.loginState = loginState
+        self.loginViewState = loginViewState
+        self.loginStatus = loginStatus
         self.sessionState = sessionState
         self.loginFlow = loginFlow
-        self.error = error
     }
     
     //MARK: - Reducer
     mutating func reduce(_ action: Action) {
-        loginState.reduce(action)
+        loginViewState.reduce(action)
+        loginStatus.reduce(action)
         sessionState.reduce(action)
         loginFlow.reduce(action)
     }

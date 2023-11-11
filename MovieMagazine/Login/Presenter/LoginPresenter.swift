@@ -56,23 +56,23 @@ final class LoginPresenter: LoginPresenterProtocol {
     }
     
     func loginDidChange(_ login: String) {
-        store.loginState.username = login
+        store.loginViewState.username = login
     }
     
     func passwordDidChange(_ password: String) {
-        store.loginState.password = password
+        store.loginViewState.password = password
     }
     
     func loginButtonDidTap() {
-        store.loginState.login()
+        store.loginViewState.login()
     }
 }
 
 private extension LoginPresenter {
     func mapToProps(_ graph: Graph) -> LoginViewModel {
         return .init(
-            loginField: validate(username: graph.loginState.username),
-            passwordField: validate(password: graph.loginState.password)
+            loginField: validate(username: graph.loginViewState.username),
+            passwordField: validate(password: graph.loginViewState.password)
         )
     }
     

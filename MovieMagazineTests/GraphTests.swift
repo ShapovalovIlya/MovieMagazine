@@ -32,9 +32,9 @@ final class GraphTests: XCTestCase {
         XCTAssertTrue(action is MockAction)
     }
     
-    //MARK: - LoginNode
+    //MARK: - LoginViewNode
     func test_LoginNode_DispatchLogin() {
-        sut.loginState.username = "Baz"
+        sut.loginViewState.username = "Baz"
         
         let action = self.action as? LoginActions.UpdateLogin
         XCTAssertNotNil(action)
@@ -42,7 +42,7 @@ final class GraphTests: XCTestCase {
     }
     
     func test_LoginNode_DispatchPassword() {
-        sut.loginState.password = "Baz"
+        sut.loginViewState.password = "Baz"
         
         let action = self.action as? LoginActions.UpdatePassword
         XCTAssertNotNil(action)
@@ -50,7 +50,7 @@ final class GraphTests: XCTestCase {
     }
     
     func test_LoginNode_LoginAction() {
-        sut.loginState.login()
+        sut.loginViewState.login()
         
         XCTAssertTrue(action is LoginActions.Login)
     }
@@ -65,8 +65,8 @@ final class GraphTests: XCTestCase {
             dispatch: { _ in }
         )
         
-        XCTAssertEqual(sut.loginState.username, "Baz")
-        XCTAssertEqual(sut.loginState.password, "Baz")
+        XCTAssertEqual(sut.loginViewState.username, "Baz")
+        XCTAssertEqual(sut.loginViewState.password, "Baz")
         XCTAssertTrue(sut.loginState.isLoginValid)
         XCTAssertTrue(sut.loginState.isPasswordValid)
         XCTAssertTrue(sut.loginState.isCredentialsValid)
@@ -82,8 +82,8 @@ final class GraphTests: XCTestCase {
             dispatch: { _ in }
         )
         
-        XCTAssertEqual(sut.loginState.username, "Baz")
-        XCTAssertEqual(sut.loginState.password, "Baz")
+        XCTAssertEqual(sut.loginViewState.username, "Baz")
+        XCTAssertEqual(sut.loginViewState.password, "Baz")
         XCTAssertFalse(sut.loginState.isLoginValid)
         XCTAssertFalse(sut.loginState.isPasswordValid)
         XCTAssertFalse(sut.loginState.isCredentialsValid)
@@ -99,8 +99,8 @@ final class GraphTests: XCTestCase {
             dispatch: { _ in }
         )
         
-        XCTAssertEqual(sut.loginState.username, "")
-        XCTAssertEqual(sut.loginState.password, "")
+        XCTAssertEqual(sut.loginViewState.username, "")
+        XCTAssertEqual(sut.loginViewState.password, "")
         XCTAssertTrue(sut.loginState.isLoginValid)
         XCTAssertTrue(sut.loginState.isPasswordValid)
         XCTAssertFalse(sut.loginState.isCredentialsValid)

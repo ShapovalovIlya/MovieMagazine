@@ -97,8 +97,8 @@ private extension SessionDriver {
     func composeTokenValidation(with id: UUID, _ graph: Graph) -> NetworkOperator.Request? {
         switch networkCoder.encode({
             TokenRequest(
-                username: graph.loginState.username,
-                password: graph.loginState.password,
+                username: graph.loginViewState.username,
+                password: graph.loginViewState.password,
                 requestToken: graph.sessionState.requestToken
             )
         }) {

@@ -33,7 +33,7 @@ final class ValidatorDriverTests: XCTestCase {
         let sut = ValidatorDriver(
             validator: .init(isEmpty: { _ in true })
         )
-        graph.loginState.username = ""
+        graph.loginViewState.username = ""
         
         _ = sut.asObserver.observe(graph)
         
@@ -45,7 +45,7 @@ final class ValidatorDriverTests: XCTestCase {
         let sut = ValidatorDriver(
             validator: .init(validateName: { _ in false })
         )
-        graph.loginState.username = "Baz"
+        graph.loginViewState.username = "Baz"
         
         _ = sut.asObserver.observe(graph)
         
