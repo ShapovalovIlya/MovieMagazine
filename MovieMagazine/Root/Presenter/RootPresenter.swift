@@ -17,6 +17,7 @@ protocol RootPresenterDelegate: AnyObject {
 
 final class RootPresenterImpl: RootPresenter {
     private let store: GraphStore
+    private let router: AppRouter
     
     private(set) lazy var asObserver: Observer<Graph> = .init(
         queue: .main
@@ -28,12 +29,18 @@ final class RootPresenterImpl: RootPresenter {
     
     weak var view: RootPresenterDelegate?
     
-    init(store: GraphStore) {
+    //MARK: - init(_:)
+    init(
+        store: GraphStore,
+        router: AppRouter
+    ) {
         self.store = store
+        self.router = router
     }
     
+    //MARK: - Public methods
     func windowDidLoad() {
-        
+        router.showLoginView()
     }
     
 }

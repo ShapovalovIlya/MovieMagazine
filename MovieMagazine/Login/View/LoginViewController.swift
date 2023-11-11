@@ -6,19 +6,24 @@
 //
 
 import Cocoa
+import OSLog
 
 final class LoginViewController: NSViewController {
     private let loginView: LoginViewProtocol
     private let presenter: LoginPresenterProtocol
+    private var logger: OSLog?
     
     //MARK: - init(_:)
     init(
         loginView: LoginViewProtocol,
-        presenter: LoginPresenterProtocol
+        presenter: LoginPresenterProtocol,
+        logger: OSLog? = nil
     ) {
         self.loginView = loginView
         self.presenter = presenter
+        self.logger = logger
         super.init(nibName: nil, bundle: nil)
+        log(event: #function)
     }
     
     @available(*, unavailable)
@@ -30,6 +35,7 @@ final class LoginViewController: NSViewController {
     override func loadView() {
         self.view = loginView
         setDelegate(self)
+        log(event: #function)
     }
     
     override func viewDidLoad() {
@@ -37,19 +43,21 @@ final class LoginViewController: NSViewController {
         presenter.viewDidLoad()
         loginView.loginButton.target = self
         loginView.loginButton.action = #selector(loginButtonTap)
+        log(event: #function)
     }
 
     @objc func loginButtonTap() {
         presenter.loginButtonDidTap()
+        log(event: #function)
     }
 }
 
 //MARK: - LoginViewDelegate
 extension LoginViewController: LoginViewDelegate {
     func render(_ viewModel: LoginViewModel) {
-        print("render!")
         self.loginView.loginTextField.stringValue = viewModel.loginField.value
         self.loginView.passwordTextField.stringValue = viewModel.passwordField.value
+        log(event: #function)
     }
 }
 
@@ -66,6 +74,7 @@ extension LoginViewController: NSTextFieldDelegate {
             
         default: break
         }
+        log(event: #function)
     }
     
 }
@@ -74,6 +83,11 @@ private extension LoginViewController {
     func setDelegate(_ obj: NSTextFieldDelegate) {
         loginView.loginTextField.delegate = obj
         loginView.passwordTextField.delegate = obj
+    }
+    
+    func log(event: String) {
+        guard let logger else { return }
+        os_log("LoginViewController:\t%@", log: logger, type: .debug, event)
     }
 }
 

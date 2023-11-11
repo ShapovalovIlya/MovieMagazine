@@ -10,18 +10,15 @@ import OSLog
 
 final class RootWindowController: NSWindowController {
     //MARK: - Private properties
-    private let assembly: Assembly
     private let logger: OSLog?
     private let presenter: RootPresenter
     
     //MARK: - init(_:)
     init(
-        assembly: Assembly,
         window: NSWindow,
         presenter: RootPresenter,
         logger: OSLog? = nil
     ) {
-        self.assembly = assembly
         self.presenter = presenter
         self.logger = logger
         super.init(window: window)
@@ -40,11 +37,8 @@ final class RootWindowController: NSWindowController {
     override func loadWindow() {
         window?.windowController = self
         
-        let viewController = assembly.makeLoginViewController()
-        self.contentViewController = viewController
-        self.window?.contentView = viewController.view
-        
         log(event: #function)
+        windowDidLoad()
     }
     
     override func windowDidLoad() {
@@ -74,6 +68,6 @@ private extension RootWindowController {
     //MARK: - Private methods
     func log(event: String) {
         guard let logger else { return }
-            os_log("RootWindowController %@", log: logger, type: .debug, event)
+        os_log("RootWindowController:\t %@", log: logger, type: .debug, event)
     }
 }

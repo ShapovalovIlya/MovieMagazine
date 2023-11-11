@@ -23,6 +23,7 @@ protocol LoginPresenterProtocol: AnyObject {
 final class LoginPresenter: LoginPresenterProtocol {
     private let store: GraphStore
     private let validator: Validator
+    private let router: AppRouter
     
     lazy var asObserver: Observer<Graph> = .init(queue: .main) { [weak self] graph in
         guard let self else {
@@ -37,9 +38,11 @@ final class LoginPresenter: LoginPresenterProtocol {
     //MARK: - init(_:)
     init(
         store: GraphStore,
-        validator: Validator = .live
+        router: AppRouter,
+        validator: Validator
     ) {
         self.store = store
+        self.router = router
         self.validator = validator
     }
     

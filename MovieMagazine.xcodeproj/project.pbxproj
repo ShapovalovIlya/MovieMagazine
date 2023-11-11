@@ -19,7 +19,7 @@
 		8667991B2AED9EB900BB6576 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991A2AED9EB900BB6576 /* NSView.swift */; };
 		8667991D2AEDA8D500BB6576 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991C2AEDA8D500BB6576 /* Store.swift */; };
 		866799242AEDB33A00BB6576 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799232AEDB33A00BB6576 /* Graph.swift */; };
-		866799262AEDB3DE00BB6576 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799252AEDB3DE00BB6576 /* LoginState.swift */; };
+		866799262AEDB3DE00BB6576 /* LoginViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799252AEDB3DE00BB6576 /* LoginViewState.swift */; };
 		866799282AEDB3F200BB6576 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799272AEDB3F200BB6576 /* AppState.swift */; };
 		8667992A2AEDB4A400BB6576 /* LoginNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799292AEDB4A400BB6576 /* LoginNode.swift */; };
 		8667992C2AEDB97B00BB6576 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667992B2AEDB97B00BB6576 /* LoginPresenter.swift */; };
@@ -38,6 +38,7 @@
 		869A714A2AF7CCC1009CB08A /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71492AF7CCC1009CB08A /* LoginFlow.swift */; };
 		86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */; };
 		86C1FAA82AFEE81700080547 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAA72AFEE81700080547 /* LoginStatus.swift */; };
+		86C1FAAE2AFFAE6800080547 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAAD2AFFAE6800080547 /* Router.swift */; };
 		86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */; };
 		86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
@@ -76,7 +77,7 @@
 		8667991C2AEDA8D500BB6576 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		8667991F2AEDABC500BB6576 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		866799232AEDB33A00BB6576 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
-		866799252AEDB3DE00BB6576 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		866799252AEDB3DE00BB6576 /* LoginViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewState.swift; sourceTree = "<group>"; };
 		866799272AEDB3F200BB6576 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		866799292AEDB4A400BB6576 /* LoginNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNode.swift; sourceTree = "<group>"; };
 		8667992B2AEDB97B00BB6576 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		86A29A082AF691170092BBC6 /* MovieMagazine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieMagazine.xctestplan; sourceTree = "<group>"; };
 		86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDriver.swift; sourceTree = "<group>"; };
 		86C1FAA72AFEE81700080547 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
+		86C1FAAD2AFFAE6800080547 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -132,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				8667992D2AEDC6D400BB6576 /* LoginActions.swift */,
-				866799252AEDB3DE00BB6576 /* LoginState.swift */,
+				866799252AEDB3DE00BB6576 /* LoginViewState.swift */,
 				86C1FAA72AFEE81700080547 /* LoginStatus.swift */,
 				866799292AEDB4A400BB6576 /* LoginNode.swift */,
 				869A71492AF7CCC1009CB08A /* LoginFlow.swift */,
@@ -245,6 +247,7 @@
 				866799142AED9ADE00BB6576 /* Assembly.swift */,
 				8667990D2AED960000BB6576 /* main.swift */,
 				866798FE2AED934400BB6576 /* AppDelegate.swift */,
+				86C1FAAD2AFFAE6800080547 /* Router.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -267,11 +270,8 @@
 		869A712E2AF6BD1D009CB08A /* Redux */ = {
 			isa = PBXGroup;
 			children = (
-				866799272AEDB3F200BB6576 /* AppState.swift */,
-				869A71302AF6BD54009CB08A /* SessionState.swift */,
-				869A71322AF6BF48009CB08A /* SessionNode.swift */,
-				869A71342AF6C01C009CB08A /* SessionActions.swift */,
-				869A713C2AF6CAD9009CB08A /* AppActions.swift */,
+				86C1FAAA2AFFA72800080547 /* AppState */,
+				86C1FAA92AFFA65500080547 /* SessionState */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -299,6 +299,25 @@
 				869A71422AF6E701009CB08A /* Session.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		86C1FAA92AFFA65500080547 /* SessionState */ = {
+			isa = PBXGroup;
+			children = (
+				869A71302AF6BD54009CB08A /* SessionState.swift */,
+				869A71322AF6BF48009CB08A /* SessionNode.swift */,
+				869A71342AF6C01C009CB08A /* SessionActions.swift */,
+			);
+			path = SessionState;
+			sourceTree = "<group>";
+		};
+		86C1FAAA2AFFA72800080547 /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				869A713C2AF6CAD9009CB08A /* AppActions.swift */,
+				866799272AEDB3F200BB6576 /* AppState.swift */,
+			);
+			path = AppState;
 			sourceTree = "<group>";
 		};
 		86D8A4342AEE5E1C0022D7EB /* MovieMagazineTests */ = {
@@ -445,7 +464,7 @@
 				86C1FAA82AFEE81700080547 /* LoginStatus.swift in Sources */,
 				869A71352AF6C01C009CB08A /* SessionActions.swift in Sources */,
 				866799182AED9C9D00BB6576 /* LoginView.swift in Sources */,
-				866799262AEDB3DE00BB6576 /* LoginState.swift in Sources */,
+				866799262AEDB3DE00BB6576 /* LoginViewState.swift in Sources */,
 				86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */,
 				869A713D2AF6CAD9009CB08A /* AppActions.swift in Sources */,
 				866799152AED9ADE00BB6576 /* Assembly.swift in Sources */,
@@ -467,6 +486,7 @@
 				866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */,
 				869A714A2AF7CCC1009CB08A /* LoginFlow.swift in Sources */,
 				8667990E2AED960000BB6576 /* main.swift in Sources */,
+				86C1FAAE2AFFAE6800080547 /* Router.swift in Sources */,
 				869A71382AF6C0CF009CB08A /* Token.swift in Sources */,
 				869A71432AF6E701009CB08A /* Session.swift in Sources */,
 				869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */,

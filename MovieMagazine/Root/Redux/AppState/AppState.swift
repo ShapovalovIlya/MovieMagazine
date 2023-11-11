@@ -8,14 +8,14 @@
 import Foundation
 
 struct AppState: Reducer {
-    var loginState: LoginState
+    var loginState: LoginViewState
     var sessionState: SessionState
     var loginFlow: LoginFlow
     var error: Error?
     
     //MARK: - init(_:)
     init(
-        loginState: LoginState = .init(),
+        loginState: LoginViewState = .init(),
         sessionState: SessionState = .init(),
         loginFlow: LoginFlow = .init(),
         error: Error? = nil

@@ -56,7 +56,7 @@ final class GraphTests: XCTestCase {
     }
     
     func test_LoginNode_CheckCredentialsValidState() {
-        let mockLoginState = LoginState(
+        let mockLoginState = LoginViewState(
             email: .valid("Baz"),
             password: .valid("Baz")
         )
@@ -73,7 +73,7 @@ final class GraphTests: XCTestCase {
     }
     
     func test_LoginNode_CheckCredentialsInvalidState() {
-        let mockLoginState = LoginState(
+        let mockLoginState = LoginViewState(
             email: .invalid("Baz"),
             password: .invalid("Baz")
         )
@@ -90,7 +90,7 @@ final class GraphTests: XCTestCase {
     }
     
     func test_LoginNode_CheckCredentialsEmptyState() {
-        let mockLoginState = LoginState(
+        let mockLoginState = LoginViewState(
             email: .empty,
             password: .empty
         )

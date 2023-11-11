@@ -22,6 +22,7 @@ final class SessionDriver {
         queue: queue
     ) { [weak self] graph in
         guard let self else { return .dead }
+        self.process(graph)
         return .active
     }
     
@@ -65,6 +66,7 @@ private extension SessionDriver {
             networkOperator.process {
                 request(
                     .createGuestSession(bearer),
+                    id: id,
                     handler: guestSessionHandler(graph.dispatch)
                 )
             }
@@ -104,6 +106,7 @@ private extension SessionDriver {
             return request(
                 .createSessionWithCredentials(bearer),
                 id: id,
+                data: data,
                 handler: validationHandler(graph.dispatch)
             )
             

@@ -17,7 +17,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         self.store = .init {
             Store(initial: AppState()) { state, action in
                 os_log(
-                    "Store %@",
+                    "Store:\t%@",
                     log: .system,
                     type: .debug,
                     String(describing: action)
@@ -34,7 +34,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     //MARK: - Public methods
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let assembly = Assembly(store: store)
-        let rootWindowController = assembly.makeRootWindowController()
+        let router = assembly.makeRouter()
+        let rootWindowController = assembly.makeRootWindowController(router: router)
         rootWindowController.showWindow(nil)
     }
 

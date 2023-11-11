@@ -1,5 +1,5 @@
 //
-//  LoginState.swift
+//  LoginViewState.swift
 //  MovieMagazine
 //
 //  Created by Илья Шаповалов on 29.10.2023.
@@ -8,7 +8,7 @@
 import Foundation
 import Validator
 
-struct LoginState: Reducer {
+struct LoginViewState: Reducer {
     var password: String
     var username: String
     
