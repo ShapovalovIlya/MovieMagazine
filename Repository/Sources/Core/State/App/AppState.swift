@@ -6,16 +6,16 @@
 //
 
 import Foundation
-import Core
+import Redux
 
-struct AppState: Reducer {
-    var loginViewState: LoginViewState
-    var loginStatus: LoginStatus
-    var sessionState: SessionState
-    var loginFlow: LoginFlow
+public struct AppState: Reducer {
+    public var loginViewState: LoginViewState
+    public var loginStatus: LoginStatus
+    public var sessionState: SessionState
+    public var loginFlow: LoginFlow
     
     //MARK: - init(_:)
-    init(
+    public init(
         loginViewState: LoginViewState = .init(),
         loginStatus: LoginStatus = .init(),
         sessionState: SessionState = .init(),
@@ -28,7 +28,7 @@ struct AppState: Reducer {
     }
     
     //MARK: - Reducer
-    mutating func reduce(_ action: Action) {
+    public mutating func reduce(_ action: Action) {
         loginViewState.reduce(action)
         loginStatus.reduce(action)
         sessionState.reduce(action)

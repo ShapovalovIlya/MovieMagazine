@@ -6,15 +6,15 @@
 //
 
 import Foundation
-import Core
+import Redux
 
-struct SessionState: Reducer, Codable {
-    var requestToken: String
-    var session: SessionType
-    var expiresAt: String
+public struct SessionState: Reducer, Codable {
+    public var requestToken: String
+    public var session: SessionType
+    public var expiresAt: String
     
     //MARK: - init(_:)
-    init(
+    public init(
         requestToken: String = .init(),
         session: SessionType = .none,
         expiresAt: String = .init()
@@ -25,7 +25,7 @@ struct SessionState: Reducer, Codable {
     }
     
     //MARK: - Reducer
-    mutating func reduce(_ action: Action) {
+    public mutating func reduce(_ action: Action) {
         switch action {
         case let action as SessionActions.ReceiveToken:
             self.requestToken = action.token.requestToken
@@ -39,13 +39,13 @@ struct SessionState: Reducer, Codable {
     }
 }
 
-extension SessionState {
+public extension SessionState {
     enum SessionType: Codable {
         case none
         case validated(String)
         case guest(String)
         
-        var value: String {
+        public var value: String {
             switch self {
             case .none: return .init()
             case .validated(let string): return string

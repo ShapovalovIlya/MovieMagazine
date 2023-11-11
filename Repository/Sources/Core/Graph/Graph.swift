@@ -6,15 +6,15 @@
 //
 
 import Foundation
-import Core
+import Redux
 
 @dynamicMemberLookup
-struct Graph {
-    let state: AppState
-    let dispatch: (Action) -> Void
+public struct Graph {
+    public let state: AppState
+    public let dispatch: (Action) -> Void
     
     //MARK: - init(_:)
-    init(
+    public init(
         state: AppState,
         dispatch: @escaping (Action) -> Void
     ) {
@@ -22,11 +22,11 @@ struct Graph {
         self.dispatch = dispatch
     }
     
-    func dispatch(_ actions: Action...) {
+    public func dispatch(_ actions: Action...) {
         actions.forEach(dispatch)
     }
     
-    subscript<T>(dynamicMember keyPath: KeyPath<AppState, T>) -> T {
+    public subscript<T>(dynamicMember keyPath: KeyPath<AppState, T>) -> T {
         state[keyPath: keyPath]
     }
 }

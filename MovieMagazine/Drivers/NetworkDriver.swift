@@ -9,6 +9,7 @@ import Foundation
 import OSLog
 import Endpoint
 import NetworkOperator
+import Redux
 import Core
 
 typealias ResultCompletion = (Result<NetworkOperator.Response, Error>) -> Void

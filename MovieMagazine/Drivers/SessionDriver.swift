@@ -9,6 +9,8 @@ import Foundation
 import NetworkOperator
 import Endpoint
 import OSLog
+import Redux
+import Models
 import Core
 
 final class SessionDriver {
@@ -89,7 +91,7 @@ private extension SessionDriver {
             )
             
         case .failure(let error):
-            graph.dispatch(SessionActions.SessionRequestFailed(error: error))
+            graph.dispatch(SessionActions.SessionRequestFailed(error))
             return nil
         }
     }
@@ -112,7 +114,7 @@ private extension SessionDriver {
             )
             
         case .failure(let error):
-            graph.dispatch(SessionActions.TokenRequestFailed(error: error))
+            graph.dispatch(SessionActions.TokenRequestFailed(error))
             return nil
         }
     }
@@ -123,7 +125,7 @@ private extension SessionDriver {
             self?.dispatchResult(
                 dispatcher,
                 type: SessionResponse.self,
-                successAction: { SessionActions.UpdateSession(session: .guest($0.sessionId)) },
+                successAction: { SessionActions.UpdateSession(.guest($0.sessionId)) },
                 failureAction: SessionActions.SessionRequestFailed.init
             )(result)
         }
@@ -135,7 +137,7 @@ private extension SessionDriver {
             self?.dispatchResult(
                 dispatcher,
                 type: SessionResponse.self,
-                successAction: { SessionActions.UpdateSession(session: .validated($0.sessionId)) },
+                successAction: { SessionActions.UpdateSession(.validated($0.sessionId)) },
                 failureAction: SessionActions.SessionRequestFailed.init
             )(result)
         }

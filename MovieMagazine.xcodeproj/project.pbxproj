@@ -17,35 +17,20 @@
 		866799152AED9ADE00BB6576 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799142AED9ADE00BB6576 /* Assembly.swift */; };
 		866799182AED9C9D00BB6576 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799172AED9C9D00BB6576 /* LoginView.swift */; };
 		8667991B2AED9EB900BB6576 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991A2AED9EB900BB6576 /* NSView.swift */; };
-		866799262AEDB3DE00BB6576 /* LoginViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799252AEDB3DE00BB6576 /* LoginViewState.swift */; };
-		866799282AEDB3F200BB6576 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799272AEDB3F200BB6576 /* AppState.swift */; };
-		8667992A2AEDB4A400BB6576 /* LoginViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799292AEDB4A400BB6576 /* LoginViewNode.swift */; };
 		8667992C2AEDB97B00BB6576 /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667992B2AEDB97B00BB6576 /* LoginPresenterImpl.swift */; };
-		8667992E2AEDC6D400BB6576 /* LoginActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667992D2AEDC6D400BB6576 /* LoginActions.swift */; };
 		869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A712B2AF6B823009CB08A /* RootPresenter.swift */; };
-		869A71312AF6BD54009CB08A /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71302AF6BD54009CB08A /* SessionState.swift */; };
-		869A71332AF6BF48009CB08A /* SessionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71322AF6BF48009CB08A /* SessionNode.swift */; };
-		869A71352AF6C01C009CB08A /* SessionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71342AF6C01C009CB08A /* SessionActions.swift */; };
-		869A71382AF6C0CF009CB08A /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71372AF6C0CF009CB08A /* Token.swift */; };
 		869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A713A2AF6C701009CB08A /* ApiKey.swift */; };
-		869A713D2AF6CAD9009CB08A /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A713C2AF6CAD9009CB08A /* AppActions.swift */; };
-		869A71432AF6E701009CB08A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71422AF6E701009CB08A /* Session.swift */; };
 		869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */ = {isa = PBXBuildFile; productRef = 869A71452AF7C879009CB08A /* NetworkOperator */; };
 		869A71482AF7C925009CB08A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71472AF7C925009CB08A /* ImageCache.swift */; };
-		869A714A2AF7CCC1009CB08A /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71492AF7CCC1009CB08A /* LoginFlow.swift */; };
 		86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */; };
-		86C1FAA82AFEE81700080547 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAA72AFEE81700080547 /* LoginStatus.swift */; };
 		86C1FAAE2AFFAE6800080547 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAAD2AFFAE6800080547 /* Router.swift */; };
-		86C1FAB22B000F8800080547 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAB12B000F8800080547 /* Movie.swift */; };
-		86C1FAB42B0012AE00080547 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAB32B0012AE00080547 /* MovieList.swift */; };
-		86C1FAB62B0023DC00080547 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAB52B0023DC00080547 /* Dates.swift */; };
 		86C1FABA2B0024B400080547 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAB92B0024B400080547 /* HomeViewController.swift */; };
 		86C1FABC2B0024D500080547 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FABB2B0024D500080547 /* HomePresenter.swift */; };
 		86C1FABE2B00251C00080547 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FABD2B00251C00080547 /* HomeViewModel.swift */; };
 		86C1FAC02B00293800080547 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FABF2B00293800080547 /* HomeView.swift */; };
-		86C1FAC32B00377300080547 /* GraphStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAC12B00377300080547 /* GraphStore.swift */; };
-		86C1FAC42B00377300080547 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAC22B00377300080547 /* Graph.swift */; };
-		86C1FAC62B0037C600080547 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC52B0037C600080547 /* Core */; };
+		86C1FAC82B003CAD00080547 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC72B003CAD00080547 /* Models */; };
+		86C1FACA2B003DE500080547 /* Redux in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC92B003DE500080547 /* Redux */; };
+		86C1FACC2B0040E000080547 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACB2B0040E000080547 /* Core */; };
 		86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */; };
 		86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
@@ -80,34 +65,17 @@
 		866799142AED9ADE00BB6576 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		866799172AED9C9D00BB6576 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8667991A2AED9EB900BB6576 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
-		866799252AEDB3DE00BB6576 /* LoginViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewState.swift; sourceTree = "<group>"; };
-		866799272AEDB3F200BB6576 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		866799292AEDB4A400BB6576 /* LoginViewNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNode.swift; sourceTree = "<group>"; };
 		8667992B2AEDB97B00BB6576 /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
-		8667992D2AEDC6D400BB6576 /* LoginActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginActions.swift; sourceTree = "<group>"; };
 		869A712B2AF6B823009CB08A /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
-		869A71302AF6BD54009CB08A /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
-		869A71322AF6BF48009CB08A /* SessionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionNode.swift; sourceTree = "<group>"; };
-		869A71342AF6C01C009CB08A /* SessionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionActions.swift; sourceTree = "<group>"; };
-		869A71372AF6C0CF009CB08A /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		869A713A2AF6C701009CB08A /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
-		869A713C2AF6CAD9009CB08A /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
-		869A71422AF6E701009CB08A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		869A71472AF7C925009CB08A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		869A71492AF7CCC1009CB08A /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		86A29A082AF691170092BBC6 /* MovieMagazine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieMagazine.xctestplan; sourceTree = "<group>"; };
 		86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDriver.swift; sourceTree = "<group>"; };
-		86C1FAA72AFEE81700080547 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		86C1FAAD2AFFAE6800080547 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		86C1FAB12B000F8800080547 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		86C1FAB32B0012AE00080547 /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
-		86C1FAB52B0023DC00080547 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		86C1FAB92B0024B400080547 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		86C1FABB2B0024D500080547 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		86C1FABD2B00251C00080547 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		86C1FABF2B00293800080547 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		86C1FAC12B00377300080547 /* GraphStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphStore.swift; sourceTree = "<group>"; };
-		86C1FAC22B00377300080547 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -124,10 +92,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C1FAC82B003CAD00080547 /* Models in Frameworks */,
 				EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */,
 				869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */,
+				86C1FACA2B003DE500080547 /* Redux in Frameworks */,
 				EEC574202AF37E3D00783702 /* Endpoint in Frameworks */,
-				86C1FAC62B0037C600080547 /* Core in Frameworks */,
+				86C1FACC2B0040E000080547 /* Core in Frameworks */,
 				EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,18 +112,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		864AFBAB2AF6269D0099035F /* Redux */ = {
-			isa = PBXGroup;
-			children = (
-				8667992D2AEDC6D400BB6576 /* LoginActions.swift */,
-				866799252AEDB3DE00BB6576 /* LoginViewState.swift */,
-				86C1FAA72AFEE81700080547 /* LoginStatus.swift */,
-				866799292AEDB4A400BB6576 /* LoginViewNode.swift */,
-				869A71492AF7CCC1009CB08A /* LoginFlow.swift */,
-			);
-			path = Redux;
-			sourceTree = "<group>";
-		};
 		864AFBAC2AF626BC0099035F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,10 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				86C1FAB82B00247400080547 /* Home */,
-				869A71362AF6C0B2009CB08A /* DTO */,
 				EEDBF6172AF3D1E000FB7B59 /* Drivers */,
 				8667992F2AEDCD5800BB6576 /* Application */,
-				8667991E2AEDABB400BB6576 /* Redux */,
 				866799192AED9D0500BB6576 /* Root */,
 				866799162AED9C8400BB6576 /* Login */,
 				866799112AED982200BB6576 /* Extension */,
@@ -227,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				864AFBAC2AF626BC0099035F /* View */,
-				864AFBAB2AF6269D0099035F /* Redux */,
 				864AFBAD2AF626C60099035F /* Presenter */,
 			);
 			path = Login;
@@ -237,19 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				869A712D2AF6BD17009CB08A /* View */,
-				869A712E2AF6BD1D009CB08A /* Redux */,
 				869A712F2AF6BD27009CB08A /* Presenter */,
 			);
 			path = Root;
-			sourceTree = "<group>";
-		};
-		8667991E2AEDABB400BB6576 /* Redux */ = {
-			isa = PBXGroup;
-			children = (
-				86C1FAC22B00377300080547 /* Graph.swift */,
-				86C1FAC12B00377300080547 /* GraphStore.swift */,
-			);
-			path = Redux;
 			sourceTree = "<group>";
 		};
 		8667992F2AEDCD5800BB6576 /* Application */ = {
@@ -278,68 +223,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		869A712E2AF6BD1D009CB08A /* Redux */ = {
-			isa = PBXGroup;
-			children = (
-				86C1FAAA2AFFA72800080547 /* AppState */,
-				86C1FAA92AFFA65500080547 /* SessionState */,
-			);
-			path = Redux;
-			sourceTree = "<group>";
-		};
 		869A712F2AF6BD27009CB08A /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				869A712B2AF6B823009CB08A /* RootPresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		869A71362AF6C0B2009CB08A /* DTO */ = {
-			isa = PBXGroup;
-			children = (
-				86C1FAB72B0023F100080547 /* Movies */,
-				869A71392AF6C14E009CB08A /* Session */,
-			);
-			path = DTO;
-			sourceTree = "<group>";
-		};
-		869A71392AF6C14E009CB08A /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				869A71372AF6C0CF009CB08A /* Token.swift */,
-				869A71422AF6E701009CB08A /* Session.swift */,
-			);
-			path = Session;
-			sourceTree = "<group>";
-		};
-		86C1FAA92AFFA65500080547 /* SessionState */ = {
-			isa = PBXGroup;
-			children = (
-				869A71302AF6BD54009CB08A /* SessionState.swift */,
-				869A71322AF6BF48009CB08A /* SessionNode.swift */,
-				869A71342AF6C01C009CB08A /* SessionActions.swift */,
-			);
-			path = SessionState;
-			sourceTree = "<group>";
-		};
-		86C1FAAA2AFFA72800080547 /* AppState */ = {
-			isa = PBXGroup;
-			children = (
-				869A713C2AF6CAD9009CB08A /* AppActions.swift */,
-				866799272AEDB3F200BB6576 /* AppState.swift */,
-			);
-			path = AppState;
-			sourceTree = "<group>";
-		};
-		86C1FAB72B0023F100080547 /* Movies */ = {
-			isa = PBXGroup;
-			children = (
-				86C1FAB12B000F8800080547 /* Movie.swift */,
-				86C1FAB32B0012AE00080547 /* MovieList.swift */,
-				86C1FAB52B0023DC00080547 /* Dates.swift */,
-			);
-			path = Movies;
 			sourceTree = "<group>";
 		};
 		86C1FAB82B00247400080547 /* Home */ = {
@@ -402,7 +291,9 @@
 				EEC574212AF37E5B00783702 /* SwiftFP */,
 				EEDBF6152AF3D09B00FB7B59 /* Validator */,
 				869A71452AF7C879009CB08A /* NetworkOperator */,
-				86C1FAC52B0037C600080547 /* Core */,
+				86C1FAC72B003CAD00080547 /* Models */,
+				86C1FAC92B003DE500080547 /* Redux */,
+				86C1FACB2B0040E000080547 /* Core */,
 			);
 			productName = MovieMagazine;
 			productReference = 866798FB2AED934300BB6576 /* MovieMagazine.app */;
@@ -491,43 +382,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86C1FAC32B00377300080547 /* GraphStore.swift in Sources */,
 				8667992C2AEDB97B00BB6576 /* LoginPresenterImpl.swift in Sources */,
 				86C1FABA2B0024B400080547 /* HomeViewController.swift in Sources */,
 				866799132AED982E00BB6576 /* NSWindow.swift in Sources */,
-				86C1FAA82AFEE81700080547 /* LoginStatus.swift in Sources */,
-				869A71352AF6C01C009CB08A /* SessionActions.swift in Sources */,
 				866799182AED9C9D00BB6576 /* LoginView.swift in Sources */,
-				866799262AEDB3DE00BB6576 /* LoginViewState.swift in Sources */,
 				86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */,
-				869A713D2AF6CAD9009CB08A /* AppActions.swift in Sources */,
 				866799152AED9ADE00BB6576 /* Assembly.swift in Sources */,
-				8667992E2AEDC6D400BB6576 /* LoginActions.swift in Sources */,
 				86C1FAC02B00293800080547 /* HomeView.swift in Sources */,
 				86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */,
-				86C1FAB42B0012AE00080547 /* MovieList.swift in Sources */,
-				86C1FAB62B0023DC00080547 /* Dates.swift in Sources */,
-				8667992A2AEDB4A400BB6576 /* LoginViewNode.swift in Sources */,
-				869A71332AF6BF48009CB08A /* SessionNode.swift in Sources */,
-				86C1FAB22B000F8800080547 /* Movie.swift in Sources */,
 				8637A8482AF2E2CC00FB11AE /* OSLog.swift in Sources */,
 				8667991B2AED9EB900BB6576 /* NSView.swift in Sources */,
-				866799282AEDB3F200BB6576 /* AppState.swift in Sources */,
 				86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */,
 				869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */,
-				869A71312AF6BD54009CB08A /* SessionState.swift in Sources */,
 				866799012AED934400BB6576 /* LoginViewController.swift in Sources */,
 				869A71482AF7C925009CB08A /* ImageCache.swift in Sources */,
 				866799102AED96E600BB6576 /* RootWindowController.swift in Sources */,
 				866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */,
-				869A714A2AF7CCC1009CB08A /* LoginFlow.swift in Sources */,
 				8667990E2AED960000BB6576 /* main.swift in Sources */,
 				86C1FABC2B0024D500080547 /* HomePresenter.swift in Sources */,
 				86C1FABE2B00251C00080547 /* HomeViewModel.swift in Sources */,
 				86C1FAAE2AFFAE6800080547 /* Router.swift in Sources */,
-				869A71382AF6C0CF009CB08A /* Token.swift in Sources */,
-				869A71432AF6E701009CB08A /* Session.swift in Sources */,
-				86C1FAC42B00377300080547 /* Graph.swift in Sources */,
 				869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -797,7 +671,15 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkOperator;
 		};
-		86C1FAC52B0037C600080547 /* Core */ = {
+		86C1FAC72B003CAD00080547 /* Models */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Models;
+		};
+		86C1FAC92B003DE500080547 /* Redux */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Redux;
+		};
+		86C1FACB2B0040E000080547 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
 		};

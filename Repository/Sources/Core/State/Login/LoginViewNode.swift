@@ -6,30 +6,30 @@
 //
 
 import Foundation
-import Core
+import Redux
 
-extension Graph {
+public extension Graph {
     var loginViewState: LoginViewNode { .init(graph: self) }
 }
 
-struct LoginViewNode {
+public struct LoginViewNode {
     private let graph: Graph
     
     init(graph: Graph) {
         self.graph = graph
     }
     
-    var username: String {
+    public var username: String {
         get { graph.state.loginViewState.username }
-        nonmutating set { graph.dispatch(LoginActions.UpdateLogin(login: newValue)) }
+        nonmutating set { graph.dispatch(LoginActions.UpdateLogin(newValue)) }
     }
     
-    var password: String {
+    public var password: String {
         get { graph.state.loginViewState.password }
-        nonmutating set { graph.dispatch(LoginActions.UpdatePassword(password: newValue)) }
+        nonmutating set { graph.dispatch(LoginActions.UpdatePassword(newValue)) }
     }
     
-    func login() {
+    public func login() {
         graph.dispatch(LoginActions.Login())
     }
 }

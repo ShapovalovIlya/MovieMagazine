@@ -7,6 +7,7 @@
 
 import Cocoa
 import OSLog
+import Redux
 import Core
 
 final class AppDelegate: NSObject, NSApplicationDelegate {

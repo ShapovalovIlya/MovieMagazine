@@ -6,17 +6,17 @@
 //
 
 import Foundation
-import Core
+import Redux
 
 @dynamicMemberLookup
-final class GraphStore {
+public final class GraphStore {
     private let store: Store<AppState>
     private var observers: [UUID: Observer<Graph>] = .init()
     
     private var graph: Graph
     
-    let id: UUID = .init()
-    let queue: DispatchQueue = .init(label: "GraphStore queue", qos: .userInteractive)
+    public let id: UUID = .init()
+    public let queue: DispatchQueue = .init(label: "GraphStore queue", qos: .userInteractive)
     
     private(set) lazy var asObserver: Observer<AppState> = .init(
         queue: self.queue
@@ -27,7 +27,7 @@ final class GraphStore {
     }
     
     //MARK: - init(_:)
-    init(store: @escaping () -> Store<AppState>) {
+   public init(store: @escaping () -> Store<AppState>) {
         self.store = store()
         self.graph = .init(
             state: self.store.state,
@@ -37,15 +37,14 @@ final class GraphStore {
     }
     
     //MARK: - Public methods
-    @inlinable
-    func subscribe(_ observer: Observer<Graph>) {
+    public func subscribe(_ observer: Observer<Graph>) {
         queue.sync {
             observers.updateValue(observer, forKey: observer.id)
             notify(observer)
         }
     }
     
-    subscript<T>(dynamicMember keyPath: KeyPath<Graph, T>) -> T {
+    public subscript<T>(dynamicMember keyPath: KeyPath<Graph, T>) -> T {
         graph[keyPath: keyPath]
     }
     

@@ -6,18 +6,18 @@
 //
 
 import Foundation
-import Core
+import Redux
 
-enum LoginFlow: Reducer {
+public enum LoginFlow: Reducer {
     case none
     case token(UUID)
     case validation(UUID)
     case session(UUID)
     case guestSession(UUID)
     
-    init() { self = .none }
+    public init() { self = .none }
     
-    mutating func reduce(_ action: Action) {
+    mutating public func reduce(_ action: Action) {
         switch action {
         case is LoginActions.Login: self = .token(UUID())
         case is LoginActions.LoginGuest: self = .guestSession(UUID())

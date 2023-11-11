@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import Core
 
 protocol AppAssembly: AnyObject {
     func makeLoginModule(router: AppRouter) -> NSSplitViewItem

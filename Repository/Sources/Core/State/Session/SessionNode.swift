@@ -7,25 +7,25 @@
 
 import Foundation
 
-extension Graph {
+public extension Graph {
     var sessionState: SessionNode { .init(graph: self) }
 }
 
-struct SessionNode {
+public struct SessionNode {
     private let graph: Graph
     
     init(graph: Graph) {
         self.graph = graph
     }
     
-    var requestToken: String {
+    public var requestToken: String {
         get { graph.state.sessionState.requestToken }
 //        nonmutating set { graph.dispatch(SessionActions.ReceiveToken(token: newValue)) }
     }
     
-    var session: String { graph.state.sessionState.session.value }
+    public var session: String { graph.state.sessionState.session.value }
     
-    var expiresAt: String {
+    public var expiresAt: String {
         get { graph.state.sessionState.expiresAt }
 //        nonmutating set { graph.dispatch(SessionActions.UpdateExpirationDate(expirationDate: newValue)) }
     }

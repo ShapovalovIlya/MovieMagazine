@@ -6,18 +6,18 @@
 //
 
 import Foundation
-import Core
+import Redux
 
-enum LoginStatus: Reducer {
+public enum LoginStatus: Reducer {
     case none
     case inProgress
     case invalidCredentials(Error)
     case success
     case error(Error)
     
-    init() { self = .none }
+    public init() { self = .none }
     
-    mutating func reduce(_ action: Action) {
+    public mutating func reduce(_ action: Action) {
         switch action {
         case is LoginActions.Login: self = .inProgress
         case is LoginActions.LoginGuest: self = .inProgress

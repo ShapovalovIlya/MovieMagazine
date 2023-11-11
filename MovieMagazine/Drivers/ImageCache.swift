@@ -7,6 +7,7 @@
 
 import Foundation
 import NetworkOperator
+import Core
 
 final class ImageCache {
     

@@ -13,12 +13,20 @@ let package = Package(
         .library(name: "Endpoint", targets: ["Endpoint"]),
         .library(name: "SwiftFP", targets: ["SwiftFP"]),
         .library(name: "Validator", targets: ["Validator"]),
-        .library(name: "Core", targets: ["Core"]),
+        .library(name: "Redux", targets: ["Redux"]),
+        .library(name: "Models", targets: ["Models"]),
+        .library(name: "Core", targets: ["Core"])
     ],
     targets: [
         .target(name: "SwiftFP"),
         .target(name: "Validator"),
-        .target(name: "Core"),
+        .target(name: "Redux"),
+        .target(name: "Models"),
+        .target(
+            name: "Core",
+            dependencies: [
+                "Redux"
+            ]),
         .target(
             name: "NetworkOperator",
             dependencies: [

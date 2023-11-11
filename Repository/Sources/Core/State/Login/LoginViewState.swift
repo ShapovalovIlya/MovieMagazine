@@ -7,14 +7,14 @@
 
 import Foundation
 import Validator
-import Core
+import Redux
 
-struct LoginViewState: Reducer {
-    var password: String
-    var username: String
+public struct LoginViewState: Reducer {
+    public var password: String
+    public var username: String
     
     //MARK: - init(_:)
-    init(
+    public init(
         email: String = .init(),
         password: String = .init()
     ) {
@@ -23,7 +23,7 @@ struct LoginViewState: Reducer {
     }
     
     //MARK: - Reduce
-    mutating func reduce(_ action: Action) {
+    public mutating func reduce(_ action: Action) {
         switch action {
         case let action as LoginActions.UpdateLogin:
             self.username = action.login
