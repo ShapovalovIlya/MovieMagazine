@@ -7,6 +7,7 @@
 
 import Cocoa
 import OSLog
+import Design
 
 public final class LoginViewController: NSViewController {
     private let loginView: LoginViewProtocol
@@ -55,8 +56,11 @@ public final class LoginViewController: NSViewController {
 //MARK: - LoginViewDelegate
 extension LoginViewController: LoginViewDelegate {
     public func render(_ viewModel: LoginViewModel) {
-        self.loginView.loginTextField.stringValue = viewModel.loginField.value
-        self.loginView.passwordTextField.stringValue = viewModel.passwordField.value
+        loginView.loginTextField.stringValue = viewModel.loginField.value
+        loginView.setLoginState(isValid: viewModel.loginField.isValid)
+        loginView.passwordTextField.stringValue = viewModel.passwordField.value
+        loginView.setPasswordState(isValid: viewModel.passwordField.isValid)
+        loginView.loginButton.isEnabled = viewModel.isLoginButtonActive
         log(event: #function)
     }
 }
@@ -65,11 +69,11 @@ extension LoginViewController: LoginViewDelegate {
 extension LoginViewController: NSTextFieldDelegate {
     public func controlTextDidChange(_ obj: Notification) {
         guard let textField = obj.object as? NSTextField else { return }
-        switch TextFieldType(rawValue: textField.tag) {
-        case .loginTextField:
+        switch CredentialField.FieldType(rawValue: textField.tag) {
+        case .login:
             presenter.loginDidChange(textField.stringValue)
             
-        case .passwordTextField:
+        case .password:
             presenter.passwordDidChange(textField.stringValue)
             
         default: break

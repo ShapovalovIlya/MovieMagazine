@@ -12,6 +12,7 @@ let package = Package(
         InternalDependencies.SwiftFP.library,
         InternalDependencies.Redux.library,
         InternalDependencies.Extensions.library,
+        InternalDependencies.Design.library,
         .library(name: "NetworkOperator", targets: ["NetworkOperator"]),
         .library(name: "Endpoint", targets: ["Endpoint"]),
         .library(name: "Validator", targets: ["Validator"]),
@@ -25,6 +26,7 @@ let package = Package(
         InternalDependencies.SwiftFP.target,
         InternalDependencies.Redux.target,
         InternalDependencies.Extensions.target,
+        InternalDependencies.Design.target,
         .target(name: "Validator"),
         .target(name: "Models"),
         .target(
@@ -44,6 +46,7 @@ let package = Package(
             dependencies: [
                 InternalDependencies.Redux.dependency,
                 InternalDependencies.Extensions.dependency,
+                InternalDependencies.Design.dependency,
                 "Core",
                 "Validator",
             ]),
@@ -68,16 +71,19 @@ let package = Package(
     ]
 )
 
+//MARK: - InternalDependencies
 fileprivate enum InternalDependencies {
     case SwiftFP
     case Extensions
     case Redux
+    case Design
     
     var library: Product {
         switch self {
         case .SwiftFP: return .library(name: "SwiftFP", targets: ["SwiftFP"])
         case .Extensions: return .library(name: "Extensions", targets: ["Extensions"])
         case .Redux: return .library(name: "Redux", targets: ["Redux"])
+        case .Design: return .library(name: "Design", targets: ["Design"])
         }
     }
     
@@ -86,6 +92,7 @@ fileprivate enum InternalDependencies {
         case .SwiftFP: return .target(name: "SwiftFP")
         case .Extensions: return .target(name: "Extensions")
         case .Redux: return .target(name: "Redux")
+        case .Design: return .target(name: "Design")
         }
     }
     
@@ -94,6 +101,7 @@ fileprivate enum InternalDependencies {
         case .SwiftFP: return "SwiftFP"
         case .Extensions: return "Extensions"
         case .Redux: return "Redux"
+        case .Design: return "Design"
         }
     }
     

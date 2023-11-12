@@ -8,28 +8,26 @@
 import Cocoa
 import Core
 import Extensions
+import Design
 
 enum TextFieldType: Int {
-    case loginTextField = 200
-    case passwordTextField = 201
+    case login = 200
+    case password = 201
 }
 
 public protocol LoginViewProtocol: NSView {
     var loginTextField: NSTextField { get }
-    var passwordTextField: NSTextField { get }
+    var passwordTextField: NSSecureTextField { get }
     var loginButton: NSButton { get }
     var loginGuestButton: NSButton { get }
+    
+    func setLoginState(isValid: Bool)
+    func setPasswordState(isValid: Bool)
 }
 
 public final class LoginView: NSView, LoginViewProtocol {
-    public let loginTextField: NSTextField = makeTextField(
-        "Login",
-        tag: .loginTextField
-    )
-    public let passwordTextField: NSTextField = makeTextField(
-        "Password",
-        tag: .passwordTextField
-    )
+    public let loginTextField: NSTextField = makeLoginField()
+    public let passwordTextField: NSSecureTextField = makePasswordField()
     public let loginButton: NSButton = makeButton("Login")
     public let loginGuestButton: NSButton = makeButton("Login as guest")
     
@@ -37,6 +35,8 @@ public final class LoginView: NSView, LoginViewProtocol {
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         wantsLayer = true
+        configureLayer(for: loginTextField)
+        configureLayer(for: passwordTextField)
         addSubviews(
             loginTextField,
             passwordTextField,
@@ -50,17 +50,28 @@ public final class LoginView: NSView, LoginViewProtocol {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Public methods
+    public func setLoginState(isValid: Bool) {
+        loginTextField.layer?.borderColor = setValidationColor(isValid)
+    }
+    
+    public func setPasswordState(isValid: Bool) {
+        passwordTextField.layer?.borderColor = setValidationColor(isValid)
+    }
+    
 }
 
 private extension LoginView {
-    static func makeTextField(_ placeholder: String, tag: TextFieldType) -> NSTextField {
-        let textField = NSTextField()
-        textField.tag = tag.rawValue
-        textField.isEditable = true
-        textField.placeholderString = placeholder
-        textField.bezelStyle = .roundedBezel
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
+    func setValidationColor(_ isValid: Bool) -> CGColor {
+        isValid ? NSColor.lightGray.cgColor : NSColor.red.cgColor
+    }
+    
+    func configureLayer(for view: NSView) {
+        view.wantsLayer = true
+        view.layer?.cornerRadius = 10
+        view.layer?.borderWidth = 1
+        view.layer?.borderColor = NSColor.lightGray.cgColor
     }
     
     static func makeButton(_ title: String) -> NSButton {
@@ -70,6 +81,25 @@ private extension LoginView {
         button.bezelStyle = .flexiblePush
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }
+    
+    static func makeLoginField() -> NSTextField {
+        let textField = NSTextField()
+        
+        textField.placeholderString = "Login"
+        textField.tag = TextFieldType.login.rawValue
+        textField.bezelStyle = .roundedBezel
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }
+    
+    static func makePasswordField() -> NSSecureTextField {
+        let secureField = NSSecureTextField()
+        secureField.placeholderString = "Password"
+        secureField.bezelStyle = .roundedBezel
+        secureField.tag = TextFieldType.password.rawValue
+        secureField.translatesAutoresizingMaskIntoConstraints = false
+        return secureField
     }
     
     struct Drawing {
