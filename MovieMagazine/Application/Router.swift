@@ -7,7 +7,8 @@
 
 import Cocoa
 import Core
-import Login
+import LoginModule
+import HomeModule
 
 final class Router: AppRouter {
     private let splitViewController: NSSplitViewController

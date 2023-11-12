@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct HomeViewModel {
+public struct HomeViewModel {
     
 }

@@ -17,7 +17,8 @@ let package = Package(
         .library(name: "Validator", targets: ["Validator"]),
         .library(name: "Models", targets: ["Models"]),
         .library(name: "Core", targets: ["Core"]),
-        .library(name: "Login", targets: ["Login"]),
+        .library(name: "LoginModule", targets: ["LoginModule"]),
+        .library(name: "HomeModule", targets: ["HomeModule"]),
     ],
     targets: [
         InternalDependencies.SwiftFP.target,
@@ -31,12 +32,19 @@ let package = Package(
                 InternalDependencies.Redux.dependency,
             ]),
         .target(
-            name: "Login",
+            name: "LoginModule",
             dependencies: [
                 InternalDependencies.Redux.dependency,
                 InternalDependencies.Extensions.dependency,
                 "Core",
                 "Validator",
+            ]),
+        .target(
+            name: "HomeModule",
+            dependencies: [
+                InternalDependencies.Redux.dependency,
+                InternalDependencies.Extensions.dependency,
+                "Core",
             ]),
         .target(
             name: "NetworkOperator",

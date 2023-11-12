@@ -18,15 +18,12 @@
 		869A71482AF7C925009CB08A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71472AF7C925009CB08A /* ImageCache.swift */; };
 		86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */; };
 		86C1FAAE2AFFAE6800080547 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAAD2AFFAE6800080547 /* Router.swift */; };
-		86C1FABA2B0024B400080547 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAB92B0024B400080547 /* HomeViewController.swift */; };
-		86C1FABC2B0024D500080547 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FABB2B0024D500080547 /* HomePresenter.swift */; };
-		86C1FABE2B00251C00080547 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FABD2B00251C00080547 /* HomeViewModel.swift */; };
-		86C1FAC02B00293800080547 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FABF2B00293800080547 /* HomeView.swift */; };
 		86C1FAC82B003CAD00080547 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC72B003CAD00080547 /* Models */; };
 		86C1FACA2B003DE500080547 /* Redux in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC92B003DE500080547 /* Redux */; };
 		86C1FACC2B0040E000080547 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACB2B0040E000080547 /* Core */; };
-		86C1FACE2B00E6E400080547 /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACD2B00E6E400080547 /* Login */; };
 		86C1FAD02B00E91600080547 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACF2B00E91600080547 /* Extensions */; };
+		86C1FAD22B00ED5200080547 /* LoginModule in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAD12B00ED5200080547 /* LoginModule */; };
+		86C1FAD42B00ED5700080547 /* HomeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAD32B00ED5700080547 /* HomeModule */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
 		EEC5741C2AF37C5200783702 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741B2AF37C5200783702 /* README.md */; };
 		EEC5741E2AF37C5B00783702 /* Repository in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741D2AF37C5B00783702 /* Repository */; };
@@ -60,10 +57,6 @@
 		86A29A082AF691170092BBC6 /* MovieMagazine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieMagazine.xctestplan; sourceTree = "<group>"; };
 		86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDriver.swift; sourceTree = "<group>"; };
 		86C1FAAD2AFFAE6800080547 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		86C1FAB92B0024B400080547 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		86C1FABB2B0024D500080547 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		86C1FABD2B00251C00080547 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		86C1FABF2B00293800080547 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDriver.swift; sourceTree = "<group>"; };
 		EEC5741B2AF37C5200783702 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -78,14 +71,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C1FAD22B00ED5200080547 /* LoginModule in Frameworks */,
 				86C1FAD02B00E91600080547 /* Extensions in Frameworks */,
 				86C1FAC82B003CAD00080547 /* Models in Frameworks */,
 				EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */,
 				869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */,
 				86C1FACA2B003DE500080547 /* Redux in Frameworks */,
 				EEC574202AF37E3D00783702 /* Endpoint in Frameworks */,
+				86C1FAD42B00ED5700080547 /* HomeModule in Frameworks */,
 				86C1FACC2B0040E000080547 /* Core in Frameworks */,
-				86C1FACE2B00E6E400080547 /* Login in Frameworks */,
 				EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,7 +121,6 @@
 		866798FD2AED934300BB6576 /* MovieMagazine */ = {
 			isa = PBXGroup;
 			children = (
-				86C1FAB82B00247400080547 /* Home */,
 				EEDBF6172AF3D1E000FB7B59 /* Drivers */,
 				8667992F2AEDCD5800BB6576 /* Application */,
 				866799192AED9D0500BB6576 /* Root */,
@@ -178,17 +171,6 @@
 				869A712B2AF6B823009CB08A /* RootPresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		86C1FAB82B00247400080547 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				86C1FAB92B0024B400080547 /* HomeViewController.swift */,
-				86C1FABF2B00293800080547 /* HomeView.swift */,
-				86C1FABB2B0024D500080547 /* HomePresenter.swift */,
-				86C1FABD2B00251C00080547 /* HomeViewModel.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		86D8A4342AEE5E1C0022D7EB /* MovieMagazineTests */ = {
@@ -242,8 +224,9 @@
 				86C1FAC72B003CAD00080547 /* Models */,
 				86C1FAC92B003DE500080547 /* Redux */,
 				86C1FACB2B0040E000080547 /* Core */,
-				86C1FACD2B00E6E400080547 /* Login */,
 				86C1FACF2B00E91600080547 /* Extensions */,
+				86C1FAD12B00ED5200080547 /* LoginModule */,
+				86C1FAD32B00ED5700080547 /* HomeModule */,
 			);
 			productName = MovieMagazine;
 			productReference = 866798FB2AED934300BB6576 /* MovieMagazine.app */;
@@ -332,18 +315,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86C1FABA2B0024B400080547 /* HomeViewController.swift in Sources */,
 				86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */,
 				866799152AED9ADE00BB6576 /* Assembly.swift in Sources */,
-				86C1FAC02B00293800080547 /* HomeView.swift in Sources */,
 				86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */,
 				869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */,
 				869A71482AF7C925009CB08A /* ImageCache.swift in Sources */,
 				866799102AED96E600BB6576 /* RootWindowController.swift in Sources */,
 				866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */,
 				8667990E2AED960000BB6576 /* main.swift in Sources */,
-				86C1FABC2B0024D500080547 /* HomePresenter.swift in Sources */,
-				86C1FABE2B00251C00080547 /* HomeViewModel.swift in Sources */,
 				86C1FAAE2AFFAE6800080547 /* Router.swift in Sources */,
 				869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */,
 			);
@@ -625,13 +604,17 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
 		};
-		86C1FACD2B00E6E400080547 /* Login */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Login;
-		};
 		86C1FACF2B00E91600080547 /* Extensions */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Extensions;
+		};
+		86C1FAD12B00ED5200080547 /* LoginModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LoginModule;
+		};
+		86C1FAD32B00ED5700080547 /* HomeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HomeModule;
 		};
 		EEC5741F2AF37E3D00783702 /* Endpoint */ = {
 			isa = XCSwiftPackageProductDependency;

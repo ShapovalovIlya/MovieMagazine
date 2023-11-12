@@ -8,13 +8,13 @@
 import Cocoa
 import OSLog
 
-final class HomeViewController: NSViewController {
+public final class HomeViewController: NSViewController {
     private let presenter: HomePresenter
     private let homeView: HomeView
     private var logger: OSLog?
 
     //MARK: - init(_:)
-    init(
+    public init(
         presenter: HomePresenter,
         homeView: HomeView,
         logger: OSLog? = nil
@@ -32,25 +32,25 @@ final class HomeViewController: NSViewController {
     }
     
     //MARK: - Life cycle
-    override func loadView() {
+    public override func loadView() {
         view = homeView
         
         log(event: #function)
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
         log(event: #function)
     }
     
-    override func viewDidAppear() {
+    public override func viewDidAppear() {
         super.viewDidAppear()
         presenter.viewDidAppear()
         log(event: #function)
     }
     
-    override func viewDidDisappear() {
+    public override func viewDidDisappear() {
         super.viewDidDisappear()
         presenter.viewDidDisappear()
         log(event: #function)
@@ -59,7 +59,7 @@ final class HomeViewController: NSViewController {
 }
 
 extension HomeViewController: HomePresenterDelegate {
-    func render(_ viewModel: HomeViewModel) {
+    public func render(_ viewModel: HomeViewModel) {
         
     }
 }

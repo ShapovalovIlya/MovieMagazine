@@ -9,17 +9,17 @@ import Foundation
 import Redux
 import Core
 
-protocol HomePresenter: AnyObject {
+public protocol HomePresenter: AnyObject {
     func viewDidLoad()
     func viewDidAppear()
     func viewDidDisappear()
 }
 
-protocol HomePresenterDelegate: AnyObject {
+public protocol HomePresenterDelegate: AnyObject {
     func render(_ viewModel: HomeViewModel)
 }
 
-final class HomePresenterImpl: HomePresenter {
+public final class HomePresenterImpl: HomePresenter {
     
     //MARK: - Private properties
     private let store: GraphStore
@@ -34,10 +34,10 @@ final class HomePresenterImpl: HomePresenter {
         return .active
     }
     
-    weak var view: HomePresenterDelegate?
+    public weak var view: HomePresenterDelegate?
     
     //MARK: - init(_:)
-    init(
+    public init(
         store: GraphStore,
         router: AppRouter
     ) {
@@ -46,15 +46,15 @@ final class HomePresenterImpl: HomePresenter {
     }
     
     //MARK: - Public methods
-    func viewDidLoad() {
+    public func viewDidLoad() {
         store.subscribe(asObserver)
     }
     
-    func viewDidAppear() {
+    public func viewDidAppear() {
         
     }
     
-    func viewDidDisappear() {
+    public func viewDidDisappear() {
         
     }
     

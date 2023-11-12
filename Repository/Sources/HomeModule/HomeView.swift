@@ -6,15 +6,16 @@
 //
 
 import Cocoa
+import Extensions
 
-protocol HomeView: NSView {
+public protocol HomeView: NSView {
     
 }
 
-final class HomeViewImpl: NSView, HomeView {
+public final class HomeViewImpl: NSView, HomeView {
     
     //MARK: - init(_:)
-    override init(frame frameRect: NSRect) {
+    public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
     }
     

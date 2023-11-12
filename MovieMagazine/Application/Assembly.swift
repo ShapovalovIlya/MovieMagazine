@@ -7,7 +7,8 @@
 
 import Cocoa
 import Core
-import Login
+import LoginModule
+import HomeModule
 import Extensions
 
 protocol AppAssembly: AnyObject {
