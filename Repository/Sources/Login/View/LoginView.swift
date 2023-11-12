@@ -6,33 +6,35 @@
 //
 
 import Cocoa
+import Core
+import Extensions
 
 enum TextFieldType: Int {
     case loginTextField = 200
     case passwordTextField = 201
 }
 
-protocol LoginViewProtocol: NSView {
+public protocol LoginViewProtocol: NSView {
     var loginTextField: NSTextField { get }
     var passwordTextField: NSTextField { get }
     var loginButton: NSButton { get }
     var loginGuestButton: NSButton { get }
 }
 
-final class LoginView: NSView, LoginViewProtocol {
-    let loginTextField: NSTextField = makeTextField(
+public final class LoginView: NSView, LoginViewProtocol {
+    public let loginTextField: NSTextField = makeTextField(
         "Login",
         tag: .loginTextField
     )
-    let passwordTextField: NSTextField = makeTextField(
+    public let passwordTextField: NSTextField = makeTextField(
         "Password",
         tag: .passwordTextField
     )
-    let loginButton: NSButton = makeButton("Login")
-    let loginGuestButton: NSButton = makeButton("Login as guest")
+    public let loginButton: NSButton = makeButton("Login")
+    public let loginGuestButton: NSButton = makeButton("Login as guest")
     
     //MARK: - init(_:)
-    override init(frame frameRect: NSRect) {
+    public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         wantsLayer = true
         addSubviews(

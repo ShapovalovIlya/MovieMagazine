@@ -10,11 +10,11 @@ import Validator
 import Redux
 import Core
 
-protocol LoginViewDelegate: AnyObject {
+public protocol LoginViewDelegate: AnyObject {
     func render(_ viewModel: LoginViewModel)
 }
 
-protocol LoginPresenter: AnyObject {
+public protocol LoginPresenter: AnyObject {
     func viewDidLoad()
     func viewDidDisappear()
     func loginDidChange(_ login: String)
@@ -22,7 +22,7 @@ protocol LoginPresenter: AnyObject {
     func loginButtonDidTap()
 }
 
-final class LoginPresenterImpl: LoginPresenter {
+public final class LoginPresenterImpl: LoginPresenter {
     private let store: GraphStore
     private let validator: Validator
     private let router: AppRouter
@@ -35,10 +35,10 @@ final class LoginPresenterImpl: LoginPresenter {
         return .active
     }
 
-    weak var delegate: LoginViewDelegate?
+    public weak var delegate: LoginViewDelegate?
     
     //MARK: - init(_:)
-    init(
+    public init(
         store: GraphStore,
         router: AppRouter,
         validator: Validator
@@ -49,23 +49,23 @@ final class LoginPresenterImpl: LoginPresenter {
     }
     
     //MARK: - Public methods
-    func viewDidLoad() {
+    public func viewDidLoad() {
         store.subscribe(asObserver)
     }
     
-    func viewDidDisappear() {
+    public func viewDidDisappear() {
         
     }
     
-    func loginDidChange(_ login: String) {
+    public func loginDidChange(_ login: String) {
         store.loginViewState.username = login
     }
     
-    func passwordDidChange(_ password: String) {
+    public func passwordDidChange(_ password: String) {
         store.loginViewState.password = password
     }
     
-    func loginButtonDidTap() {
+    public func loginButtonDidTap() {
         store.loginViewState.login()
     }
 }

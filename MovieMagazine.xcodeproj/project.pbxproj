@@ -7,17 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8637A8482AF2E2CC00FB11AE /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637A8472AF2E2CC00FB11AE /* OSLog.swift */; };
 		866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866798FE2AED934400BB6576 /* AppDelegate.swift */; };
-		866799012AED934400BB6576 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799002AED934400BB6576 /* LoginViewController.swift */; };
 		866799032AED934600BB6576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866799022AED934600BB6576 /* Assets.xcassets */; };
 		8667990E2AED960000BB6576 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667990D2AED960000BB6576 /* main.swift */; };
 		866799102AED96E600BB6576 /* RootWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667990F2AED96E600BB6576 /* RootWindowController.swift */; };
-		866799132AED982E00BB6576 /* NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799122AED982E00BB6576 /* NSWindow.swift */; };
 		866799152AED9ADE00BB6576 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799142AED9ADE00BB6576 /* Assembly.swift */; };
-		866799182AED9C9D00BB6576 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799172AED9C9D00BB6576 /* LoginView.swift */; };
-		8667991B2AED9EB900BB6576 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667991A2AED9EB900BB6576 /* NSView.swift */; };
-		8667992C2AEDB97B00BB6576 /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667992B2AEDB97B00BB6576 /* LoginPresenterImpl.swift */; };
 		869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A712B2AF6B823009CB08A /* RootPresenter.swift */; };
 		869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A713A2AF6C701009CB08A /* ApiKey.swift */; };
 		869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */ = {isa = PBXBuildFile; productRef = 869A71452AF7C879009CB08A /* NetworkOperator */; };
@@ -31,8 +25,8 @@
 		86C1FAC82B003CAD00080547 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC72B003CAD00080547 /* Models */; };
 		86C1FACA2B003DE500080547 /* Redux in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC92B003DE500080547 /* Redux */; };
 		86C1FACC2B0040E000080547 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACB2B0040E000080547 /* Core */; };
-		86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */; };
-		86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */; };
+		86C1FACE2B00E6E400080547 /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACD2B00E6E400080547 /* Login */; };
+		86C1FAD02B00E91600080547 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACF2B00E91600080547 /* Extensions */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
 		EEC5741C2AF37C5200783702 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741B2AF37C5200783702 /* README.md */; };
 		EEC5741E2AF37C5B00783702 /* Repository in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741D2AF37C5B00783702 /* Repository */; };
@@ -53,19 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8637A8472AF2E2CC00FB11AE /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		866798FB2AED934300BB6576 /* MovieMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		866798FE2AED934400BB6576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		866799002AED934400BB6576 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		866799022AED934600BB6576 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		866799072AED934600BB6576 /* MovieMagazine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MovieMagazine.entitlements; sourceTree = "<group>"; };
 		8667990D2AED960000BB6576 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8667990F2AED96E600BB6576 /* RootWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowController.swift; sourceTree = "<group>"; };
-		866799122AED982E00BB6576 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
 		866799142AED9ADE00BB6576 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
-		866799172AED9C9D00BB6576 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		8667991A2AED9EB900BB6576 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
-		8667992B2AEDB97B00BB6576 /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
 		869A712B2AF6B823009CB08A /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		869A713A2AF6C701009CB08A /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		869A71472AF7C925009CB08A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -77,8 +65,6 @@
 		86C1FABD2B00251C00080547 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		86C1FABF2B00293800080547 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
-		86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDriver.swift; sourceTree = "<group>"; };
 		EEC5741B2AF37C5200783702 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EEC5741D2AF37C5B00783702 /* Repository */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Repository; sourceTree = "<group>"; };
@@ -92,12 +78,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C1FAD02B00E91600080547 /* Extensions in Frameworks */,
 				86C1FAC82B003CAD00080547 /* Models in Frameworks */,
 				EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */,
 				869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */,
 				86C1FACA2B003DE500080547 /* Redux in Frameworks */,
 				EEC574202AF37E3D00783702 /* Endpoint in Frameworks */,
 				86C1FACC2B0040E000080547 /* Core in Frameworks */,
+				86C1FACE2B00E6E400080547 /* Login in Frameworks */,
 				EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,24 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		864AFBAC2AF626BC0099035F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				866799002AED934400BB6576 /* LoginViewController.swift */,
-				866799172AED9C9D00BB6576 /* LoginView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		864AFBAD2AF626C60099035F /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				8667992B2AEDB97B00BB6576 /* LoginPresenterImpl.swift */,
-				86D8A43C2AEE6D300022D7EB /* LoginViewModel.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		866798F22AED934300BB6576 = {
 			isa = PBXGroup;
 			children = (
@@ -161,31 +131,10 @@
 				EEDBF6172AF3D1E000FB7B59 /* Drivers */,
 				8667992F2AEDCD5800BB6576 /* Application */,
 				866799192AED9D0500BB6576 /* Root */,
-				866799162AED9C8400BB6576 /* Login */,
-				866799112AED982200BB6576 /* Extension */,
 				866799022AED934600BB6576 /* Assets.xcassets */,
 				866799072AED934600BB6576 /* MovieMagazine.entitlements */,
 			);
 			path = MovieMagazine;
-			sourceTree = "<group>";
-		};
-		866799112AED982200BB6576 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				866799122AED982E00BB6576 /* NSWindow.swift */,
-				8637A8472AF2E2CC00FB11AE /* OSLog.swift */,
-				8667991A2AED9EB900BB6576 /* NSView.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		866799162AED9C8400BB6576 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				864AFBAC2AF626BC0099035F /* View */,
-				864AFBAD2AF626C60099035F /* Presenter */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		866799192AED9D0500BB6576 /* Root */ = {
@@ -246,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				EEDBF61A2AF3E7F500FB7B59 /* ValidatorDriverTests.swift */,
-				86D8A4352AEE5E1C0022D7EB /* GraphTests.swift */,
 			);
 			path = MovieMagazineTests;
 			sourceTree = "<group>";
@@ -294,6 +242,8 @@
 				86C1FAC72B003CAD00080547 /* Models */,
 				86C1FAC92B003DE500080547 /* Redux */,
 				86C1FACB2B0040E000080547 /* Core */,
+				86C1FACD2B00E6E400080547 /* Login */,
+				86C1FACF2B00E91600080547 /* Extensions */,
 			);
 			productName = MovieMagazine;
 			productReference = 866798FB2AED934300BB6576 /* MovieMagazine.app */;
@@ -382,19 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8667992C2AEDB97B00BB6576 /* LoginPresenterImpl.swift in Sources */,
 				86C1FABA2B0024B400080547 /* HomeViewController.swift in Sources */,
-				866799132AED982E00BB6576 /* NSWindow.swift in Sources */,
-				866799182AED9C9D00BB6576 /* LoginView.swift in Sources */,
 				86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */,
 				866799152AED9ADE00BB6576 /* Assembly.swift in Sources */,
 				86C1FAC02B00293800080547 /* HomeView.swift in Sources */,
-				86D8A43D2AEE6D300022D7EB /* LoginViewModel.swift in Sources */,
-				8637A8482AF2E2CC00FB11AE /* OSLog.swift in Sources */,
-				8667991B2AED9EB900BB6576 /* NSView.swift in Sources */,
 				86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */,
 				869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */,
-				866799012AED934400BB6576 /* LoginViewController.swift in Sources */,
 				869A71482AF7C925009CB08A /* ImageCache.swift in Sources */,
 				866799102AED96E600BB6576 /* RootWindowController.swift in Sources */,
 				866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */,
@@ -410,7 +353,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86D8A4362AEE5E1C0022D7EB /* GraphTests.swift in Sources */,
 				EEDBF61B2AF3E7F500FB7B59 /* ValidatorDriverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,6 +624,14 @@
 		86C1FACB2B0040E000080547 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
+		};
+		86C1FACD2B00E6E400080547 /* Login */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Login;
+		};
+		86C1FACF2B00E91600080547 /* Extensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Extensions;
 		};
 		EEC5741F2AF37E3D00783702 /* Endpoint */ = {
 			isa = XCSwiftPackageProductDependency;

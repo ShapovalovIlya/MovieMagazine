@@ -7,7 +7,7 @@
 
 import Cocoa
 
-extension NSWindow {
+public extension NSWindow {
     func addStyleMasks(_ styleMasks: StyleMask...) {
         styleMasks.forEach { styleMask.insert($0) }
     }

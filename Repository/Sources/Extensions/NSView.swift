@@ -7,7 +7,7 @@
 
 import Cocoa
 
-extension NSView {
+public extension NSView {
     func addSubviews(_ subviews: NSView...) {
         subviews.forEach(addSubview)
     }

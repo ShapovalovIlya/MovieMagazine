@@ -7,11 +7,14 @@
 
 import Cocoa
 import Core
+import Login
+import Extensions
 
 protocol AppAssembly: AnyObject {
     func makeLoginModule(router: AppRouter) -> NSSplitViewItem
     func makeHomeModule(router: AppRouter) -> NSSplitViewItem
     func loadingScreen() -> NSProgressIndicator
+    func makeAlert(_ style: NSAlert.Style, title: String, info: String) -> NSAlert
 }
 
 final class Assembly: AppAssembly {
@@ -67,7 +70,7 @@ final class Assembly: AppAssembly {
         return NSSplitViewItem(viewController: viewController)
     }
     
-    func makeRootWindowController(router: AppRouter) -> NSWindowController {
+    func makeRootWindow(router: AppRouter) -> NSWindowController {
         let presenter = RootPresenterImpl(store: store, router: router)
         let rootViewController = RootWindowController(
             window: makeRootWindow(),
@@ -78,6 +81,18 @@ final class Assembly: AppAssembly {
         rootViewController.contentViewController = splitViewController
         rootViewController.window?.contentView = splitViewController.splitView
         return rootViewController
+    }
+    
+    func makeAlert(
+        _ style: NSAlert.Style = .warning,
+        title: String,
+        info: String = .init()
+    ) -> NSAlert {
+        let alert = NSAlert()
+        alert.messageText = title
+        alert.informativeText = info
+        alert.alertStyle = style
+        return alert
     }
     
     //MARK: - Utility views

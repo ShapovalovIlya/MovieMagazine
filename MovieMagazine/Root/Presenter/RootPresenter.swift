@@ -60,7 +60,16 @@ private extension RootPresenterImpl {
         case .invalidCredentials: break
             
         case .error(let error):
-            router.showError(error)
+            handle(error)
+        }
+    }
+    
+    func handle(_ error: Error) {
+        router.showError(error) { response in
+            switch response {
+            
+            default: break
+            }
         }
     }
 }

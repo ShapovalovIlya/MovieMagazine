@@ -6,13 +6,8 @@
 //
 
 import Cocoa
-
-protocol AppRouter: AnyObject {
-    func showLoginView()
-    func showHomeView()
-    func showError(_ error: Error)
-    func showLoading()
-}
+import Core
+import Login
 
 final class Router: AppRouter {
     private let splitViewController: NSSplitViewController
@@ -41,8 +36,11 @@ final class Router: AppRouter {
         splitViewController.splitViewItems = [homeItem]
     }
     
-    func showError(_ error: Error) {
-        splitViewController.presentError(error)
+    func showError(_ error: Error, handler: @escaping (NSApplication.ModalResponse) -> Void) {
+        guard let window = splitViewController.splitView.window else { return }
+        let alert = assembly.makeAlert(.warning, title: "Oops!", info: error.localizedDescription)
+        alert.beginSheetModal(for: window, completionHandler: handler)
+//        splitViewController.presentError(error)
     }
     
     func showLoading() {

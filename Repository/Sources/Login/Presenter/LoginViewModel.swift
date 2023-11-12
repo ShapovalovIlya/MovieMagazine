@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LoginViewModel {
+public struct LoginViewModel {
     let loginField: FieldState
     let passwordField: FieldState
 

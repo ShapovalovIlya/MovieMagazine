@@ -40,7 +40,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let assembly = Assembly(store: store)
         let router = assembly.makeRouter()
-        let rootWindowController = assembly.makeRootWindowController(router: router)
+        let rootWindowController = assembly.makeRootWindow(router: router)
         rootWindowController.showWindow(nil)
     }
 

@@ -6,7 +6,8 @@
 //
 
 import XCTest
-@testable import MovieMagazine
+import Redux
+@testable import Core
 
 final class GraphTests: XCTestCase {
     private var sut: Graph!
@@ -57,53 +58,16 @@ final class GraphTests: XCTestCase {
     
     func test_LoginNode_CheckCredentialsValidState() {
         let mockLoginState = LoginViewState(
-            email: .valid("Baz"),
-            password: .valid("Baz")
+            email: "Baz",
+            password: "Baz"
         )
         sut = .init(
-            state: .init(loginState: mockLoginState),
+            state: .init(loginViewState: mockLoginState),
             dispatch: { _ in }
         )
         
         XCTAssertEqual(sut.loginViewState.username, "Baz")
         XCTAssertEqual(sut.loginViewState.password, "Baz")
-        XCTAssertTrue(sut.loginState.isLoginValid)
-        XCTAssertTrue(sut.loginState.isPasswordValid)
-        XCTAssertTrue(sut.loginState.isCredentialsValid)
-    }
-    
-    func test_LoginNode_CheckCredentialsInvalidState() {
-        let mockLoginState = LoginViewState(
-            email: .invalid("Baz"),
-            password: .invalid("Baz")
-        )
-        sut = .init(
-            state: .init(loginState: mockLoginState),
-            dispatch: { _ in }
-        )
-        
-        XCTAssertEqual(sut.loginViewState.username, "Baz")
-        XCTAssertEqual(sut.loginViewState.password, "Baz")
-        XCTAssertFalse(sut.loginState.isLoginValid)
-        XCTAssertFalse(sut.loginState.isPasswordValid)
-        XCTAssertFalse(sut.loginState.isCredentialsValid)
-    }
-    
-    func test_LoginNode_CheckCredentialsEmptyState() {
-        let mockLoginState = LoginViewState(
-            email: .empty,
-            password: .empty
-        )
-        sut = .init(
-            state: .init(loginState: mockLoginState),
-            dispatch: { _ in }
-        )
-        
-        XCTAssertEqual(sut.loginViewState.username, "")
-        XCTAssertEqual(sut.loginViewState.password, "")
-        XCTAssertTrue(sut.loginState.isLoginValid)
-        XCTAssertTrue(sut.loginState.isPasswordValid)
-        XCTAssertFalse(sut.loginState.isCredentialsValid)
     }
 
 }

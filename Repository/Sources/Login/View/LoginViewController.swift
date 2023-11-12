@@ -8,13 +8,13 @@
 import Cocoa
 import OSLog
 
-final class LoginViewController: NSViewController {
+public final class LoginViewController: NSViewController {
     private let loginView: LoginViewProtocol
     private let presenter: LoginPresenter
     private var logger: OSLog?
     
     //MARK: - init(_:)
-    init(
+    public init(
         loginView: LoginViewProtocol,
         presenter: LoginPresenter,
         logger: OSLog? = nil
@@ -32,13 +32,13 @@ final class LoginViewController: NSViewController {
     }
     
     //MARK: - Life Cycle
-    override func loadView() {
+    public override func loadView() {
         self.view = loginView
         setDelegate(self)
         log(event: #function)
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
         loginView.loginButton.target = self
@@ -54,7 +54,7 @@ final class LoginViewController: NSViewController {
 
 //MARK: - LoginViewDelegate
 extension LoginViewController: LoginViewDelegate {
-    func render(_ viewModel: LoginViewModel) {
+    public func render(_ viewModel: LoginViewModel) {
         self.loginView.loginTextField.stringValue = viewModel.loginField.value
         self.loginView.passwordTextField.stringValue = viewModel.passwordField.value
         log(event: #function)
@@ -63,7 +63,7 @@ extension LoginViewController: LoginViewDelegate {
 
 //MARK: - NSTextFieldDelegate
 extension LoginViewController: NSTextFieldDelegate {
-    func controlTextDidChange(_ obj: Notification) {
+    public func controlTextDidChange(_ obj: Notification) {
         guard let textField = obj.object as? NSTextField else { return }
         switch TextFieldType(rawValue: textField.tag) {
         case .loginTextField:
