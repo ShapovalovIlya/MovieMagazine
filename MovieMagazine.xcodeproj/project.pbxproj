@@ -10,9 +10,7 @@
 		866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866798FE2AED934400BB6576 /* AppDelegate.swift */; };
 		866799032AED934600BB6576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866799022AED934600BB6576 /* Assets.xcassets */; };
 		8667990E2AED960000BB6576 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667990D2AED960000BB6576 /* main.swift */; };
-		866799102AED96E600BB6576 /* RootWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667990F2AED96E600BB6576 /* RootWindowController.swift */; };
 		866799152AED9ADE00BB6576 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799142AED9ADE00BB6576 /* Assembly.swift */; };
-		869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A712B2AF6B823009CB08A /* RootPresenter.swift */; };
 		869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A713A2AF6C701009CB08A /* ApiKey.swift */; };
 		869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */ = {isa = PBXBuildFile; productRef = 869A71452AF7C879009CB08A /* NetworkOperator */; };
 		869A71482AF7C925009CB08A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A71472AF7C925009CB08A /* ImageCache.swift */; };
@@ -24,6 +22,7 @@
 		86C1FAD02B00E91600080547 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACF2B00E91600080547 /* Extensions */; };
 		86C1FAD22B00ED5200080547 /* LoginModule in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAD12B00ED5200080547 /* LoginModule */; };
 		86C1FAD42B00ED5700080547 /* HomeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAD32B00ED5700080547 /* HomeModule */; };
+		86C1FAD62B00EF0C00080547 /* RootModule in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAD52B00EF0C00080547 /* RootModule */; };
 		86D8A4512AEEFEE60022D7EB /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */; };
 		EEC5741C2AF37C5200783702 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741B2AF37C5200783702 /* README.md */; };
 		EEC5741E2AF37C5B00783702 /* Repository in Resources */ = {isa = PBXBuildFile; fileRef = EEC5741D2AF37C5B00783702 /* Repository */; };
@@ -49,9 +48,7 @@
 		866799022AED934600BB6576 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		866799072AED934600BB6576 /* MovieMagazine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MovieMagazine.entitlements; sourceTree = "<group>"; };
 		8667990D2AED960000BB6576 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		8667990F2AED96E600BB6576 /* RootWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowController.swift; sourceTree = "<group>"; };
 		866799142AED9ADE00BB6576 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
-		869A712B2AF6B823009CB08A /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		869A713A2AF6C701009CB08A /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		869A71472AF7C925009CB08A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		86A29A082AF691170092BBC6 /* MovieMagazine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieMagazine.xctestplan; sourceTree = "<group>"; };
@@ -76,6 +73,7 @@
 				86C1FAC82B003CAD00080547 /* Models in Frameworks */,
 				EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */,
 				869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */,
+				86C1FAD62B00EF0C00080547 /* RootModule in Frameworks */,
 				86C1FACA2B003DE500080547 /* Redux in Frameworks */,
 				EEC574202AF37E3D00783702 /* Endpoint in Frameworks */,
 				86C1FAD42B00ED5700080547 /* HomeModule in Frameworks */,
@@ -123,20 +121,10 @@
 			children = (
 				EEDBF6172AF3D1E000FB7B59 /* Drivers */,
 				8667992F2AEDCD5800BB6576 /* Application */,
-				866799192AED9D0500BB6576 /* Root */,
 				866799022AED934600BB6576 /* Assets.xcassets */,
 				866799072AED934600BB6576 /* MovieMagazine.entitlements */,
 			);
 			path = MovieMagazine;
-			sourceTree = "<group>";
-		};
-		866799192AED9D0500BB6576 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				869A712D2AF6BD17009CB08A /* View */,
-				869A712F2AF6BD27009CB08A /* Presenter */,
-			);
-			path = Root;
 			sourceTree = "<group>";
 		};
 		8667992F2AEDCD5800BB6576 /* Application */ = {
@@ -155,22 +143,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		869A712D2AF6BD17009CB08A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8667990F2AED96E600BB6576 /* RootWindowController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		869A712F2AF6BD27009CB08A /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				869A712B2AF6B823009CB08A /* RootPresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		86D8A4342AEE5E1C0022D7EB /* MovieMagazineTests */ = {
@@ -227,6 +199,7 @@
 				86C1FACF2B00E91600080547 /* Extensions */,
 				86C1FAD12B00ED5200080547 /* LoginModule */,
 				86C1FAD32B00ED5700080547 /* HomeModule */,
+				86C1FAD52B00EF0C00080547 /* RootModule */,
 			);
 			productName = MovieMagazine;
 			productReference = 866798FB2AED934300BB6576 /* MovieMagazine.app */;
@@ -320,11 +293,9 @@
 				86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */,
 				869A713B2AF6C701009CB08A /* ApiKey.swift in Sources */,
 				869A71482AF7C925009CB08A /* ImageCache.swift in Sources */,
-				866799102AED96E600BB6576 /* RootWindowController.swift in Sources */,
 				866798FF2AED934400BB6576 /* AppDelegate.swift in Sources */,
 				8667990E2AED960000BB6576 /* main.swift in Sources */,
 				86C1FAAE2AFFAE6800080547 /* Router.swift in Sources */,
-				869A712C2AF6B823009CB08A /* RootPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +586,10 @@
 		86C1FAD32B00ED5700080547 /* HomeModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HomeModule;
+		};
+		86C1FAD52B00EF0C00080547 /* RootModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RootModule;
 		};
 		EEC5741F2AF37E3D00783702 /* Endpoint */ = {
 			isa = XCSwiftPackageProductDependency;

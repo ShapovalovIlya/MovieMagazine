@@ -8,13 +8,13 @@
 import Cocoa
 import OSLog
 
-final class RootWindowController: NSWindowController {
+public final class RootWindowController: NSWindowController {
     //MARK: - Private properties
     private let logger: OSLog?
     private let presenter: RootPresenter
     
     //MARK: - init(_:)
-    init(
+    public init(
         window: NSWindow,
         presenter: RootPresenter,
         logger: OSLog? = nil
@@ -34,14 +34,14 @@ final class RootWindowController: NSWindowController {
     }
     
     //MARK: - Life Cycle
-    override func loadWindow() {
+    public override func loadWindow() {
         window?.windowController = self
         
         log(event: #function)
         windowDidLoad()
     }
     
-    override func windowDidLoad() {
+    public override func windowDidLoad() {
         super.windowDidLoad()
         
         presenter.windowDidLoad()
@@ -49,7 +49,7 @@ final class RootWindowController: NSWindowController {
     }
     
     //MARK: - Public methods
-    override func showWindow(_ sender: Any?) {
+    public override func showWindow(_ sender: Any?) {
         window?.orderFrontRegardless()
         window?.center()
         log(event: #function)

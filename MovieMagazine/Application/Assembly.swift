@@ -10,6 +10,7 @@ import Core
 import LoginModule
 import HomeModule
 import Extensions
+import RootModule
 
 protocol AppAssembly: AnyObject {
     func makeLoginModule(router: AppRouter) -> NSSplitViewItem

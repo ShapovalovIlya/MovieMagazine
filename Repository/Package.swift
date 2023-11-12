@@ -19,6 +19,7 @@ let package = Package(
         .library(name: "Core", targets: ["Core"]),
         .library(name: "LoginModule", targets: ["LoginModule"]),
         .library(name: "HomeModule", targets: ["HomeModule"]),
+        .library(name: "RootModule", targets: ["RootModule"]),
     ],
     targets: [
         InternalDependencies.SwiftFP.target,
@@ -30,6 +31,13 @@ let package = Package(
             name: "Core",
             dependencies: [
                 InternalDependencies.Redux.dependency,
+            ]),
+        .target(
+            name: "RootModule",
+            dependencies: [
+                InternalDependencies.Redux.dependency,
+                InternalDependencies.Extensions.dependency,
+                "Core",
             ]),
         .target(
             name: "LoginModule",

@@ -9,15 +9,15 @@ import Foundation
 import Redux
 import Core
 
-protocol RootPresenter: AnyObject {
+public protocol RootPresenter: AnyObject {
     func windowDidLoad()
 }
 
-protocol RootPresenterDelegate: AnyObject {
+public protocol RootPresenterDelegate: AnyObject {
     
 }
 
-final class RootPresenterImpl: RootPresenter {
+public final class RootPresenterImpl: RootPresenter {
     private let store: GraphStore
     private let router: AppRouter
     
@@ -29,10 +29,10 @@ final class RootPresenterImpl: RootPresenter {
         return .active
     }
     
-    weak var delegate: RootPresenterDelegate?
+    public weak var delegate: RootPresenterDelegate?
     
     //MARK: - init(_:)
-    init(
+    public init(
         store: GraphStore,
         router: AppRouter
     ) {
@@ -41,7 +41,7 @@ final class RootPresenterImpl: RootPresenter {
     }
     
     //MARK: - Public methods
-    func windowDidLoad() {
+    public func windowDidLoad() {
         store.subscribe(asObserver)
     }
     
