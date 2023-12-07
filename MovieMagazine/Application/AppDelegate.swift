@@ -6,34 +6,32 @@
 //
 
 import Cocoa
-import OSLog
-import Redux
+import ReduxCore
 import Core
+import Analytics
+import OSLog
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
-    let store: GraphStore
-    let networkDriver: NetworkDriver
-    let sessionDriver: SessionDriver
+    let store: AppStore
     
     //MARK: - init(_:)
     override init() {
-        self.store = .init {
-            Store(initial: AppState()) { state, action in
-                os_log(
-                    "Store:\t%@",
-                    log: .system,
-                    type: .debug,
-                    String(describing: action)
-                )
-                state.reduce(action)
-            }
+        self.store = Store(initial: AppState()) { state, action in
+            os_log(
+                "Store:\t%@",
+                log: .system,
+                type: .debug,
+                String(describing: action)
+            )
+            state.reduce(action)
         }
-        self.networkDriver = .init(logger: .system)
-        self.sessionDriver = .init(logger: .system)
         super.init()
         
-        store.subscribe(networkDriver.asObserver)
-        store.subscribe(sessionDriver.asObserver)
+        store.subscribe {
+            SessionDriver(analytics: OSLog.system).asObserver
+            NetworkDriver(analytics: OSLog.system).asObserver
+        }
+        
     }
 
     //MARK: - Public methods

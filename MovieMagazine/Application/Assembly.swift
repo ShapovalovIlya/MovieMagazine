@@ -11,6 +11,8 @@ import LoginModule
 import HomeModule
 import Extensions
 import RootModule
+import Analytics
+import OSLog
 
 protocol AppAssembly: AnyObject {
     func makeLoginModule(router: AppRouter) -> NSSplitViewItem
@@ -20,7 +22,7 @@ protocol AppAssembly: AnyObject {
 }
 
 final class Assembly: AppAssembly {
-    private let store: GraphStore
+    private let store: AppStore
     private let splitViewController = NSSplitViewController()
     
     private struct Drawing {
@@ -30,7 +32,7 @@ final class Assembly: AppAssembly {
     }
     
     //MARK: - init(_:)
-    init(store: GraphStore) {
+    init(store: AppStore) {
         self.store = store
     }
     
@@ -66,7 +68,7 @@ final class Assembly: AppAssembly {
         let viewController = LoginViewController(
             loginView: LoginView(frame: Drawing.detailRect),
             presenter: presenter,
-            logger: .viewCycle
+            analytics: OSLog.viewCycle
         )
         presenter.delegate = viewController
         return NSSplitViewItem(viewController: viewController)
@@ -77,7 +79,7 @@ final class Assembly: AppAssembly {
         let rootViewController = RootWindowController(
             window: makeRootWindow(),
             presenter: presenter,
-            logger: .viewCycle
+            analytics: OSLog.viewCycle
         )
         presenter.delegate = rootViewController
         rootViewController.contentViewController = splitViewController

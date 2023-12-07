@@ -69,7 +69,7 @@ private extension LoginView {
     
     func configureLayer(for view: NSView) {
         view.wantsLayer = true
-        view.layer?.cornerRadius = 10
+        view.layer?.cornerRadius = Drawing.cornerRadius
         view.layer?.borderWidth = 1
         view.layer?.borderColor = NSColor.lightGray.cgColor
     }
@@ -106,34 +106,35 @@ private extension LoginView {
         static let contentWight: CGFloat = 200
         static let contentHeight: CGFloat = 40
         static let contentSpacing: CGFloat = 10
+        static let cornerRadius: CGFloat = 10
     }
     
     func setConstraints() {
-        NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate {
             //MARK: - loginTextField
-            loginTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loginTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
-            loginTextField.widthAnchor.constraint(equalToConstant: Drawing.contentWight),
-            loginTextField.heightAnchor.constraint(equalToConstant: Drawing.contentHeight),
+            loginTextField.centerXAnchor.constraint(equalTo: centerXAnchor)
+            loginTextField.centerYAnchor.constraint(equalTo: centerYAnchor)
+            loginTextField.widthAnchor.constraint(equalToConstant: Drawing.contentWight)
+            loginTextField.heightAnchor.constraint(equalToConstant: Drawing.contentHeight)
             
             //MARK: - passwordTextField
-            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: Drawing.contentSpacing),
-            passwordTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            passwordTextField.widthAnchor.constraint(equalToConstant: Drawing.contentWight),
-            passwordTextField.heightAnchor.constraint(equalToConstant: Drawing.contentHeight),
+            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: Drawing.contentSpacing)
+            passwordTextField.centerXAnchor.constraint(equalTo: centerXAnchor)
+            passwordTextField.widthAnchor.constraint(equalToConstant: Drawing.contentWight)
+            passwordTextField.heightAnchor.constraint(equalToConstant: Drawing.contentHeight)
             
             //MARK: - Login button
-            loginButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Drawing.contentSpacing),
-            loginButton.widthAnchor.constraint(equalToConstant: Drawing.contentWight),
-            loginButton.heightAnchor.constraint(equalToConstant: Drawing.contentHeight),
+            loginButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Drawing.contentSpacing)
+            loginButton.widthAnchor.constraint(equalToConstant: Drawing.contentWight)
+            loginButton.heightAnchor.constraint(equalToConstant: Drawing.contentHeight)
             
             //MARK: - Login guest button
-            loginGuestButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loginGuestButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: Drawing.contentSpacing),
-            loginGuestButton.widthAnchor.constraint(equalToConstant: Drawing.contentWight),
+            loginGuestButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+            loginGuestButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: Drawing.contentSpacing)
+            loginGuestButton.widthAnchor.constraint(equalToConstant: Drawing.contentWight)
             loginGuestButton.heightAnchor.constraint(equalToConstant: Drawing.contentHeight)
-        ])
+        }
     }
 }
 

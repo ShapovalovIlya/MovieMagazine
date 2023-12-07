@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import Validator
-import Redux
 
 public struct LoginViewState: Reducer {
     public var password: String

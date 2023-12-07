@@ -17,7 +17,6 @@
 		86C1D5FE2AFCF9A200731FB9 /* SessionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */; };
 		86C1FAAE2AFFAE6800080547 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1FAAD2AFFAE6800080547 /* Router.swift */; };
 		86C1FAC82B003CAD00080547 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC72B003CAD00080547 /* Models */; };
-		86C1FACA2B003DE500080547 /* Redux in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAC92B003DE500080547 /* Redux */; };
 		86C1FACC2B0040E000080547 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACB2B0040E000080547 /* Core */; };
 		86C1FAD02B00E91600080547 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FACF2B00E91600080547 /* Extensions */; };
 		86C1FAD22B00ED5200080547 /* LoginModule in Frameworks */ = {isa = PBXBuildFile; productRef = 86C1FAD12B00ED5200080547 /* LoginModule */; };
@@ -74,7 +73,6 @@
 				EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */,
 				869A71462AF7C879009CB08A /* NetworkOperator in Frameworks */,
 				86C1FAD62B00EF0C00080547 /* RootModule in Frameworks */,
-				86C1FACA2B003DE500080547 /* Redux in Frameworks */,
 				EEC574202AF37E3D00783702 /* Endpoint in Frameworks */,
 				86C1FAD42B00ED5700080547 /* HomeModule in Frameworks */,
 				86C1FACC2B0040E000080547 /* Core in Frameworks */,
@@ -194,7 +192,6 @@
 				EEDBF6152AF3D09B00FB7B59 /* Validator */,
 				869A71452AF7C879009CB08A /* NetworkOperator */,
 				86C1FAC72B003CAD00080547 /* Models */,
-				86C1FAC92B003DE500080547 /* Redux */,
 				86C1FACB2B0040E000080547 /* Core */,
 				86C1FACF2B00E91600080547 /* Extensions */,
 				86C1FAD12B00ED5200080547 /* LoginModule */,
@@ -566,10 +563,6 @@
 		86C1FAC72B003CAD00080547 /* Models */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Models;
-		};
-		86C1FAC92B003DE500080547 /* Redux */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Redux;
 		};
 		86C1FACB2B0040E000080547 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;

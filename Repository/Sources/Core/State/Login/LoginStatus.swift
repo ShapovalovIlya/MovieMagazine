@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Redux
 
 public enum LoginStatus: Reducer {
     case none

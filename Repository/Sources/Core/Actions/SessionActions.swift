@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Redux
 import Models
 
 public enum SessionActions {

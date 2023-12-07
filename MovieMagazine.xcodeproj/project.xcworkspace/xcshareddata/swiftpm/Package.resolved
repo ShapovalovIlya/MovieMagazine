@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "reduxcore",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:ShapovalovIlya/ReduxCore.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9b7964831a9fb587360a392acb9d33a85645c381"
+      }
+    }
+  ],
+  "version" : 2
+}

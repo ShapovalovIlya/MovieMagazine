@@ -8,8 +8,8 @@
 import Foundation
 import NetworkOperator
 import Endpoint
-import OSLog
-import Redux
+import Analytics
+import ReduxCore
 import Models
 import Core
 
@@ -18,32 +18,26 @@ final class SessionDriver {
     private let queue = DispatchQueue(label: "SessionDriver", qos: .utility)
     private let networkOperator: NetworkOperator
     private let networkCoder: NetworkCoder
-    private let logger: OSLog?
+    private let analytics: Analytics?
     private let bearer: Bearer = .init(ApiKeys.bearer)
     
-    private(set) lazy var asObserver: Observer<Graph> = .init(
-        queue: queue
-    ) { [weak self] graph in
-        guard let self else { return .dead }
-        self.process(graph)
-        return .active
-    }
+    private(set) lazy var asObserver: AppObserver = .init(
+        queue: queue,
+        observe: process(graph:)
+    )
     
     //MARK: - init(_:)
-    init(logger: OSLog? = nil) {
-        self.logger = logger
-        networkOperator = .init(
-            queue: queue,
-            logger: logger
-        )
+    init(analytics: Analytics? = nil) {
+        self.analytics = analytics
+        networkOperator = .init(queue: queue)
         networkCoder = .init(keyCodingStrategy: .convertSnakeCase)
     }
 }
 
 private extension SessionDriver {
-    func process(_ graph: Graph) {
-        switch graph.loginFlow {
-        case .none: return
+    func process(graph: AppGraph) -> AppObserver.Status {
+        switch graph.state.loginFlow {
+        case .none: break
             
         case let .token(id):
             networkOperator.process {
@@ -74,11 +68,12 @@ private extension SessionDriver {
                 )
             }
         }
+        return .active
     }
     
     
     
-    func composeValidatedSessionRequest(with id: UUID, _ graph: Graph) -> NetworkOperator.Request? {
+    func composeValidatedSessionRequest(with id: UUID, _ graph: AppGraph) -> NetworkOperator.Request? {
         switch networkCoder.encode({
             SessionRequest(requestToken: graph.sessionState.requestToken)
         }) {
@@ -97,7 +92,7 @@ private extension SessionDriver {
     }
 
     
-    func composeTokenValidation(with id: UUID, _ graph: Graph) -> NetworkOperator.Request? {
+    func composeTokenValidation(with id: UUID, _ graph: AppGraph) -> NetworkOperator.Request? {
         switch networkCoder.encode({
             TokenRequest(
                 username: graph.loginViewState.username,

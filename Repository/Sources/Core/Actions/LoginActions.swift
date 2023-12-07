@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Redux
 
 public enum LoginActions {
     public struct UpdateLogin: Action {

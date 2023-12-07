@@ -6,21 +6,21 @@
 //
 
 import Cocoa
-import OSLog
+import Analytics
 
 public final class RootWindowController: NSWindowController {
     //MARK: - Private properties
-    private let logger: OSLog?
+    private let analytics: Analytics?
     private let presenter: RootPresenter
     
     //MARK: - init(_:)
     public init(
         window: NSWindow,
         presenter: RootPresenter,
-        logger: OSLog? = nil
+        analytics: Analytics? = nil
     ) {
         self.presenter = presenter
-        self.logger = logger
+        self.analytics = analytics
         super.init(window: window)
         
         log(event: #function)
@@ -54,8 +54,6 @@ public final class RootWindowController: NSWindowController {
         window?.center()
         log(event: #function)
     }
-    
-    
 
 }
 
@@ -67,7 +65,6 @@ extension RootWindowController: RootPresenterDelegate {
 private extension RootWindowController {
     //MARK: - Private methods
     func log(event: String) {
-        guard let logger else { return }
-        os_log("RootWindowController:\t %@", log: logger, type: .debug, event)
+        analytics?.send(name: "RootWindowController", info: event)
     }
 }

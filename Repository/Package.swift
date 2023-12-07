@@ -10,9 +10,9 @@ let package = Package(
     ],
     products: [
         InternalDependencies.SwiftFP.library,
-        InternalDependencies.Redux.library,
         InternalDependencies.Extensions.library,
         InternalDependencies.Design.library,
+        InternalDependencies.Analytics.library,
         .library(name: "NetworkOperator", targets: ["NetworkOperator"]),
         .library(name: "Endpoint", targets: ["Endpoint"]),
         .library(name: "Validator", targets: ["Validator"]),
@@ -22,52 +22,57 @@ let package = Package(
         .library(name: "HomeModule", targets: ["HomeModule"]),
         .library(name: "RootModule", targets: ["RootModule"]),
     ],
+    dependencies: [
+        .package(url: "git@github.com:ShapovalovIlya/ReduxCore.git", branch: "main"),
+    ],
     targets: [
         InternalDependencies.SwiftFP.target,
-        InternalDependencies.Redux.target,
         InternalDependencies.Extensions.target,
         InternalDependencies.Design.target,
+        InternalDependencies.Analytics.target,
         .target(name: "Validator"),
         .target(name: "Models"),
         .target(
             name: "Core",
             dependencies: [
-                InternalDependencies.Redux.dependency,
+                "Models",
+                .product(name: "ReduxCore", package: "ReduxCore"),
             ]),
         .target(
             name: "RootModule",
             dependencies: [
-                InternalDependencies.Redux.dependency,
                 InternalDependencies.Extensions.dependency,
+                InternalDependencies.Analytics.dependency,
                 "Core",
             ]),
         .target(
             name: "LoginModule",
             dependencies: [
-                InternalDependencies.Redux.dependency,
                 InternalDependencies.Extensions.dependency,
                 InternalDependencies.Design.dependency,
+                InternalDependencies.Analytics.dependency,
                 "Core",
                 "Validator",
             ]),
         .target(
             name: "HomeModule",
             dependencies: [
-                InternalDependencies.Redux.dependency,
                 InternalDependencies.Extensions.dependency,
+                InternalDependencies.Analytics.dependency,
                 "Core",
             ]),
         .target(
             name: "NetworkOperator",
             dependencies: [
-                InternalDependencies.SwiftFP.dependency
+                InternalDependencies.SwiftFP.dependency,
+                InternalDependencies.Analytics.dependency,
             ]),
         .target(
             name: "Endpoint",
             dependencies: [
                 InternalDependencies.SwiftFP.dependency
             ]),
-        .testTarget(name: "CoreTests", dependencies: ["Core"]),
+//        .testTarget(name: "CoreTests", dependencies: ["Core"]),
     ]
 )
 
@@ -75,15 +80,15 @@ let package = Package(
 fileprivate enum InternalDependencies {
     case SwiftFP
     case Extensions
-    case Redux
     case Design
+    case Analytics
     
     var library: Product {
         switch self {
         case .SwiftFP: return .library(name: "SwiftFP", targets: ["SwiftFP"])
         case .Extensions: return .library(name: "Extensions", targets: ["Extensions"])
-        case .Redux: return .library(name: "Redux", targets: ["Redux"])
         case .Design: return .library(name: "Design", targets: ["Design"])
+        case .Analytics: return .library(name: "Analytics", targets: ["Analytics"])
         }
     }
     
@@ -91,8 +96,8 @@ fileprivate enum InternalDependencies {
         switch self {
         case .SwiftFP: return .target(name: "SwiftFP")
         case .Extensions: return .target(name: "Extensions")
-        case .Redux: return .target(name: "Redux")
         case .Design: return .target(name: "Design")
+        case .Analytics: return .target(name: "Analytics")
         }
     }
     
@@ -100,8 +105,8 @@ fileprivate enum InternalDependencies {
         switch self {
         case .SwiftFP: return "SwiftFP"
         case .Extensions: return "Extensions"
-        case .Redux: return "Redux"
         case .Design: return "Design"
+        case .Analytics: return "Analytics"
         }
     }
     

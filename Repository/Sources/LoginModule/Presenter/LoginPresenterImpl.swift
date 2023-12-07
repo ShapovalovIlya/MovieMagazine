@@ -7,8 +7,8 @@
 
 import Foundation
 import Validator
-import Redux
 import Core
+import ReduxCore
 
 public protocol LoginViewDelegate: AnyObject {
     func render(_ viewModel: LoginViewModel)
@@ -23,12 +23,13 @@ public protocol LoginPresenter: AnyObject {
 }
 
 public final class LoginPresenterImpl: LoginPresenter {
-    private let store: GraphStore
+    private let store: AppStore
     private let validator: Validator
     private let router: AppRouter
     
-    private(set) lazy var asObserver: Observer<Graph> = .init(
-        queue: .main
+    private(set) lazy var asObserver: Observer<AppGraph> = .init(
+        queue: .main,
+        scope: \.loginViewState
     ) { [weak self] graph in
         guard let self else { return .dead }
         delegate?.render(mapToProps(graph))
@@ -39,7 +40,7 @@ public final class LoginPresenterImpl: LoginPresenter {
     
     //MARK: - init(_:)
     public init(
-        store: GraphStore,
+        store: AppStore,
         router: AppRouter,
         validator: Validator
     ) {
@@ -71,7 +72,7 @@ public final class LoginPresenterImpl: LoginPresenter {
 }
 
 private extension LoginPresenterImpl {
-    func mapToProps(_ graph: Graph) -> LoginViewModel {
+    func mapToProps(_ graph: AppGraph) -> LoginViewModel {
         return .init(
             loginField: validate(username: graph.loginViewState.username),
             passwordField: validate(password: graph.loginViewState.password)

@@ -7,14 +7,14 @@
 
 import Foundation
 
-public extension Graph {
+public extension AppGraph {
     var sessionState: SessionNode { .init(graph: self) }
 }
 
 public struct SessionNode {
-    private let graph: Graph
+    private let graph: AppGraph
     
-    init(graph: Graph) {
+    init(graph: AppGraph) {
         self.graph = graph
     }
     

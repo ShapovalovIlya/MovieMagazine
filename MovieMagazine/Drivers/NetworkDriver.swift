@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import OSLog
+import Analytics
 import Endpoint
 import NetworkOperator
-import Redux
+import ReduxCore
 import Core
 
 typealias ResultCompletion = (Result<NetworkOperator.Response, Error>) -> Void
@@ -19,36 +19,27 @@ final class NetworkDriver {
     private let networkCoder: NetworkCoder
     private let queue: DispatchQueue = .init(label: "NetworkDriver")
     private let bearer: Bearer = .init(ApiKeys.bearer)
-    private var logger: OSLog?
+    private var analytics: Analytics?
     
-    private(set) lazy var asObserver: Observer<Graph> = .init(
-        queue: queue
-    ) { [weak self] graph in
-        guard let self else {
-            return .dead
-        }
-        process(graph)
-        return .active
-    }
+    private(set) lazy var asObserver: Observer<AppGraph> = .init(
+        queue: queue,
+        observe: process(_:)
+    )
     
     //MARK: - init(_:)
-    init(logger: OSLog? = nil) {
-        self.logger = logger
-        networkOperator = .init(
-            queue: self.queue,
-            logger: logger
-        )
-        networkCoder = .init(
-            keyCodingStrategy: .convertSnakeCase
-        )
+    init(analytics: Analytics? = nil) {
+        self.analytics = analytics
+        networkOperator = .init(queue: self.queue)
+        networkCoder = .init(keyCodingStrategy: .convertSnakeCase)
     }
 }
 
 private extension NetworkDriver {
     
-    func process(_ graph: Graph) {
+    func process(_ graph: AppGraph) -> AppObserver.Status {
         networkOperator.process {
         }
+        return .active
     }
     
     func request(
@@ -66,7 +57,6 @@ private extension NetworkDriver {
     
     
     func log(event: String) {
-        guard let logger else { return }
-        os_log("NetworkDriver: %@", log: logger, type: .debug, event)
+        analytics?.send(name: "NetworkDriver", info: event)
     }
 }

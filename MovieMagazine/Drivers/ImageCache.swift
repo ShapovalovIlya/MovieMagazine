@@ -12,7 +12,7 @@ import Core
 final class ImageCache {
     
     
-    func observe(_ graph: Graph) {
+    func observe(_ graph: AppGraph) {
         
     }
  

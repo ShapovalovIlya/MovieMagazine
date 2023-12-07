@@ -6,16 +6,15 @@
 //
 
 import Foundation
-import Redux
 
-public extension Graph {
+public extension AppGraph {
     var loginViewState: LoginViewNode { .init(graph: self) }
 }
 
-public struct LoginViewNode {
-    private let graph: Graph
+public struct LoginViewNode: Equatable {
+    private let graph: AppGraph
     
-    init(graph: Graph) {
+    init(graph: AppGraph) {
         self.graph = graph
     }
     
@@ -31,5 +30,10 @@ public struct LoginViewNode {
     
     public func login() {
         graph.dispatch(LoginActions.Login())
+    }
+    
+    public static func == (lhs: LoginViewNode, rhs: LoginViewNode) -> Bool {
+        lhs.username == rhs.username
+        && lhs.password == rhs.password
     }
 }

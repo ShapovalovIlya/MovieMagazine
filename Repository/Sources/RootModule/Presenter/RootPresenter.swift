@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import Redux
 import Core
+import ReduxCore
 
 public protocol RootPresenter: AnyObject {
     func windowDidLoad()
@@ -18,10 +18,10 @@ public protocol RootPresenterDelegate: AnyObject {
 }
 
 public final class RootPresenterImpl: RootPresenter {
-    private let store: GraphStore
+    private let store: AppStore
     private let router: AppRouter
     
-    private(set) lazy var asObserver: Observer<Graph> = .init(
+    private(set) lazy var asObserver: Observer<AppGraph> = .init(
         queue: .main
     ) { /*[weak self]*/ graph in
   //      guard let self else { return .dead }
@@ -33,7 +33,7 @@ public final class RootPresenterImpl: RootPresenter {
     
     //MARK: - init(_:)
     public init(
-        store: GraphStore,
+        store: AppStore,
         router: AppRouter
     ) {
         self.store = store
@@ -48,12 +48,13 @@ public final class RootPresenterImpl: RootPresenter {
 }
 
 private extension RootPresenterImpl {
-    func process(_ graph: Graph) {
-        switch graph.loginStatus {
+    func process(_ graph: AppGraph) {
+        switch graph.state.loginStatus {
         case .none:
             router.showLoginView()
             
         case .inProgress: break
+            
         case .success:
             router.showHomeView()
             

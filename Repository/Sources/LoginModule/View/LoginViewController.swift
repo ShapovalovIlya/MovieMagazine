@@ -6,23 +6,23 @@
 //
 
 import Cocoa
-import OSLog
+import Analytics
 import Design
 
 public final class LoginViewController: NSViewController {
     private let loginView: LoginViewProtocol
     private let presenter: LoginPresenter
-    private var logger: OSLog?
+    private var analytics: Analytics?
     
     //MARK: - init(_:)
     public init(
         loginView: LoginViewProtocol,
         presenter: LoginPresenter,
-        logger: OSLog? = nil
+        analytics: Analytics? = nil
     ) {
         self.loginView = loginView
         self.presenter = presenter
-        self.logger = logger
+        self.analytics = analytics
         super.init(nibName: nil, bundle: nil)
         log(event: #function)
     }
@@ -42,8 +42,9 @@ public final class LoginViewController: NSViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        
         loginView.loginButton.target = self
-        loginView.loginButton.action = #selector(loginButtonTap)
+        loginView.loginButton.action = #selector(Self.loginButtonTap)
         log(event: #function)
     }
 
@@ -89,8 +90,7 @@ private extension LoginViewController {
     }
     
     func log(event: String) {
-        guard let logger else { return }
-        os_log("LoginViewController:\t%@", log: logger, type: .debug, event)
+        analytics?.send(name: "LoginViewController", info: event)
     }
 }
 

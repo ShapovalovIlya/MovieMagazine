@@ -6,7 +6,15 @@
 //
 
 import Foundation
-import Redux
+import ReduxCore
+
+public typealias AppGraph = Graph<AppState, Action>
+public typealias AppStore = Store<AppState, Action>
+public typealias AppObserver = Observer<AppGraph>
+
+public protocol Reducer {
+    mutating func reduce(_ action: Action)
+}
 
 public struct AppState: Reducer {
     public var loginViewState: LoginViewState

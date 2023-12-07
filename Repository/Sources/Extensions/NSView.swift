@@ -5,9 +5,12 @@
 //  Created by Илья Шаповалов on 28.10.2023.
 //
 
-import Cocoa
+import AppKit
 
 public extension NSView {
+    
+    @inlinable
+    @inline(__always)
     func addSubviews(_ subviews: NSView...) {
         subviews.forEach(addSubview)
     }

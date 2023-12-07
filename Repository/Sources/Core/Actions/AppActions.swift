@@ -6,7 +6,8 @@
 //
 
 import Foundation
-import Redux
+
+public protocol Action {}
 
 public enum AppActions {
     public struct RaiseError: Action {

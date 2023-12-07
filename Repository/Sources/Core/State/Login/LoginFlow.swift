@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Redux
 
-public enum LoginFlow: Reducer {
+public enum LoginFlow: Reducer, Equatable {
     case none
     case token(UUID)
     case validation(UUID)

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Redux
+import ReduxCore
 import Core
 
 public protocol HomePresenter: AnyObject {
@@ -22,11 +22,11 @@ public protocol HomePresenterDelegate: AnyObject {
 public final class HomePresenterImpl: HomePresenter {
     
     //MARK: - Private properties
-    private let store: GraphStore
+    private let store: AppStore
     private let router: AppRouter
     
     //MARK: - Public properties
-    private(set) lazy var asObserver: Observer<Graph> = .init(
+    private(set) lazy var asObserver: Observer<AppGraph> = .init(
         queue: .main
     ) { [weak self] graph in
         guard let self else { return .dead }
@@ -38,7 +38,7 @@ public final class HomePresenterImpl: HomePresenter {
     
     //MARK: - init(_:)
     public init(
-        store: GraphStore,
+        store: AppStore,
         router: AppRouter
     ) {
         self.store = store
@@ -61,7 +61,7 @@ public final class HomePresenterImpl: HomePresenter {
 }
 
 private extension HomePresenterImpl {
-    func process(_ graph: Graph) {
+    func process(_ graph: AppGraph) {
         
     }
 }
