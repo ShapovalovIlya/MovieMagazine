@@ -28,7 +28,6 @@
 		EEC574202AF37E3D00783702 /* Endpoint in Frameworks */ = {isa = PBXBuildFile; productRef = EEC5741F2AF37E3D00783702 /* Endpoint */; };
 		EEC574222AF37E5B00783702 /* SwiftFP in Frameworks */ = {isa = PBXBuildFile; productRef = EEC574212AF37E5B00783702 /* SwiftFP */; };
 		EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBF6152AF3D09B00FB7B59 /* Validator */; };
-		EEDBF61B2AF3E7F500FB7B59 /* ValidatorDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBF61A2AF3E7F500FB7B59 /* ValidatorDriverTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +56,6 @@
 		86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDriver.swift; sourceTree = "<group>"; };
 		EEC5741B2AF37C5200783702 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EEC5741D2AF37C5B00783702 /* Repository */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Repository; sourceTree = "<group>"; };
-		EEDBF61A2AF3E7F500FB7B59 /* ValidatorDriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorDriverTests.swift; sourceTree = "<group>"; };
 		EEDBF6222AF3EA9000FB7B59 /* MovieMagazineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMagazineUITests.swift; sourceTree = "<group>"; };
 		EEDBF6242AF3EA9000FB7B59 /* MovieMagazineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMagazineUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,7 +144,6 @@
 		86D8A4342AEE5E1C0022D7EB /* MovieMagazineTests */ = {
 			isa = PBXGroup;
 			children = (
-				EEDBF61A2AF3E7F500FB7B59 /* ValidatorDriverTests.swift */,
 			);
 			path = MovieMagazineTests;
 			sourceTree = "<group>";
@@ -237,6 +234,7 @@
 					};
 					86D8A4322AEE5E1C0022D7EB = {
 						CreatedOnToolsVersion = 15.1;
+						LastSwiftMigration = 1510;
 						TestTargetID = 866798FA2AED934300BB6576;
 					};
 				};
@@ -300,7 +298,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEDBF61B2AF3E7F500FB7B59 /* ValidatorDriverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4WQFD456R9;
@@ -500,6 +498,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.iliaByHimself.MovieMagazineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieMagazine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieMagazine";
 			};
@@ -509,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4WQFD456R9;

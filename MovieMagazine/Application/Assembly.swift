@@ -52,8 +52,7 @@ final class Assembly: AppAssembly {
         )
         let viewController = HomeViewController(
             presenter: presenter,
-            homeView: HomeViewImpl(frame: Drawing.detailRect),
-            logger: .viewCycle
+            homeView: HomeViewImpl(frame: Drawing.detailRect)
         )
         presenter.view = viewController
         return NSSplitViewItem(viewController: viewController)
@@ -67,8 +66,7 @@ final class Assembly: AppAssembly {
         )
         let viewController = LoginViewController(
             loginView: LoginView(frame: Drawing.detailRect),
-            presenter: presenter,
-            analytics: OSLog.viewCycle
+            presenter: presenter
         )
         presenter.delegate = viewController
         return NSSplitViewItem(viewController: viewController)

@@ -31,6 +31,11 @@ final class SessionDriver {
         self.analytics = analytics
         networkOperator = .init(queue: queue)
         networkCoder = .init(keyCodingStrategy: .convertSnakeCase)
+        log(event: #function)
+    }
+    
+    deinit {
+        log(event: #function)
     }
 }
 
@@ -186,5 +191,9 @@ private extension SessionDriver {
             case .failure(let failure): dispatcher(failureAction(failure))
             }
         }
+    }
+    
+    func log(event: String) {
+        analytics?.send(name: "SessionDriver", info: event)
     }
 }

@@ -31,6 +31,11 @@ final class NetworkDriver {
         self.analytics = analytics
         networkOperator = .init(queue: self.queue)
         networkCoder = .init(keyCodingStrategy: .convertSnakeCase)
+        log(event: #function)
+    }
+    
+    deinit {
+        log(event: #function)
     }
 }
 

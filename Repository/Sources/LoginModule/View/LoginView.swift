@@ -43,6 +43,7 @@ public final class LoginView: NSView, LoginViewProtocol {
             loginButton,
             loginGuestButton
         )
+        disableChildrenTAMIC()
         setConstraints()
     }
     
@@ -79,7 +80,6 @@ private extension LoginView {
         button.setButtonType(.momentaryLight)
         button.title = title
         button.bezelStyle = .flexiblePush
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
     
@@ -89,7 +89,7 @@ private extension LoginView {
         textField.placeholderString = "Login"
         textField.tag = TextFieldType.login.rawValue
         textField.bezelStyle = .roundedBezel
-        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.focusRingType = .none
         return textField
     }
     
@@ -98,7 +98,7 @@ private extension LoginView {
         secureField.placeholderString = "Password"
         secureField.bezelStyle = .roundedBezel
         secureField.tag = TextFieldType.password.rawValue
-        secureField.translatesAutoresizingMaskIntoConstraints = false
+        secureField.focusRingType = .none
         return secureField
     }
     

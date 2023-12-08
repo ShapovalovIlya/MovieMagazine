@@ -14,4 +14,12 @@ public extension NSView {
     func addSubviews(_ subviews: NSView...) {
         subviews.forEach(addSubview)
     }
+    
+    @inlinable
+    @inline(__always)
+    func disableChildrenTAMIC() {
+        subviews.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
 }

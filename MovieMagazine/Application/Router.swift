@@ -25,9 +25,7 @@ final class Router: AppRouter {
     
     //MARK: - Public methods
     func showLoginView() {
-        if checkIsPresented(LoginViewController.self) {
-            return
-        }
+        if checkIsPresented(LoginViewController.self) { return }
         let loginItem = assembly.makeLoginModule(router: self)
         splitViewController.splitViewItems = [loginItem]
     }
