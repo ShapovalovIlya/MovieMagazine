@@ -41,12 +41,7 @@ public struct NetworkCoder {
     
     @inlinable
     public func encode(_ model: Encodable) -> Result<Data, Error> {
-        do {
-            let data = try encoder.encode(model)
-            return .success(data)
-        } catch {
-            return .failure(error)
-        }
+        Result { try encoder.encode(model) }
     }
     
     @inlinable
@@ -54,12 +49,7 @@ public struct NetworkCoder {
         _ type: T.Type,
         from data: Data
     ) -> Result<T, Error> {
-        do {
-            let decoded = try decoder.decode(type, from: data)
-            return .success(decoded)
-        } catch {
-            return .failure(error)
-        }
+        Result { try decoder.decode(type, from: data) }
     }
 }
 

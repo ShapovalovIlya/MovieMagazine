@@ -30,15 +30,18 @@
 		EEDBF6162AF3D09B00FB7B59 /* Validator in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBF6152AF3D09B00FB7B59 /* Validator */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		86D8A4372AEE5E1C0022D7EB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 866798F32AED934300BB6576 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 866798FA2AED934300BB6576;
-			remoteInfo = MovieMagazine;
+/* Begin PBXCopyFilesBuildPhase section */
+		86B8279E2B25FAC30068BD01 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		866798FB2AED934300BB6576 /* MovieMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,12 +55,9 @@
 		86A29A082AF691170092BBC6 /* MovieMagazine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieMagazine.xctestplan; sourceTree = "<group>"; };
 		86C1D5FD2AFCF9A200731FB9 /* SessionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDriver.swift; sourceTree = "<group>"; };
 		86C1FAAD2AFFAE6800080547 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMagazineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8A4502AEEFEE60022D7EB /* NetworkDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDriver.swift; sourceTree = "<group>"; };
 		EEC5741B2AF37C5200783702 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EEC5741D2AF37C5B00783702 /* Repository */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Repository; sourceTree = "<group>"; };
-		EEDBF6222AF3EA9000FB7B59 /* MovieMagazineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMagazineUITests.swift; sourceTree = "<group>"; };
-		EEDBF6242AF3EA9000FB7B59 /* MovieMagazineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMagazineUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,13 +78,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86D8A4302AEE5E1C0022D7EB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -96,10 +89,7 @@
 				EEC5741B2AF37C5200783702 /* README.md */,
 				EEC5741D2AF37C5B00783702 /* Repository */,
 				866798FD2AED934300BB6576 /* MovieMagazine */,
-				86D8A4342AEE5E1C0022D7EB /* MovieMagazineTests */,
-				EEDBF6212AF3EA9000FB7B59 /* MovieMagazineUITests */,
 				866798FC2AED934300BB6576 /* Products */,
-				8686234C2AF00DAA00AB22F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				866798FB2AED934300BB6576 /* MovieMagazine.app */,
-				86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,20 +123,6 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		8686234C2AF00DAA00AB22F4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		86D8A4342AEE5E1C0022D7EB /* MovieMagazineTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MovieMagazineTests;
-			sourceTree = "<group>";
-		};
 		EEDBF6172AF3D1E000FB7B59 /* Drivers */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,15 +131,6 @@
 				869A71472AF7C925009CB08A /* ImageCache.swift */,
 			);
 			path = Drivers;
-			sourceTree = "<group>";
-		};
-		EEDBF6212AF3EA9000FB7B59 /* MovieMagazineUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EEDBF6222AF3EA9000FB7B59 /* MovieMagazineUITests.swift */,
-				EEDBF6242AF3EA9000FB7B59 /* MovieMagazineUITestsLaunchTests.swift */,
-			);
-			path = MovieMagazineUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +143,7 @@
 				866798F72AED934300BB6576 /* Sources */,
 				866798F82AED934300BB6576 /* Frameworks */,
 				866798F92AED934300BB6576 /* Resources */,
+				86B8279E2B25FAC30068BD01 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -199,26 +166,6 @@
 			productReference = 866798FB2AED934300BB6576 /* MovieMagazine.app */;
 			productType = "com.apple.product-type.application";
 		};
-		86D8A4322AEE5E1C0022D7EB /* MovieMagazineTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 86D8A43B2AEE5E1C0022D7EB /* Build configuration list for PBXNativeTarget "MovieMagazineTests" */;
-			buildPhases = (
-				86D8A42F2AEE5E1C0022D7EB /* Sources */,
-				86D8A4302AEE5E1C0022D7EB /* Frameworks */,
-				86D8A4312AEE5E1C0022D7EB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				86D8A4382AEE5E1C0022D7EB /* PBXTargetDependency */,
-			);
-			name = MovieMagazineTests;
-			packageProductDependencies = (
-			);
-			productName = MovieMagazineTests;
-			productReference = 86D8A4332AEE5E1C0022D7EB /* MovieMagazineTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,16 +173,11 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					866798FA2AED934300BB6576 = {
 						CreatedOnToolsVersion = 15.1;
-					};
-					86D8A4322AEE5E1C0022D7EB = {
-						CreatedOnToolsVersion = 15.1;
-						LastSwiftMigration = 1510;
-						TestTargetID = 866798FA2AED934300BB6576;
 					};
 				};
 			};
@@ -253,7 +195,6 @@
 			projectRoot = "";
 			targets = (
 				866798FA2AED934300BB6576 /* MovieMagazine */,
-				86D8A4322AEE5E1C0022D7EB /* MovieMagazineTests */,
 			);
 		};
 /* End PBXProject section */
@@ -266,13 +207,6 @@
 				EEC5741C2AF37C5200783702 /* README.md in Resources */,
 				866799032AED934600BB6576 /* Assets.xcassets in Resources */,
 				EEC5741E2AF37C5B00783702 /* Repository in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		86D8A4312AEE5E1C0022D7EB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,22 +228,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86D8A42F2AEE5E1C0022D7EB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		86D8A4382AEE5E1C0022D7EB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 866798FA2AED934300BB6576 /* MovieMagazine */;
-			targetProxy = 86D8A4372AEE5E1C0022D7EB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		866799082AED934600BB6576 /* Debug */ = {
@@ -346,6 +265,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -365,7 +285,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -409,6 +329,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -422,7 +343,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -433,22 +354,26 @@
 		8667990B2AED934600BB6576 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MovieMagazine/MovieMagazine.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4WQFD456R9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.iliaByHimself.MovieMagazine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,66 +385,31 @@
 		8667990C2AED934600BB6576 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MovieMagazine/MovieMagazine.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4WQFD456R9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.iliaByHimself.MovieMagazine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		86D8A4392AEE5E1C0022D7EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4WQFD456R9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.iliaByHimself.MovieMagazineTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieMagazine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieMagazine";
-			};
-			name = Debug;
-		};
-		86D8A43A2AEE5E1C0022D7EB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4WQFD456R9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.iliaByHimself.MovieMagazineTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieMagazine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieMagazine";
 			};
 			name = Release;
 		};
@@ -540,15 +430,6 @@
 			buildConfigurations = (
 				8667990B2AED934600BB6576 /* Debug */,
 				8667990C2AED934600BB6576 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		86D8A43B2AEE5E1C0022D7EB /* Build configuration list for PBXNativeTarget "MovieMagazineTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				86D8A4392AEE5E1C0022D7EB /* Debug */,
-				86D8A43A2AEE5E1C0022D7EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

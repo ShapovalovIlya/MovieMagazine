@@ -17,7 +17,7 @@ public enum SessionActions {
         }
     }
     
-    public struct TokenRequestFailed: Action {
+    public struct TokenRequestFailed: Action, Error {
         public let error: Error
         
         public init(_ error: Error) {
@@ -33,7 +33,7 @@ public enum SessionActions {
         }
     }
     
-    public struct TokenValidationFailed: Action {
+    public struct TokenValidationFailed: Action, Error {
         public let error: Error
         
         public init(_ error: Error) {
